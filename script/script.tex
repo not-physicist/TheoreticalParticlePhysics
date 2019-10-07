@@ -1,0 +1,83 @@
+\documentclass[oneside]{scrbook}
+\KOMAoptions{fontsize=11pt, paper=a4}     
+\KOMAoptions{DIV=13}                      
+
+\usepackage[utf8]{inputenc}               
+\usepackage[T1]{fontenc}                  
+\usepackage[autostyle=true]{csquotes}     
+\usepackage[varg]{txfonts}  			  %	Times-like fonts in support of mathematics
+\usepackage{siunitx}   	  				  
+\usepackage{enumitem}				      %	extra enumerate options
+
+\renewcommand{\familydefault}{\rmdefault} % font to sans serif
+
+%import external graphics and where to find these
+\usepackage{graphicx}					  
+\graphicspath{{figs/}}
+
+\RequirePackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{refs.bib}
+
+\usepackage{hyperref}
+\RequirePackage[all]{hypcap}
+
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{mathtools}
+\usepackage{braket}
+\usepackage{slashed} % feynman slash notation
+\usepackage{simplewick} % wick contraction
+\usepackage{tikz-feynman} % feynman diagrams 
+
+%restart footnotes every page
+\usepackage{perpage}
+\MakePerPage{footnote}
+%symbols for footnotes
+\usepackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} % footnote mark with special symbols
+
+% toprule and etc.
+\usepackage{booktabs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% NEW COMMAND SECTION %%%%%%%%%%%%%%%%%%%%
+
+%define equal
+\newcommand{\defeq}{\vcentcolon =} 
+\newcommand{\eqdef}{= \vcentcolon}
+\newcommand{\euler}{\mathrm{e}}
+
+%Lagrange density
+\newcommand{\lag}{\mathcal{L}} 
+%Hamiltonian density
+\newcommand{\ham}{\mathcal{H}}
+
+%identity matrix
+\usepackage{dsfont}
+\newcommand{\id}{\mathds{1}}
+
+\newcommand{\vecnab}{\pmb{\nabla}}
+\newcommand{\vecx}{\pmb{x}}
+\newcommand{\vecy}{\pmb{y}}
+\newcommand{\veck}{\pmb{k}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\sm}{Standard Model }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Theoretical particle physics}
+\author{Chenhuan Wang}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\include{chapter0}
+\include{chapter1}
+
+\end{document}

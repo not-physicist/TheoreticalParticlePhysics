@@ -253,6 +253,10 @@ In the end
    \Lambda &= \exp(-\pmb{\omega} \cdot \pmb{S} - \pmb{\zeta}\cdot \pmb{K})
 \end{align}
 
+$\pmb{\omega}$ is the axis of rotation, $|\pmb{\omega}|$ is then the angle of rotation.
+
+$\tanh{|\pmb{\zeta}|} = \beta$ and $\frac{\pmb{\zeta}}{|\pmb{\zeta}|}$ is the direction of boost.
+
 We now will look at concrete examples
 \begin{itemize}
    \item $\pmb{\zeta} = 0,\; \pmb{\omega} = w \hat{e}_z$
@@ -267,3 +271,60 @@ We now will look at concrete examples
 \end{itemize}
 
 % Now we want to calculate the algebra $ \left[ S_i, K_j \right] $ and $ \left[ S_i, S_j \right]  $
+
+Pure general boost $\pmb{\zeta}$
+\begin{align*}
+   \Lambda &= \exp(-\pmb{\zeta} \cdot \pmb{K}) \\
+   \pmb{\zeta} &= \frac{\pmb{\beta}}{|\pmb{\beta}|} \tanh^{-1} |\pmb{\beta}|, \quad \hat{\beta} = \frac{\pmb{\beta}}{|\pmb{\beta}|} \\
+   \Lambda &= \exp(-\hat{\beta} \cdot \pmb{K} \tanh^{-1}(\beta))
+\end{align*}
+
+\subsection{Algebra of generators}
+
+Consider the commutation algebra of $S_{i=1,2,3}$ and $K_{i=1,2,3}$
+\begin{align}
+   \left[ S_i, S_j \right] &= \epsilon_{ijk} S_k  \\
+   \left[ S_i, K_j \right] &= \epsilon_{ijk} K_k \\
+   \left[ K_i, K_j \right] &= - \epsilon_{ijk} S_k
+\end{align}
+The last equation causes Thomas precession in atomic physics.
+
+Choose a different basis
+\begin{align}
+   \pmb{S}_+ = \frac{1}{2} \left( \pmb{S} + i \pmb{K} \right) 
+   \pmb{S}_- = \frac{1}{2} \left( \pmb{S} - i \pmb{K} \right) 
+\end{align}
+Then we can calculate the algebra
+\begin{align}
+   \left[ S_{+, i}, S_{+, j} \right] &= i \epsilon_{ijk} S_{+, k} \\
+   \left[ S_{-, i}, S_{-, j} \right] &= i \epsilon_{ijk} S_{-, k} \\
+   \left[ S_{+, i}, S_{-, j} \right] &= 0
+\end{align}
+In other word, the algebras are decoupled. This familiar algebra is angular momentum algebra $\mathbf{SU}(2)$.
+
+Classification by two numbers ($j_+$, $j_-$)
+\begin{align*}
+   j_+ = 0, \frac{1}{2}, 1, \dots \\
+   j_- = 0, \frac{1}{2}, 1, \dots \\
+\end{align*}
+Dimension $=(2j_+ + 1) (2j_- + 1)$. 
+
+A field is scalar field if $j_+ = j_- = 0$. One fundamental example of scalar field is Higgs boson. Other scalar particles are just bound states.
+
+There are two possible states with spin $\frac{1}{2}$: $(j_+, j_-) = (\frac{1}{2}, 0)$ and $(0, \frac{1}{2})$
+\begin{align*}
+   \pmb{S}_+ &= \frac{1}{2} \pmb{\sigma} \\
+   \pmb{S}_- &= 0 \\
+   \pmb{S} &= \frac{1}{2} \pmb{\sigma} \\
+   i\pmb{K} &=  \frac{1}{2} \pmb{\sigma} 
+\end{align*}
+for $(0, \frac{1}{2})$ there is "-"
+
+So two types of spin $\frac{1}{2}$ fermions
+\begin{align*}
+   \left(\frac{1}{2}, 0\right) \rightarrow e^-_L \\
+   \left(0, \frac{1}{2}\right) \rightarrow e^-_R \\
+\end{align*}
+They have different transformation law. W boson only to $e^-_L$ but photon couples to both. 
+
+Under parity transformation $e^-_L \leftrightarrow e^-_R$. Both particles are needed for theory to be invariant under parity transformation, like EM and strong interactions.

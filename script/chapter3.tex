@@ -442,7 +442,7 @@ $S_{\mu\nu}$ is anti-symmetric in $\mu$ and $\nu$
    S_i &= \frac{1}{2} \epsilon_{ijk} S^{jk} \\
    K_i &= S^{0i} \\
    \psi'_\alpha(x') &= \left[\exp(-\frac{i}{2} \Theta^{\mu\nu} S_{\mu\nu})\right]^\beta_\alpha \psi_\beta \\
-   \omega_i &= \frac{1}{2} \epsilon_{ijk} \theta_{ijk}
+   \omega_i &= \frac{1}{2} \epsilon_{ijk} \Theta_{ijk}
 \end{align}
 
 Lorentz transformation containing rotations and boosts, but infinitesimal version (infinitesimally different from $\id$)
@@ -732,12 +732,14 @@ Real scalar field, $\phi(x) \in \R$
 Since $L = T - V$, we interpret first term as kinetic and second as potential, which has minimum at $\phi=0$
 Since action is dimensionless, $[\phi] = 1$. Take Euler-Lagrange 
 \begin{align*}
-   \frac{\partial \lag}{\partial \phi} = - m^2 \phi \\
-   \frac{\partial \lag}{\partial (\partial_\mu \phi)} = \partial^\mu \phi \\
+   \frac{\partial \lag}{\partial \phi} &= - m^2 \phi \\
+   \frac{\partial \lag}{\partial (\partial_\mu \phi)} &= \partial^\mu \phi \\
    \shortintertext{put together}
-   \left( \partial_\mu \partial^\mu + m^2 \right)\phi = 0
+   \left( \partial_\mu \partial^\mu + m^2 \right)\phi &= 0
 \end{align*}
-This is just Klein-Gordon equation. In Feynman rules we have the propagator and mass term as interaction
+This is just Klein-Gordon equation. In Feynman rules we have the propagator and mass term as interaction.
+
+One can also have complex scalar field $\phi(x) \in \Co$ and $\phi$, $\phi^*$ are independent fields.
 
 \paragraph{Example}Fermionic field
 \begin{align}
@@ -750,16 +752,458 @@ $[\psi] = \frac{3}{2}$. $\bar\psi$ and $\psi$ are independent fields. Solve Eule
 
 \paragraph{Example} Spin $1$ field $A_\mu(x)$
 \begin{align}
-   \lag = - \frac{1}{4} F_{\mu\nu} F^{\mu\nu} - j^\mu A_\mu \\
-   F_{\mu\nu} = \partial_\mu A_\nu - \partial _\nu A_\mu
+   \lag &= - \frac{1}{4} F_{\mu\nu} F^{\mu\nu} - j^\mu A_\mu \\
+   F_{\mu\nu} &= \partial_\mu A_\nu - \partial _\nu A_\mu
 \end{align}
 
 Equation of motion can be computed
 \begin{align*}
-   \frac{\partial \lag}{\partial (\partial_\rho A_\sigma)} &= \frac{1}{4} 4 \delta_{\rho \nu} \delta_{\mu \sigma} F^{\mu\nu} = - F^{\sigma \rho} \\
+   \frac{\partial \lag}{\partial (\partial_\rho A_\sigma)} &= \frac{1}{4} 4 \delta_{\rho \mu} \delta_{\nu \sigma} F^{\mu\nu} = - F^{\rho\sigma} \\
    \frac{\partial \lag}{\partial A_\sigma} &= - j^\sigma \\
    \shortintertext{then we have the maxwell equations}
-   - \partial_\rho F^{\sigma \rho} + j^{\sigma} &= 0
-   \shortintertext{use Lorenz gauge we can get}
+   - \partial_\rho F^{\rho \sigma } + j^{\sigma} &= 0
+   \shortintertext{Using Lorenz gauge we can get}
    \partial_\mu \partial^\mu A^\sigma &= j^\sigma
 \end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-10-28
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In principle we can add a term  $A_\mu A^\mu = A^2$, which is Lorentz invariant by construction. 
+\begin{align}
+   \lag &= - \frac{1}{4} F_{\mu\nu} F^{\mu\nu} - j^\mu A_\mu + \frac{1}{2} m^2 A_\mu A^\mu
+\end{align}
+so each component satisfies Klein-Gordon equation for $j^\mu = 0$. Later we will see $j^\mu$ corresponds to an interaction, e.g.~$e\bar{\psi}\gamma^\mu \psi$.
+
+\section{Gauge Theories}
+Hermann Weyl first considered the gauge theory (\textit{Eichtheorie}). We start with Dirac Lagrangian
+\begin{align*}
+   \lag &=i \bar{\psi} \gamma_\mu \partial^\mu \psi - m \bar{\psi} \psi 
+\end{align*}
+If we add a phase $\psi(x) \mapsto \psi'(x) = \euler^{i\alpha} \psi(x)$ with $\alpha \in \R$ and constant, 
+
+\begin{align*}
+   \lag' &=i \bar{\psi}' \gamma_\mu \partial^\mu \psi' - m \bar{\psi}' \psi' \\
+   \shortintertext{since $\alpha$ is just a number, it commutes with derivative and gamma matrices.}
+        &=i \bar{\psi} \gamma_\mu \partial^\mu \psi - m \bar{\psi} \psi \\
+        &= \lag
+\end{align*}
+The Lagrangian is invariant under this transformation. It is a continuous symmetry and one can apply Noether theorem and compute the Noether current.
+
+The set of transformation $ \left\{ \euler^{i\alpha} \right\}_{\alpha \in \R} $ forms a $\mathbf{U}(1)$ (gauge) group. If the parameter does not depend on coordinates, i.e.~constant, it is called \underline{global transformation}. 
+
+Now consider the case $\alpha=\alpha(x)$, not constant but a continuous function. In other word, we allow a local change. The transformation of mass term is 
+\begin{align*}
+   \bar{\psi}' \psi' &= \euler^{-i\alpha(x)} \bar{\psi} \euler^{i\alpha(x)} \psi \\
+               &= \bar{\psi} \psi 
+               \shortintertext{Kinetic term transforms like}
+   \bar{\psi}' \gamma_\mu \partial^\mu \psi' &= \euler^{-i\alpha(x)}\bar{\psi} \gamma_\mu \partial^\mu \left(\euler^{i\alpha(x)}\psi\right) \\
+                                             &= \bar{\psi} \gamma_\mu \left( \partial^\mu + i \partial^\mu \alpha(x) \right) \psi 
+\end{align*}
+
+But we can still demand local invariance and we need to modify $\lag$ by introducing a term $\bar{\psi} \gamma_\mu A^\mu(x) \psi$ in Lagrangian. 
+\begin{align}
+   \lag = i \bar\psi \gamma^\mu \partial_\mu \psi - m \bar\psi \psi + \bar\psi \gamma_\mu A^\mu \psi
+\end{align}
+We also need a transformation property for $A_\mu(x)$ to get Lagrangian invariant.
+\begin{align}
+   A^\mu \mapsto A'^\mu = A^\mu + \partial^\mu \alpha(x)
+\end{align}
+then
+\begin{align*}
+   \bar\psi' \gamma_\mu A'^\mu \psi' &=  \bar{\psi} \euler^{-i\alpha(x)} \gamma_\mu \left( A^\mu + \partial^\mu \alpha(x) \right) \cdot \euler^{i\alpha(x)}\psi  \\
+                     &= \bar{\psi} \gamma_\mu \left( A^\mu + \partial^\mu \alpha(x) \right) \psi 
+\end{align*}
+The second term cancels the extra terms with $\partial^\mu \alpha(x)$ because of local transformation.
+
+Introduce a charge $e \bar\psi \gamma_\mu A^\mu \psi = j_\mu A^\mu$
+\begin{align}
+   \lag &= i \bar\psi \gamma^\mu \partial_\mu \psi - m \bar\psi \psi + e \bar\psi \gamma_\mu A^\mu \psi \notag \\
+        &= i \bar\psi \gamma^\mu \text{D}_\mu \psi - m \bar\psi \psi
+\end{align}
+with $\text{D}_\mu = \partial_\mu -ieA_\mu$ covariant derivative and $(\text{D}_\mu \psi)' = \euler^{i\alpha(x)} \text{D}_\mu \psi$.
+
+Gauge field $A_\mu$ is introduced into Lagrangian and a kinetic term is needed to obtain a wave equation is needed
+\begin{align}
+   \lag &= -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} +  i \bar\psi \gamma^\mu \partial_\mu \psi - m \bar\psi \psi + e \bar\psi \gamma_\mu A^\mu \psi \notag \\
+\end{align}
+thus we have an additional Feynman rule
+\begin{align}
+   \feynmandiagram[small, horizontal=x to c, inline=(x.base)]{ a --[fermion]x --[fermion]b, x --[photon] c,}; = -ie\gamma^\mu
+\end{align}
+
+By demanding invariance under local phase transformation, we introduce $A_\mu(x)$ and an interaction term in Lagrangian. We call $A_\mu$ a gauge field, meaning that it is not physical observable. The gauge group is an abelian group (commutative).
+
+One can also check a mass term for gauge field $m^2 A_\mu A^\mu$ is not invariant under $U(1)$ gauge. So gauge or local principle excludes photon mass term. Experimentally we are able to measure the value of $\xi$ by looking at the electromagnetic interaction. If photon has mass, the Coulomb force has the following form
+\begin{align*}
+   F \sim \frac{1}{4\pi \epsilon} \frac{q_1 q_2}{r^{2+\xi}}
+\end{align*}
+
+Calculation of loop diagrams like \ref{fig:AMDM}
+\begin{figure}[htpb]
+   \centering
+   \feynmandiagram[medium, horizontal= v3 to f]{
+      i1 --[anti fermion] v1 --[anti fermion] v3 --[photon] f,
+      i2 --[fermion] v2 --[fermion] v3 ,
+      v1 --[photon] v2,
+   };
+   \caption{Anomalous magnetic dipole moment}%
+   \label{fig:AMDM}
+\end{figure}
+leads to most precisely computed object, anomalous magnetic moment of electron. In fact this calculation is so accurate, people use this to define the electron charge $e$.
+
+\section{Non-Abelian Gauge Theories}
+We will restrict ourselves in $\SU(N)$ groups, special unitary group of dimension $N$. It has $N^2 - 1$ generators. Weak interaction is described by $\SU(2)$ and strong interaction $\SU(3)$.
+\begin{align*}
+   \lag_0 = \bar{q}_j (x) (i\gamma^\mu \partial_\mu - m) q_j
+   \shortintertext{with $j=1,\dots, N$}
+   q(x) \mapsto q'(x) = \euler^{i\alpha_a(x)T_a} q(x)
+\end{align*}
+with $T_a$ a $N \times N$ matrices (independent of coordinates $x$) and $a = 1,\dots, N^2-1$. Here fields are quark doublet $q_i = \begin{pmatrix} u \\ d\end{pmatrix}$ and $u$, $d$ are spinors.
+
+Focus on infinitesimal transformations, $\alpha_a(x) \in \R$
+\begin{align}
+   q(x) &\mapsto q'(x) = \left[ \id_N + i \alpha_a(x)T_a \right] q(x) \label{math:qTrafo}\\
+   \partial_\mu q &\mapsto \partial_\mu \left[ \id_N + i \alpha_a(x)T_a \right] q \notag\\
+                  & \quad = \left( \id + i\alpha_a T_a \right) \partial_\mu q + i (\partial_\mu \alpha_a) T_a q(x) \notag
+\end{align}
+as before it is (at first) not invariant. We need $N^2 - 1$ gauge fields to compensate this, $\gf^a_\mu$ with $a=1, \dots, N^2-1$.
+
+
+The covariant derivative is
+\begin{align*}
+   \text{D}_\mu = \partial_\mu + ig T_a \gf_\mu^a
+\end{align*}
+then to construct $\lag$ for Non-Abelian case. Following the previous recipe
+\begin{align}
+   \lag = \bar{q} \left( i \gamma^\mu \partial_mu - m \right)q - g(\bar{q}\gamma^\mu T_a q) \gf^a_\mu \label{math:lagGluon}
+\end{align}
+with $g \in \R$ a number independent of $x$.
+
+Apply transformation \ref{math:qTrafo} to kinetic term and see if it is sufficient to get invariant $\lag$
+\begin{align*}
+   \bar{q} \gamma^\mu T_a q \mapsto & \bar{q} \left( \id - i \alpha_a T_b  \right) \gamma^\mu T_a (\id + i \alpha_b T_b) q \\
+                                    &= \bar{q} \gamma^\mu T_a q - i\alpha_b \bar{q} T_b T_a \gamma^\mu q + i \alpha_b \bar{q} T_a T_b \gamma^\mu q + \mathcal{O}(\alpha_b^2) \\
+                                    &= \bar{q} \gamma^\mu T_a q + i\alpha_b \bar{q} \comm{T_a}{T_b} \gamma^\mu q \\
+\end{align*}
+
+The commutator is (summation over $c$ is implied)
+\begin{align}
+   \comm{T_a}{T_b} &= if_{abc} T_c
+   \shortintertext{with $f$ structure constant. Then}
+   \bar{q} \gamma^\mu T_a q &\mapsto \bar{q} \gamma^\mu T_a q - f_{abc} \alpha_b \bar{q} \gamma^\mu T_c q
+\end{align}
+
+$\lag$ with covariant derivative is still not invariant. It turns out that we must modify the transformation of $\gf_\mu^a$
+\begin{align}
+   \gf_\mu^a \mapsto \gf_\mu^a - \frac{1}{g} \partial_\mu \alpha_a - f_{abc} \alpha_b \gf_\mu^c
+\end{align}
+so now the Lagrangian \ref{math:lagGluon} is invariant.
+
+As before we need a kinetic term. 
+\begin{align}
+   \lag_\gf^{\text{kin}} = -\frac{1}{4} \gf_{\mu\nu}^a \gf_a^{\mu\nu}
+   \shortintertext{could it be like photon case, i.e.}
+   \gf^a_{\mu\nu} = \partial_\mu \gf^a_\nu - \partial_\nu \gf_\mu^a \label{math:gfMunu}
+   \shortintertext{apply this into the transformation of gauge field and see $f_{abc}$ term doesn't drop out. Then we must modify \label{math:gfMunu} to}
+   \gf_{\mu\nu}^a = \partial_\mu \gf_\nu^a - \partial_\nu \gf_\mu^a - g f_{abc}\gf_\mu^b \gf_\mu^c
+\end{align}
+
+So in Abelian case
+\begin{align*}
+   F_{\mu\nu} &= \partial_\mu A_\nu - \partial_\nu A_\mu \\
+   A_\mu & \mapsto A_\mu - \frac{1}{e} \partial_\mu \alpha  \\
+   F'_{\mu\nu} &= \partial_\mu \left( A_\mu + \frac{1}{e} \partial_\nu \alpha \right) - \partial_\nu \left( A_\mu + \frac{1}{e} \partial_\mu \alpha \right) \\
+               &= \partial_\mu A_\nu - \partial_\nu A_\mu \\
+               &= F_{\mu\nu}
+\end{align*}
+$F_{\mu\nu}$ is gauge invariant. This property is specific to $ \Uni (1)$.
+
+Now apply this to Non-Abelian case, you will find $G_{\mu\nu}^a$ is not gauge invariant, but $-\frac{1}{4}G_{\mu\nu}^a G^{\mu\nu}_a$ is.
+
+Connection between $\lag$ and Feynman rules
+Abelian case
+\begin{align*}
+   \lag = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} + \bar\psi \left( i \gamma^\mu \partial_\mu - m \right) \psi + e \bar\psi \gamma^\mu \psi A^\mu
+\end{align*}
+Kinetic term implies propagators and interaction vertex.
+\begin{align}
+   \feynmandiagram[small, inline=(a.base), horizontal=a to b]{ a --[photon] b,};
+   = \frac{-ig^{\mu\nu}}{p^2 + i \epsilon}
+\end{align}
+So there is no vertex of photon interacting with each other, photons rarely interfere each other. At higher order one has
+\begin{figure}[htpb]
+   \centering
+   \feynmandiagram [layered layout, horizontal=a to b] {
+   % Draw the top and bottom lines
+   i1 
+   -- [photon] a
+   -- [anti fermion] b
+   -- [photon] f1 ,
+   i2 
+   -- [photon] c
+   -- [fermion] d
+   -- [photon] f2 ,
+   % Draw the two internal fermion lines
+   { [same layer] a -- [fermion] c },
+   { [same layer] b -- [anti fermion] d},
+   };
+   \caption{photon-photon scattering}%
+   \label{fig:pps}
+\end{figure}
+
+In non-Abelian case
+gluon propagator, interaction vertex($-ig\gamma^\mu (T^a)_{ij}$)
+Because of the term in gluon field with differentiation, gluon interacts with itself.
+\begin{figure}[htpb]
+   \centering
+   \feynmandiagram{
+      a --[gluon] x --[gluon] b,
+      x --[gluon] c,
+   };
+   \feynmandiagram[small]{
+      a --[gluon] x --[gluon] b,
+      x --[gluon] c,
+      x --[gluon] d,
+   };
+   \caption{Gluon self-interactions}%
+   \label{fig:}
+\end{figure}
+Formal way of constructing $\gf_{\mu\nu}^a$. The covariant derivative $D_\mu = \partial_\mu + ig T^a \gf^a_\mu$ and $\comm{T^a}{T^b} = if^{abc}T^c$. With some calculation 
+\begin{align*}
+   \comm{D_\mu}{D_\nu} &= ig T_c \left[ \partial_\mu \gf_\nu^c - \partial_\nu \gf_\mu^c - g f_{abc} \gf^a_\mu \gf^b_\nu \right] \\
+                       &= ig T_c \gf_{\mu\nu}^c
+\end{align*}
+It works as a general construction.
+
+\section{Spontaneous Symmetry Breaking}
+\subsection{Real Field}
+\begin{align}
+   \lag &= T-V = \frac{1}{2}(\partial_\mu \phi)(\partial^\mu \phi) - V \\
+   V &= \frac{1}{2} \mu^2 \phi^2 + \frac{1}{4} \lambda \phi^4
+   \shortintertext{It shows mirror symmetry. We are interested in minimum energy of energy or ground state.}
+   E &= T + V \notag
+   \shortintertext{Kinetic term $T$ containts derivative, so set $\phi$ as a constant to minimize $V$. First $\lambda$ must be postive, otherwise there is no minimum, i.e.~unbound from below. With \underline{$\mu^2 > 0$}, we find} \notag
+   \frac{\partial V}{\partial \phi} &= \phi (\mu^2 + \lambda \phi^2) = 0
+   \shortintertext{We have minimum at $\phi=0$. In other word $\expval{\phi} = 0$, vacuum expectation value (VEV) is zero. System is still mirror symmetric. The mass of the field}
+   \eval{\frac{\partial^2 V}{\partial \phi^2}}_{\phi = \expval{\phi}} &= \mu^2
+   \shortintertext{Now consider the case \underline{$\mu^2 < 0$}}
+   \frac{\partial V}{\partial \phi} &= \phi (\mu^2 + \lambda \phi^2) \stackrel{!}{=} 0
+   \shortintertext{there are three solutions possible}
+   \phi &= 0;\quad \phi= \pm v = \pm \sqrt{\frac{-\mu^2}{\lambda}} \\
+   \frac{\partial V}{\partial \phi} &= \phi (\mu^2 + \lambda \phi^2) < 0 \notag
+\end{align}
+it means $\phi=0$ is a maximum. Two minima means the vacuum is degenerate. By choosing one specific state, the mirror symmetry is spontaneous broken.
+\begin{figure}[htpb]
+   \centering
+   \includegraphics[width=0.6\linewidth]{./rSSB/rSSB.eps}
+   \caption{SSB for real scalar field}%
+   \label{fig:rSSB}
+\end{figure}
+
+We choose the vacuum state to be $+v$. Split the field into two parts (it makes the physics and observable more obvious), the vacuum $V$ and perturbation around the vacuum $\eta$
+\begin{align*}
+   \phi(x) &= v + \eta(x) \\
+   v &= \expval{\phi} = \sqrt{\frac{-\mu^2}{\lambda}} = \text{const} \\
+   \expval{\eta (x)} &= 0 \\
+   \partial_\mu \phi &= \partial_\mu \eta 
+\end{align*}
+
+The kinetic term turns into
+\begin{align*}
+   (\partial_\mu \phi)(\partial^\mu \phi) &=  (\partial_\mu \eta)(\partial^\mu \eta) \\
+   V &= \frac{1}{2}\mu^2 (v+\eta)^2 + \frac{1}{4} \lambda (v+\eta)^4 \\
+     &= \frac{1}{2} \mu^2 v^2 + \frac{1}{2} \mu^2 \eta^2 + \mu^2 v\eta(x) + \frac{1}{4} \lambda \left[ v^4 + 4 v^3 \eta + 6 v^2 \eta^2 + 4 v \eta^3 + \eta^4 \right] \\
+     &= \frac{1}{2} \mu^2 v^2 + \frac{1}{4} \lambda v^2 + \eta \left(\mu^2 v + \lambda v^3 \right) + \eta^2 \left(\frac{1}{2}\mu^2+ \frac{6}{4} v^2 \lambda \right) + \lambda v \eta^3 + \frac{1}{4} \lambda \eta^4 \\
+   \shortintertext{since $v = \sqrt{-\mu^2/\lambda}$, $\mu^2 v + \lambda v^3 = v (\mu^2 + \lambda v^2)=0$. There is no longer mirror symmetry in $\eta$. Now the mass is}
+   \eval{\frac{\partial^2 V}{\partial \eta^2}}_{\eta=0} &= \mu^2 + 3v^2 \lambda = \mu^2 + 3 \left(\frac{-\mu^2}{\lambda} \right)\lambda = -2\mu^2
+   \shortintertext{thus}
+m_\eta &= \sqrt{-2\mu^2}
+\end{align*}
+
+After symmetry breaking $V(\eta)$ contains $\eta^3$ term, thus additional Feynman rules.
+\begin{align}
+   \feynmandiagram[small, horizontal=a to x, inline=(x.base)]{
+      a --[scalar] x[dot] --[scalar] {b, c},
+   };
+   &= \lambda v \\
+   \feynmandiagram[small, horizontal=a to b, inline=(x.base)]{
+      {a,d} --[scalar] x[dot] --[scalar] {b, c},
+   };
+   &= \frac{1}{4} v
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-11-04
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Complex Field}
+Now we want to consider complex scalar field $\phi(x) \in \Co$. We can also write the fields as
+\begin{align}
+   \phi(x) = \frac{1}{\sqrt{2}} \left( \phi_1(x) + i\phi_2(x) \right)
+\end{align}
+with $\phi_1, \phi_2 \in \R$.
+
+Only scalar fields can get a vacuum expectation value; otherwise it violates Lorentz invariance. Vacuum has spin and then constantly interacts with all particles. 
+
+The Lagrangian must be real, $\lag \in \R$
+\begin{align}
+   \lag = ( \partial_\mu \phi^* ) ( \partial^\mu \phi ) - \mu^2 \phi^* \phi - \lambda (\phi^* \phi)^2
+\end{align}
+This is invariant under transformation $\phi(x) \mapsto \euler^{i\alpha} \phi(x), \alpha \in \R$. Rewrite the Lagrangian with $\phi_1$ and $\phi_2$
+\begin{align*}
+   \lag =  \left( \partial_\mu \phi_1 \right) \left( \partial^\mu \phi_1 \right) + \left( \partial_\mu \phi_2 \right) \left( \partial^\mu \phi_2 \right) - \frac{1}{2} \mu^2 (\phi_1^2 + \phi_2^2) - \frac{1}{4} \lambda (\phi_1^2 + \phi_2^2)^2
+\end{align*}
+The last two terms are $-V(\phi)$
+
+\begin{itemize}
+   \item $\mu^2 > 0$. Minimum is at $\phi_1 = \phi_2 = 0$
+   \item $\mu^2 < 0$. The potential has the shape of Mexican hat.
+   \begin{figure}[htpb]
+      \centering
+      \includegraphics[width=0.4\linewidth]{cSSB/mh.pdf}
+      \caption{Mexican hat\cite{wikiSSB}}%
+      \label{fig:mexicanHat}
+   \end{figure}
+      We have set of minima forming a circular line $\phi_1^2 + \phi_2^2 = v^2$, $v^2 = -\frac{\mu^2}{\lambda}$. As an example $\phi_1 = v$ and $\phi_2 = 0$ and $\Uni(1)$ symmetry is spontaneous broken. The choice of vacuum breaks symmetry spontaneously.
+      Field shift
+      \begin{align}
+         \phi(x) = \frac{1}{\sqrt{2}} \left[ \underbrace{v + \eta(x)}_{\phi_1} + i \underbrace{\xi(x)}_{\phi_2} \right]
+      \end{align}
+      with $\eta(x), \xi(x) \in \R$ and $\expval{\eta} = \expval{\xi}=0$.
+      Insert into $V(\phi) = V(\phi_1, \phi_2)$
+      \begin{align}
+         \lag(\eta, \xi) = \frac{1}{2} (\partial_\mu \xi) (\partial^\mu \xi) + \frac{1}{2} (\partial_\mu \eta) (\partial^\mu \eta) + \text{const} + \mu^2 \eta^2 + (\text{cubic and quartic in $\eta$, $\xi$})
+      \end{align}
+      so $m_\eta^2 = -2\mu^2$ but $m_\xi^2 = 0$
+\end{itemize}
+Continuous global symmetry is spontaneously broken and it leads to massless state. It is called \underline{Goldstone theorem}. The massless state is the Goldstone boson.
+
+\subsection{Higgs Mechanism}
+Modify the transformation to
+\begin{align}
+   \phi(x) \mapsto \euler^{i\alpha(x)} \phi(x)
+\end{align}
+with $\phi(x) \in \Co$ and $\alpha(x) \in \R$.
+
+First step is to extend $\lag_\phi$ such that is invariant under this transformation. Introduce a spin-$1$ field $A_\mu(x)$ with the covariant derivative
+\begin{align}
+   D_\mu &= \partial_\mu - ieA_\mu \\
+   A_\mu &\mapsto A_\mu + \frac{1}{e} \partial_\mu \alpha
+\end{align}
+The new Lagrangian
+\begin{align}
+   \lag = (D_\mu \phi)^* (D^\mu \phi) - \mu^2 \phi^* \phi - \lambda (\phi^* \phi)^2 - \frac{1}{4} F^{\mu\nu}F_{\mu\nu}
+\end{align}
+with $F_{\mu\nu}=\partial_\mu A_\nu - \partial_\nu A_\mu$. It contains the interaction between two $\phi$ and two $A_\mu$ \feynmandiagram[small, layered layout, inline=(x.base)]{a --[scalar] x --[scalar] b, c -- [photon]x--[photon]d,};
+
+% $\mu^2 < 0, \phi = \frac{1}{\sqrt{2}}(v + \eta + i \xi)$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-11-05
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We want to look at spontaneous symmetry breaking of this system. We still want $\lambda > 0$, bound from below. $\mu^2 > 0$ symmetry not broken, we have scalar QED. In particle physics we do have charged scalars, such as $\pi^{\pm}$, $K^{\pm}$ and so on. We need $\mu^2 < 0$ to have spontaneous symmetry breaking. The field shift is as before
+\begin{align}
+   \phi(x) &= \frac{1}{\sqrt{2}} \left( v + \eta (x) + i \xi (x) \right) \\
+   \lag(\eta, \xi) &= \frac{1}{2} (\partial_\mu \xi) (\partial^\mu \xi) + \frac{1}{2} (\partial_\mu \eta) (\partial^\mu \eta) - v^2 \lambda \eta^2(x) + \frac{1}{2} e^2 v^2 A_\mu A^\mu- ev A_\mu \partial^\mu \xi - \frac{1}{4}F_{\mu\nu}F^{\mu\nu}  + (\text{scalar interaction temrs})
+\end{align}
+
+So $m_\eta = \sqrt{2\lambda v^2}$, $m_A = ev$ mass of spin $1$ gauge boson. $m_\xi = 0$?
+
+What about $A_\mu \partial^\mu \xi$. It seems to mix $A$ and $\xi$.
+
+Massless spin $1$ has two degrees of freedom. $A_\mu(x)$ has four components, but Lorentz and gauge invariance restrict to two. Photon has two polarizations. Massive spin $1$ has three degree of freedom. We will show later on, $\xi$ is actually the additional degree of freedom of $A$. The term $A_\mu A^\mu$ breaks the gauge invariance.
+
+To see physics, the choice of $\eta$ and $\xi$ is not very good. Instead choose
+\begin{align}
+   \phi \mapsto \frac{1}{\sqrt{2}} \left( v + h(x) \right) \euler^{i {\Theta(x)}/{v}}
+\end{align}
+with $h(x) \in \R, \Theta(x) \in \R$. We interpret this as a gauge transformation with $\alpha={\Theta} \ v$. To rewrite gauge transformation of $A_\mu(x)$
+\begin{align}
+   A_\mu \mapsto A_\mu + \frac{1}{ev}\partial_\mu \Theta(x)
+\end{align}
+
+The Lagrangian becomes
+\begin{align}
+   \lag = \frac{1}{2} (\partial h)^2 - \lambda v^2 h^2 + \frac{1}{2} e^2 v^2 A_\mu A^\mu - \lambda v h^3 - \frac{1}{4} \lambda h^4 + \frac{1}{2} e^2 A^2 h^2 -\frac{1}{4} F_{\mu\nu}F^{\mu\nu}
+\end{align}
+$\xi$ is no longer there. This is \underline{Higgs mechanism}. So we have before $2+2$ degree of freedom ($\eta$, $\eta$, $A^{m=0}$) to $1+3$ degrees of freedom ($h$, $A^{m \neq 0}$).
+
+Phase transition in magnetism. Magnetization is temperature dependent. In the early universe the temperature is high so that $\mu^2(T) > 0$. As it cools down $\mu^2 < 0$.
+
+\subsection{Spontaneous Breaking of local $\SU(2)$ Theory}
+We start with ungauged, complex scalar field
+\begin{align}
+   \lag &= (\partial_\mu \phi)^\dagger (\partial^\mu \phi) - \mu^2 \phi^\dagger \phi -\lambda (\phi^\dagger \phi)^2
+   \shortintertext{Now $\phi$ contains two complex scalar fields.}
+   \phi &= \begin{pmatrix} \phi_\alpha \\ \phi_\beta \end{pmatrix} = \frac{1}{\sqrt{2}} \begin{pmatrix} \phi_1 + i\phi_2 \\ \phi_3 + i\phi_4 \end{pmatrix}
+\end{align}
+with $\phi_{1,2,3,4} \in \R$.
+
+Gauge transformation
+\begin{align}
+   \phi \mapsto \phi'=\euler^{i\alpha_a(x) \tau_a / 2} \phi
+\end{align}
+There are only three generators of $\SU(2)$, $a=1,2,3$.
+
+Introduce three gauge bosons $W_\mu^a$, $a=1,2,3$. Define the covariant derivative
+\begin{align}
+   D_\mu = \partial_\mu - ig \frac{\tau_a}{2} W_\mu^a
+\end{align}
+Note $T^a = {\tau^a} \ {2}$.
+
+The $\tau$ matrices are Pauli matrices
+\begin{align}
+   \tau_3 = \begin{pmatrix} 1 & 0 \\ 0 & -1\end{pmatrix}   \quad 
+   \tau_2 = \begin{pmatrix} 0 & -i \\ i & 0\end{pmatrix} \quad
+   \tau_1  = \begin{pmatrix} 0 & 1 \\ 1 & 0\end{pmatrix} 
+\end{align}
+
+Have gauge transformation of $W_a^\mu$
+\begin{align}
+W_\mu^a \mapsto W_\mu^a - \frac{1}{g} \partial_\mu \alpha^a - f^{abc} \alpha_b W_{c \,\mu} 
+\end{align}
+Here $f_{abc} = \epsilon_{abc}$ totally symmetric tensor in three dimension.
+
+Lagrangian becomes
+\begin{align}
+   \lag &= (D_\mu \phi)^\dagger (D^\mu \phi) - V(\phi) - \frac{1}{4} W_{\mu\nu}^a W^{a \, \mu\nu} \\
+   \shortintertext{Kinetic term for gauge fields}
+   W_{\mu\nu}^a &= \partial_\mu W_\nu^a - \partial_\nu W_\mu^a - g (W_\mu \times W_\nu)^a \\
+   \shortintertext{The potential}
+   V(\phi) &= \mu^2 \phi^\dagger \phi + \lambda (\phi^\dagger \phi)^2
+\end{align}
+
+We are interested in the case $\lambda > 0$ and $\mu^2 < 0$.
+\begin{align*}
+   \phi^\dagger \phi = \frac{1}{2} \left( \phi_1^2 + \phi_2^2 + \phi_3^2 + \phi_4^2 \right) = - \frac{\mu^2}{2\lambda}
+\end{align*}
+We can make a choice for minimum $\phi_1 = \phi_2 = \phi_4 = 0$ and $\phi_3^2 = v^2 = - \frac{\mu^2}{\lambda}$ 
+\begin{align}
+   \expval{\phi} = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v\end{pmatrix}
+\end{align}
+with $v \in \R$.
+
+Shift of $\phi$ field
+\begin{align}
+   \phi(x) &\mapsto \euler^{i \hat{\tau} \cdot \hat{\theta} / v} \phi(x) = \euler^{i \hat{\tau} \cdot \hat{\theta} / v} \frac{1}{\sqrt{2}}  \begin{pmatrix} 0 \\ {v +h(x)} \end{pmatrix}
+\end{align}
+
+Infinitesimal expansion in $\theta(x)$
+\begin{align*}
+   \phi(x) &= \frac{1}{\sqrt{2}} \left( \id + i \hat{\tau} \cdot \hat{\theta}(x)/v \right) \begin{pmatrix} 0 \\ {v + h(x)}\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 + i\theta_3 /v & i(\theta_1 - i\theta_2)/v \\ i(\theta_1 + i\theta_2) / v & 1 - i\theta_3 /v \end{pmatrix} \begin{pmatrix} 0 \\ v + k(x)\end{pmatrix}
+\end{align*}
+
+Look at kinetic term in $\phi$
+\begin{align*}
+   \lag_{\text{kin}}^\phi &= (D_\mu \phi)^\dagger (D^\mu \phi) \\
+                          &= \left( \partial_\mu \phi + i g \hat{\tau} \cdot \hat{W} \phi \right)^\dagger \left( \partial^\mu \phi + i g \hat{\tau} \cdot \hat{W} \phi \right) \\
+                          \shortintertext{compute at minimum $\phi = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v\end{pmatrix}$}
+                          \left| \frac{i}{2} g \hat{\tau} \cdot \hat{W} \phi \right|^2 & = \frac{g^2}{8}a \left| \begin{pmatrix} W^3_\mu & W^1_\mu - i W_\mu^2 \\ W^1_\mu + i W_\mu^2 & -W_\mu^3 \end{pmatrix} \begin{pmatrix} 0 \\ v\end{pmatrix} \right|^2 \\
+                         &= \frac{g^2 v^2}{8} \left| \begin{pmatrix} W_\mu^1 - iW_\mu^2 \\ -W_\mu^3\end{pmatrix} \right|^2 \\
+                         &= \frac{g^2 v^2}{8} \pmb{W}^2 \\
+                         &= \frac{1}{2} M^2 \pmb{W}^2
+\end{align*}
+with $M = \frac{1}{2}gv$. We spontaneously broken $\SU(2)$ gauge theory. However, this is not realized in nature.

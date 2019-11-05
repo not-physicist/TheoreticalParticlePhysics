@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-11-05
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Standard Model}
+We will be looking at the gauge group $\SU(2)_\text{L} \times \Uni(1)_\text{Y}$. This will be spontaneously broken into $\Uni(1)_{\text{EM}}$. Strong interaction will add $\SU(3)_\text{C}$ and it doesn't get spontaneously broken.
+
+\section{Leptons}
+Reintroduce fermions
+\begin{align}
+   \psi &= \begin{pmatrix} \chi_\text{L} \\ \eta_\text{R} \end{pmatrix} \\
+   \psi_\text{L} &= \begin{pmatrix} \chi_\text{L} \\ 0 \end{pmatrix}
+\end{align}
+$\SU(2)_\text{L}$ only interacts with $\psi_\text{L}$.
+
+Introduce a doublet
+\begin{align}
+   L &= \begin{pmatrix} \nu_\text{L} \\ e^-_\text{L} \end{pmatrix} \\
+   \nu_\text{L} &= (\psi_\nu)_\text{L} =  \begin{pmatrix} \chi_{\nu \text{L}} \\ 0 \end{pmatrix}    \\
+   e_\text{L}^- &= (\psi_{e^-})_\text{L} = \begin{pmatrix} \chi_{e^- \text{L}} \\ 0 \end{pmatrix} \\
+   e_\text{L} &= (\psi_e)_\text{L} = \frac{1}{2} \left( \id - \gamma_5 \right) \psi_e \\
+   \shortintertext{There is no right-handed neutrino in this theory.}
+   R &= e_\text{R} = P_\text{R} (\psi_e) = (\psi_e)_\text{R}
+\end{align}
+
+Under $\Uni(1)_\text{Y}$, $\text{L}$ has a charge, $\text{Y} = -1$. $\text{R}$ has a $\Uni(1)_{\text{Y}}$ charge $\text{Y} = -2$.
+\begin{align*}
+   Q_{\text{EM}} = T^3_\text{L} + \frac{1}{2} Y
+\end{align*}
+with $T^3_\text{L} = \frac{1}{2} \tau^3$ a generator of $\SU(2)$.
+
+\begin{align*}
+   Q_{\text{EM}}(\nu_\text{L}) &= T^3_\text{L}(\nu_\text{L}) + \frac{1}{2} Y(\nu_\text{L}) = \frac{1}{2} - \frac{1}{2} = 0 \\
+   Q_{\text{EM}}(e^-_\text{L}) &= T^3_\text{L}(e_\text{L}) + \frac{1}{2} Y(e_\text{L}) = -\frac{1}{2} - \frac{1}{2} = 0 \\
+   Q_{\text{EM}}(e^-_\text{R}) &= T^3_\text{L}(e_\text{R}) + \frac{1}{2} Y(e_\text{R}) = 0 - 1 = -1
+\end{align*}
+
+\begin{align}
+   \comm{T^a}{Y} = 0
+\end{align}
+
+Kinetic terms for leptons
+\begin{align}
+   \lag_{\text{\leptons}}^{\text{kin}} &= \bar{R} i \gamma^\mu D'_\mu R + \bar{L} i \gamma^\mu D_\mu L \\
+   D'_\mu &= \partial_\mu + ig' B_\mu \\
+   D_\mu &= \partial_\mu + \frac{i}{2} g' B_\mu - ig \frac{\tau^a}{2} W_\mu^a
+\end{align}

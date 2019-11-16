@@ -6,41 +6,363 @@ We will be looking at the gauge group $\SU(2)_\text{L} \times \Uni(1)_\text{Y}$.
 
 \section{Leptons}
 Reintroduce fermions
-\begin{align}
-   \psi &= \begin{pmatrix} \chi_\text{L} \\ \eta_\text{R} \end{pmatrix} \\
+\begin{align*}
+   \psi &= \begin{pmatrix} \chi_\text{L} \\ \chi_\text{R} \end{pmatrix} \\
    \psi_\text{L} &= \begin{pmatrix} \chi_\text{L} \\ 0 \end{pmatrix}
-\end{align}
+\end{align*}
 $\SU(2)_\text{L}$ only interacts with $\psi_\text{L}$.
 
-Introduce a doublet
+In Chiral representation
 \begin{align}
+   \gamma^5 &= \begin{pmatrix} - \id_2 & 0 \\ 0 & \id_2 \end{pmatrix}
+   \shortintertext{The projection operators}
+   P_{L} &= \frac{1}{2} (\id_2 - \gamma^5) = \begin{pmatrix} \id_2 & 0 \\ 0 & 0\end{pmatrix} \\
+   P_{R} &= \frac{1}{2} (\id_2 + \gamma^5) = \begin{pmatrix} 0 & 0 \\ 0 & \id_2 \end{pmatrix}
+\end{align}
+with $P_L^2 = P_L$ and $P_L + P_R = \id$.
+
+$\chi_{\text{L}, \text{R}}$ two-component Weyl spinors.
+\begin{align*}
+   \left( \psi_\text{L} \right)^\dagger = (P_\text{L} \psi)^\dagger = \psi^\dagger P_\text{L}^\dagger = \psi^\dagger P_\text{L}\\
+   \overline{\psi}_\text{L} = (\psi_L)^\dagger \gamma^0 = \psi^\dagger P_L \gamma^0 = \overline{\psi} P_R
+\end{align*}
+
+Introduce a doublet of left-handed particles
+\begin{align*}
    L &= \begin{pmatrix} \nu_\text{L} \\ e^-_\text{L} \end{pmatrix} \\
    \nu_\text{L} &= (\psi_\nu)_\text{L} =  \begin{pmatrix} \chi_{\nu \text{L}} \\ 0 \end{pmatrix}    \\
    e_\text{L}^- &= (\psi_{e^-})_\text{L} = \begin{pmatrix} \chi_{e^- \text{L}} \\ 0 \end{pmatrix} \\
    e_\text{L} &= (\psi_e)_\text{L} = \frac{1}{2} \left( \id - \gamma_5 \right) \psi_e \\
-   \shortintertext{There is no right-handed neutrino in this theory.}
+   \shortintertext{There is no right-handed neutrino in this theory (singlet).}
    R &= e_\text{R} = P_\text{R} (\psi_e) = (\psi_e)_\text{R}
-\end{align}
+\end{align*}
 
-Under $\Uni(1)_\text{Y}$, $\text{L}$ has a charge, $\text{Y} = -1$. $\text{R}$ has a $\Uni(1)_{\text{Y}}$ charge $\text{Y} = -2$.
+Under $\Uni(1)_\text{Y}$ the hypercharges are define as
+\begin{align}
+   {Y}(L) &= -1 \\
+   {Y}(R) &= -2
+\end{align}
+Here each component of $L$ has $Y=-1$. They are chosen so that 
 \begin{align*}
    Q_{\text{EM}} = T^3_\text{L} + \frac{1}{2} Y
 \end{align*}
 with $T^3_\text{L} = \frac{1}{2} \tau^3$ a generator of $\SU(2)$.
 
 \begin{align*}
+   T^3_L = \begin{pmatrix} \frac{1}{2} & 0 \\ 0 & -\frac{1}{2} \end{pmatrix} \\
+   T^3_L L  = \begin{pmatrix} \frac{1}{2} \nu_L \\ -\frac{1}{2} e^-_L\end{pmatrix}
+\end{align*}
+
+Take a look at the examples
+\begin{align*}
    Q_{\text{EM}}(\nu_\text{L}) &= T^3_\text{L}(\nu_\text{L}) + \frac{1}{2} Y(\nu_\text{L}) = \frac{1}{2} - \frac{1}{2} = 0 \\
    Q_{\text{EM}}(e^-_\text{L}) &= T^3_\text{L}(e_\text{L}) + \frac{1}{2} Y(e_\text{L}) = -\frac{1}{2} - \frac{1}{2} = 0 \\
    Q_{\text{EM}}(e^-_\text{R}) &= T^3_\text{L}(e_\text{R}) + \frac{1}{2} Y(e_\text{R}) = 0 - 1 = -1
 \end{align*}
+$T_L$ only acts on left handed particles under $\SU(2)$
+\begin{align*}
+   \psi_{e_R} &= e^{i(0)} \psi_{e_R}  \\
+   \comm{T^a}{Y} &= 0
+\end{align*}
 
+Normal kinetic term in Dirac theory
+\begin{align*}
+   \lag_\text{kin} &= \bar\psi i \gamma^\mu D_\mu (P_R + P_L) \psi \\
+   \shortintertext{To split this using the anti-commutator of $\gamma^5$ and other gamma matrices, $\gamma^\mu P_L = P_R \gamma^\mu$}
+                   &= \bar\psi_L i \gamma^\mu D_\mu \psi_L + \bar\psi_R i \gamma^\mu D_\mu \psi_R
+\end{align*}
+
+Thus kinetic terms for leptons are
 \begin{align}
-   \comm{T^a}{Y} = 0
+   \lag_{\text{leptons}}^{\text{kin}} &= \bar{R} i \gamma^\mu D'_\mu R + \bar{L} i \gamma^\mu D_\mu L  \\
+   % \shortintertext{$D'_\mu$ only acts on $R$ and $Y(R) = -2$}
+   \begin{split}
+    D'_\mu &= \partial_\mu - \frac{ig'}{2} Y B_\mu  \\
+          &= \partial_\mu + ig' B_\mu 
+   \end{split} \\
+   \begin{split}
+    D_\mu &= \partial_\mu - \frac{ig'}{2}Y B_\mu - ig \frac{\tau^a}{2} W^a_\mu \\
+         &= \partial_\mu + \frac{i}{2} g' B_\mu - ig \frac{\tau^a}{2} W_\mu^a
+   \end{split}
 \end{align}
 
-Kinetic terms for leptons
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-11-11
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In electromagnetic $\Uni(1)_\text{EM}$ the charge generator $Q$ with $Q(e^-) = -1$. Covariant derivative
 \begin{align}
-   \lag_{\text{\leptons}}^{\text{kin}} &= \bar{R} i \gamma^\mu D'_\mu R + \bar{L} i \gamma^\mu D_\mu L \\
-   D'_\mu &= \partial_\mu + ig' B_\mu \\
-   D_\mu &= \partial_\mu + \frac{i}{2} g' B_\mu - ig \frac{\tau^a}{2} W_\mu^a
+   D_\mu = \partial_\mu - ie Q A_\mu
 \end{align}
+
+In $\Uni(1)_\text{Y}$ the gauge boson $B_\mu$. Field strength tensor $F^\text{Y}_{\mu\nu} = \partial_\mu B_\mu - \partial_\nu B_\mu$. Charge generator $Y/2$. Covariant derivative 
+\begin{align}
+   D_\mu = \partial_\mu - \frac{ig'}{2} Y B_\mu
+\end{align}
+
+In Dirac Lagrangian there is a mass term $m\bar\psi \psi$.
+\begin{align*}
+   \lag_m &= m\bar\psi \psi = m \bar\psi (P_R + P_L) \psi \\
+          &= m (\bar\psi P_R \psi + \bar\psi P_L \psi) \\
+          &= m (\bar\psi P_R^2 \psi + \bar\psi P_L^2 \psi) \\
+          &= m (\bar\psi_L \psi_R + \bar \psi_R \psi_L)
+\end{align*}
+$\bar\psi \psi$ mass term is called Dirac mass term. There is only left handed neutrino, so we cannot write Dirac mass term for neutrino.  Although $\psi_L$ and $\psi_R$ transform differently under Lorentz transformation, $\bar\psi \psi$ is still Lorentz invariant.
+
+Recall that $\Uni(1)_\EM$ in QED $\psi \mapsto \psi'=\euler^{i\alpha(x)Q}\psi$. If $Q$ is same for left and right-handed components, $\bar\psi \psi$ is gauge invariant. If left and right have different hypercharges $Y$, then $\bar\psi_R \psi_L$ not $\Uni(1)_Y$ gauge invariant.
+
+How about $\SU(2)_\text{L}$ gauge invariance of $\bar\psi_L \psi_R$? Under $\SU(2)$
+\begin{align*}
+   R &\mapsto R' = R \\
+   L &\mapsto L' = \euler^{i\alpha_a(x) \tau^a /2} L
+\end{align*}
+So it's obvious that $\bar\psi_R \psi_L$ not $\SU(2)_\text{L}$ gauge invariant.
+
+Any fermionic mass term vanishes, if we require $\SU(2)_\text{L} \times \Uni(1)_\text{Y}$ gauge invariance. Spontaneous symmetry breaking to let fermion gain mass.
+
+\section{Add scalars}
+Introduce a Higgs doublet
+\begin{align}
+   \Phi = \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix}
+\end{align}
+The superscripts denote the charge the field carries.
+
+From previous section $Q_\EM = T^3_L + \frac{1}{2}Y $, so 
+\begin{align*}
+   Q_\EM(\phi^+) &= +1 =  \frac{1}{2} + \frac{1}{2} Y \Leftrightarrow Y=+1 \\
+   Q_\EM(\phi^0) &= 0 = -\frac{1}{2} + \frac{1}{2} Y \Leftrightarrow Y=+1
+\end{align*}
+Together $Y(\Phi) = + 1$
+
+Lagrangian
+\begin{align}
+   \begin{split}
+    \lag_\text{scalar} &= (D_\mu \Phi)^\dagger (D^\mu \Phi) - V(\Phi^\dagger \Phi) \\
+   D_\mu &= \partial_\mu - \frac{ig'}{2} B_\mu - \frac{ig}{2} \tau_i W^i_\mu \\
+   V &= \mu^2 \Phi^\dagger \Phi + \lambda (\Phi^\dagger \Phi)^2 \\
+   \Phi^\dagger &= \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix}^\dagger = \begin{pmatrix} \phi^+ & \phi^0\end{pmatrix}^* = \begin{pmatrix} \phi^- & (\phi^0)^* \end{pmatrix}
+   \end{split}
+\end{align}
+
+\section{Coupling of Scalars and Fermions}
+Recall that simple complex scalar $\phi^0 \in \Co$, $\SU(2)$ singlet. Under Lorentz transformations (per definition) $\phi^0(x) \mapsto \phi^0 (x)$. $\bar\psi \psi$ is also Lorentz invariant. It means $\phi^0\bar\psi \psi$ is Lorentz invariant. This type of interaction is called Yukawa interaction.
+\begin{align*}
+   \lag_\text{Yukawa} &= - y_e \left( \overline{R} \Phi^\dagger L + \overline{L} \Phi R \right) \\
+   &\feynmandiagram[small, inline=(a.base), horizontal=a to x]{ a --[scalar] x --[fermion] f1, x -- [anti fermion] f2,};
+\end{align*}
+
+How to combine $\Phi$, $L$ and $R$? 
+\begin{align*}
+   Y(\Phi) &= +1  \\
+   Y(L) &= -1 \\
+   Y(R) &= -2 \\
+   Y(\bar{L}) &= +1 
+\end{align*}
+
+Gauge transformation of interaction term 
+\begin{align*}
+   \phi \bar\psi \psi \mapsto \phi' \bar\psi' \psi' = \euler^{i\alpha(Q(\phi) + Q(\bar\psi) + Q(\psi))} \phi \bar\psi \psi
+\end{align*}
+Gauge invariance means the sum of hypercharges is zero. $\Phi \bar{L} R$ is $\Uni(1)_Y$ gauge invariant. 
+
+What if we want $\SU(2)_\text{L} \times \Uni(1)_\text{Y}$ gauge invariant. 
+
+$R$ is $\SU(2)$ invariant. $\Phi$ is $\underline{2}$ under $\SU(2)$. $L$ and $\bar L$ are $\underline{2}$ under $\SU(2)$. For $\SU(2)$ these two kinds of representations are the same $\bar{\underline{2}} = \underline{2}$.
+\begin{align*}
+\Phi \bar L: \underline{2} \otimes \bar{\underline{2}} = \underline{3} \oplus \underline{1}_A
+\end{align*}
+
+$\Phi = \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix} = \begin{pmatrix} \phi_1 \\ \phi_2 \end{pmatrix}$.
+$\underline{1}$ is $\SU(2)$ singlet. Need antisymmetric combination of $\Phi \bar L$ to get $\SU(2)$ singlet.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-11-12
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In components
+\begin{align*}
+   \overline{L} \Phi R &= \begin{pmatrix} \overline{\nu}_L & \overline{e}_L^- \end{pmatrix} \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix} e_R \\
+   &= \overline{\nu}_L \phi^+ e_R + \overline{e}_L^- \phi^0 e_R
+   \shortintertext{here $\sum Y_i=0$}
+   \overline{R} \Phi^+ L &= \overline{e}^-_R \begin{pmatrix} \phi^- & \left(\phi^0 \right)^*\end{pmatrix} \begin{pmatrix} \nu_L \\ e_L^-\end{pmatrix} \\
+   &= \overline{e}_R^- \phi^- \nu_L + \overline{e}_R^- \left( \phi^0 \right)^* e_L^-
+\end{align*}
+
+The \sm does not contain $\nu_R$. But let's consider $\nu_R$ anyway
+\begin{align*}
+   Q_\EM &= T^3_L + \frac{1}{2} Y \\
+   0 &= 0 + \frac{1}{2} Y(\nu_R)
+\end{align*}
+So it doesn't couple to $B_\mu$.
+
+How about Dirac mass term?
+\begin{align*}
+   \overline{\nu}_L \nu_R + \overline{\nu}_R \nu_L
+\end{align*}
+It is not $\Uni(1)_\text{Y}$ or $\SU(2)_\text{L}$ invariant. Not a huge problem since it was the same for electron before we introduce Higgs mechanism.
+
+Cannot write interaction like $\overline{L} \nu_R \Phi$ since the hypercharge is not zero. Instead
+\begin{align*}
+   \tilde{\Phi} &= i \tau_2 \Phi^* = \begin{pmatrix} \phi^0 \\ -\phi^- \end{pmatrix} \\
+   Y(\tilde{\Phi}) &= -1 \\
+   \lag_{\nu_L} &= \overline{L} \tilde{\Phi} \nu_R  + \overline{\nu}_R \tilde{\Phi}^\dagger L
+   \shortintertext{Dirac mass term for neutrino. If $\nu_R$ exists, this is a possible mass term.}
+   \overline{L} \tilde{\Phi} \nu_R &= \begin{pmatrix} \overline{\nu}_L & \overline{e}^-_L \end{pmatrix} \begin{pmatrix} (\phi^0)^* \\ -\phi^- \end{pmatrix} \nu_R  \\
+   &= \overline{\nu} (\phi^0)^* \nu_R - \overline{e}_L^- \phi^- \nu_R
+\end{align*} 
+
+\section{Spontaneous Symmetry Breaking (Mass and Mixing of Gauge Bosons)}
+In the early universe $\mu = \mu(T)$ and the symmetry got broken. Consider the case $\mu^2 < 0$.
+\begin{align}
+   \expval{\Phi} = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v \end{pmatrix}
+\end{align}
+with $v \in \R$ and $[v] = 1$. Field $\phi^0$ has $Q_\EM = 0$. $Y(\phi^0) \neq 0$ breaks the $\Uni(1)_Y$ and $T_L^3(\phi^0) \neq 0$ breaks $\SU(2)_L$.
+
+As before the field shift is 
+\begin{align*}
+   \Phi &= U^{-1}(\pmb\xi) \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v+\eta(x) \end{pmatrix} \\
+   U(\pmb\xi) &= \exp(-i \pmb\xi \cdot \pmb\tau / (2v))
+\end{align*}
+$\eta(x), \pmb{\xi}(x) \in \R$
+
+\begin{align}
+   \Phi &\mapsto \Phi' = U(\xi) \Phi = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + \eta \end{pmatrix} \label{math:PhiTrafo}\\ 
+   L &\mapsto L' = U(\pmb\xi) L \\
+   W_\mu &\mapsto W'_\mu \\
+   \pmb\tau \cdot \pmb W'_\mu &= U(\pmb\xi) \left[ \pmb \tau \cdot \pmb{W}_\mu - \frac{i}{g} U^{-1}\partial_\mu U \right]
+\end{align}
+
+Insert transformation (\ref{math:PhiTrafo}) into $\lag$ and see the physical interpretation. Yukawa coupling
+\begin{align*}
+   - y_e \overline{L} \Phi R &= - y_e \begin{pmatrix} \overline{\nu}_e & \overline{e}_L^- \end{pmatrix} \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + \eta(x)\end{pmatrix} e_R \\
+   &= - \frac{y_e}{\sqrt{2}} \overline{e}_L^- (v+\eta(x)) e_R
+\end{align*}
+Thus $m_e = y_e v / \sqrt{2}$. Know $m_e$ we can fix $y_e v$. It does not predict the mass of electron, but we can accommodate. But we do predict $m_\nu = 0$.
+
+There is an extra term
+\begin{align*}
+   - \frac{y_e}{\sqrt{2}} \overline{e}_L^- e_R \eta(x)
+\end{align*}
+So the coupling of Higgs is direct proportional to mass of fermion. $y_e \sim 10^{-6}$, it is then not highly unlikely to observe Higgs decay into electrons at LHC. We have already seen Higgs decay into tau and bottom quarks.
+
+\begin{align}
+   \lag_\text{scalar} = \frac{1}{2} (\partial_\mu \eta) (\partial^\mu \eta) + V \left(\left(\frac{v+\eta}{\sqrt{2}}\right)^2 \right)
+\end{align} 
+
+Write 
+\begin{align*}
+   \Phi &= \frac{v + \eta}{\sqrt{2}} \xi \\ 
+   \xi &= \begin{pmatrix} 0 \\ 1\end{pmatrix}
+\end{align*}
+Multiply $(D_\mu \Phi)^\dagger (D^\mu \Phi)$ out but focus only on terms without derivative
+\begin{align*}
+   D_\mu &= \partial_\mu - \frac{i}{2} g' B_\mu - ig \frac{\tau^i}{2} W_\mu^i \\
+   \lag  &\subset \frac{(v+\eta)^2}{8} \chi^\dagger \left[ (g'B_\mu^\dagger + g \tau^i W^i _\mu) \cdot (g' B^\mu + g \tau^i W^{i \mu})\right] \chi \\
+   \chi^\dagger \tau^3 \chi &= \begin{pmatrix} 0 & 1\end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \begin{pmatrix} 0 \\ 1\end{pmatrix} = -1 \\
+   \chi^\dagger \tau^2 \chi &= \begin{pmatrix} 0 & 1\end{pmatrix} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \end{pmatrix} = 0 \\
+   \chi^\dagger \tau^1 \chi &= 0\\
+\end{align*}
+Focus on $v^2$ terms, they are bilinear in gauge boson fields $\rightarrow$ mass terms.
+\begin{align}
+   \lag \subset \frac{1}{8} v^2 \left[ (g'B_\mu - g W^3_\mu) (g' B^\mu-gW^{3 \mu}) + g^2 (W_\mu^1)^2 + g^2 (W_\mu^2)^2 \right]
+\end{align}
+with $M^2_{W^1} = M^2_{W^2} = {g^2 v^2}/ {8}$.
+
+Using the familiar formula $Q = T_e + \frac{1}{2} Y$ for the $\SU(2)$ gauge boson $W^{1,2,3}$. They form a triplet $T_3 = \pm1, 0$. Doublet $T_3 = \pm \frac{1}{2}$. Then $W_3$ has zero electric charge. $B_\mu$ also has zero electric charge. Focus on the electric neutral part
+\begin{align*}
+   \lag &\subset \frac{v^2}{8} \left[  g'^2 B_\mu B^\mu + g^2 W_\mu^3 W^{\mu 3} + g'g B_\mu W^{\mu 3} + g'gW^3_\mu B^\mu \right]
+   \shortintertext{It has $W_\mu B^\mu$ mixing terms. Rewritten in matrix form}
+        &= \frac{v^2}{8} \begin{pmatrix} B_\mu & W_\mu^3 \end{pmatrix} \begin{pmatrix} g'^2 & gg' \\ gg' & g^2 \end{pmatrix} \begin{pmatrix} B^\mu \\ W^{3\mu}\end{pmatrix}
+\end{align*}
+The $2 \times 2$ matrix  is mass matrix squared. Want to diagonalize this. Eigenvalues are (mass)$^2$. For $2 \times 2$ matrix, 
+\begin{align}
+   \det &= \lambda_1 \cdot \lambda_2 \\
+   \tr &= \lambda_1 + \lambda_2
+\end{align}
+Obviously here $\det = 0$ and $\tr = g^2 + g'^2$. 
+
+Eigenvectors are
+\begin{align}
+   \begin{split}
+      Z_\mu &= \frac{-g W_\mu^3 + g' B_\mu}{\sqrt{g^2 + g'^2}} \\
+      A_\mu &= \frac{g B_\mu + g' W_\mu^3}{\sqrt{g^2 + g'^2}}
+   \end{split}\label{math:AZ}
+\end{align}
+
+\begin{align*}
+   m^2(A_\mu) &= 0  \\
+   M_Z &= \frac{v}{2} \sqrt{g^2 + g'^2 }
+\end{align*}
+Remember real fields have mass term $\frac{1}{2} m^2 A^\mu A_\mu$.
+
+Go back to $W^1_\mu$ and $W^2_\mu$. Define
+\begin{align}
+   W^\pm &= \frac{1}{\sqrt{2}} (W_\mu^1 \pm W_\mu^2) \\
+   W^+_\mu W^{- \mu} &= \frac{1}{2} \left[ (W_\mu^1)^2 + (W_\mu^2)^2 \right]
+\end{align}
+
+$\pmb W$ is a triplet $(W^+, W^0,  W^-)^T $. The superscripts denote the electric charge again.
+
+% Use $Q = T_3 + \frac{1}{2} Y$.
+Mass term $\frac{1}{2} m^2 (W_\mu^+ W^{- \mu} + W^-_\mu W^{\mu +})$
+\begin{align*}
+   \frac{1}{2} M_W^2 &= \frac{1}{8} g^2 v^2 \\
+   M_W &= \frac{1}{2} g v
+\end{align*}
+
+Go back to leptons
+\begin{align*}
+   \lag_{\text{kin}}^\text{leptons} &= \overline{R} i \gamma^\mu D'_\mu R + \overline{L} i \gamma^\mu D_\mu L \\
+   D'_\mu &= \partial_\mu + i \frac{g'}{2} B_\mu \\
+   D_\mu &= \partial_\mu + \frac{i}{2} g' B_\mu - ig \frac{\tau^i}{2} W_\mu^i
+\end{align*}
+Use equation~(\ref{math:AZ}) to rewrite $B_\mu = f(A_\mu, Z_\mu)$ and $W_\mu^3 = f'(A_\mu, Z_\mu)$.
+
+Insert that into $D'_\mu$ and $D_\mu$ and then into $\lag_\text{kin}^\text{leptons}$. Also replace ${W'_\mu}^2 \mapsto W_\mu^{\pm}$
+\begin{align*}
+   \overline{L} i \gamma^\mu D_\mu L &= \overline{L} i \gamma^\mu  \left( \partial_\mu + \frac{i}{2} g' B_\mu - ig \frac{\tau^i}{2} W_\mu^i \right) L \\
+   \tau_1 &= \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad \tau_2 = \begin{pmatrix} 0 & -i \\ i & 0\end{pmatrix} \\
+   \tau_1 W^1_\mu + \tau^2 W_\mu^2 &= \begin{pmatrix} 0 & W_\mu^1 - iW_\mu^2 \\ W_\mu + iW_\mu^2 & 0 \end{pmatrix}
+\end{align*}
+
+Charged current
+\begin{align*}
+   A &= \overline{L} \gamma^\mu \left( \tau^1 W^1_\mu + \tau^2 W_\mu^2 \right) L \\
+     &= \frac{g}{2} \begin{pmatrix} \overline{\nu}_L & \overline{e}_L \end{pmatrix} \gamma^\mu \begin{pmatrix} 0 & \sqrt{2} W_\mu^+ \\ \sqrt{2} W_\mu^- & 0 \end{pmatrix} \begin{pmatrix} \nu_L \\ e_L \end{pmatrix} \\
+   &= \frac{g}{2} \begin{pmatrix} \overline{\nu}_L & \overline{e}_L \end{pmatrix} \gamma^\mu \begin{pmatrix} \sqrt{2} W_\mu^+ e_L \\ \sqrt{2} W_\mu^- \nu_L\end{pmatrix} \\
+   &= \frac{g}{\sqrt{2}} \left[ \overline{\nu}_L W_\mu^+ \gamma^\mu e_L + \overline{e}_L W^-_\mu \gamma^\mu \nu_L \right]
+\end{align*}
+Diagrammatically
+\begin{align*}
+   \feynmandiagram[layered layout, inline=(v.base), horizontal=v to f]{
+      i1[particle=\(\nu\)] --[anti fermion] v, 
+      i2[particle=\(e\)] --[fermion] v --[photon] f[particle=\(W\)],
+   }; \sim ig \gamma^\mu P_L
+\end{align*}
+
+Neutrino-electron scattering has the cross section $\sim g^4 / M^4_W$
+\begin{align*}
+   \feynmandiagram[horizontal=v1 to v2]{
+      i1[particle=\(\nu_e\)] --[fermion] v1 --[fermion] f1[particle=\(e^-\)],
+      i2[particle=\(e^-\)] --[fermion] v2 --[fermion] f2[particle=\(\nu_e\)],
+      v1 --[photon, edge label=\(W\)] v2
+   };
+\end{align*}
+
+Fermi constant
+\begin{align}
+   G_F = \frac{\sqrt{2} g^2}{8 M^2_W}
+\end{align}
+
+$\lag_\text{kin}^\text{leptons}$ can be extended to muons. Then we can draw diagram for muon decay. Decay rate $\Gamma \sim G_F^2$. $\tau_\mu \sim \SI{2}{\micro\s}$. $G_F \sim \frac{10^{-5}}{m^2_\mu}$
+\begin{align*}
+   \feynmandiagram[horizontal=i1 to v1, medium, layered layout]{
+      i1[particle=\(\mu\)] -- [fermion]v1,
+      v1 -- [fermion] f3[particle=\(\nu_\mu\)],
+      v1 -- [photon, edge label=\(W\)] v2,
+      {[same layer] v2, f3},
+      v2 --[fermion] f1[particle=\(e^-\)],
+      v2 --[anti fermion] f2[particle=\(\bar\nu_e\)],
+      {[same layer] f1, f2},
+   };
+\end{align*}

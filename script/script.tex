@@ -33,6 +33,14 @@
 \usepackage{simplewick} % wick contraction
 \usepackage{tikz-feynman} % feynman diagrams 
 
+% Externalizing plots
+\usetikzlibrary{external}
+\immediate\write18{mkdir -p tikz-figs}
+\tikzexternalize[ prefix=tikz-figs/, 
+                  mode=list and make,
+                  system call={ lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname="\image" "\texsource"  || rm "\image.pdf"},
+]
+
 %restart footnotes every page
 \usepackage{perpage}
 \MakePerPage{footnote}
@@ -74,6 +82,7 @@
 \newcommand{\gf}{\mathcal{G}}
 \newcommand{\Uni}{\mathbf{U}}
 \newcommand{\SU}{\mathbf{SU}}
+\newcommand{\EM}{\text{EM}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \numberwithin{equation}{section}

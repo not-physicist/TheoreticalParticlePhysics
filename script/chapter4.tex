@@ -211,7 +211,7 @@ Cannot write interaction like $\overline{L} \nu_R \Phi$ since the hypercharge is
    &= \overline{\nu} (\phi^0)^* \nu_R - \overline{e}_L^- \phi^- \nu_R
 \end{align*} 
 
-\section{Spontaneous Symmetry Breaking (Mass and Mixing of Gauge Bosons)}
+\section[Spontaneous Symmetry Breaking (Mass and Mixing of Gauge Bosons)]{Spontaneous Symmetry Breaking (Mass and Mixing of Gauge Bosons)\footnote{see also in Cheng and Li, Ch.11}}
 In the early universe $\mu = \mu(T)$ and the symmetry got broken. Consider the case $\mu^2 < 0$.
 \begin{align}
    \expval{\Phi} = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v \end{pmatrix}
@@ -223,27 +223,26 @@ As before the field shift is
    \Phi &= U^{-1}(\pmb\xi) \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v+\eta(x) \end{pmatrix} \\
    U(\pmb\xi) &= \exp(-i \pmb\xi \cdot \pmb\tau / (2v))
 \end{align*}
-$\eta(x), \pmb{\xi}(x) \in \R$
-
+$\eta(x), \pmb{\xi}(x) \in \R$. The transformation $U^{-1}(\pmb \xi)$ has three parameters and thus give $\Phi$ four degrees of freedom. It has the same form as $\SU(2)$ gauge transformation. Because of gauge symmetry, this transformation gets cancelled. 
 \begin{align}
-   \Phi &\mapsto \Phi' = U(\xi) \Phi = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + \eta \end{pmatrix} \label{math:PhiTrafo}\\ 
+   \Phi &\mapsto \Phi' = U(\xi) \Phi = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + \eta(x) \end{pmatrix} \label{math:PhiTrafo}\\ 
    L &\mapsto L' = U(\pmb\xi) L \\
    W_\mu &\mapsto W'_\mu \\
    \pmb\tau \cdot \pmb W'_\mu &= U(\pmb\xi) \left[ \pmb \tau \cdot \pmb{W}_\mu - \frac{i}{g} U^{-1}\partial_\mu U \right]
 \end{align}
 
-Insert transformation (\ref{math:PhiTrafo}) into $\lag$ and see the physical interpretation. Yukawa coupling
+Insert transformed field (\ref{math:PhiTrafo}) into $\lag$ and see the physical interpretation. Yukawa coupling
 \begin{align*}
    - y_e \overline{L} \Phi R &= - y_e \begin{pmatrix} \overline{\nu}_e & \overline{e}_L^- \end{pmatrix} \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ v + \eta(x)\end{pmatrix} e_R \\
    &= - \frac{y_e}{\sqrt{2}} \overline{e}_L^- (v+\eta(x)) e_R
 \end{align*}
-Thus $m_e = y_e v / \sqrt{2}$. Know $m_e$ we can fix $y_e v$. It does not predict the mass of electron, but we can accommodate. But we do predict $m_\nu = 0$.
+Thus $m_e = y_e v / \sqrt{2}$. Knowing $m_e$ we can fix $y_e v$. It does not predict the mass of electron, but we can accommodate. We do predict $m_\nu = 0$ though.
 
 There is an extra term
 \begin{align*}
    - \frac{y_e}{\sqrt{2}} \overline{e}_L^- e_R \eta(x)
 \end{align*}
-So the coupling of Higgs is direct proportional to mass of fermion. $y_e \sim 10^{-6}$, it is then not highly unlikely to observe Higgs decay into electrons at LHC. We have already seen Higgs decay into tau and bottom quarks.
+It indicates the coupling of Higgs is direct proportional to mass of fermion. We found $y_e \sim 10^{-6}$, so it is then not highly unlikely to observe Higgs decay into electrons at LHC. We have already seen Higgs decay into tau and bottom quarks.
 
 \begin{align}
    \lag_\text{scalar} = \frac{1}{2} (\partial_\mu \eta) (\partial^\mu \eta) + V \left(\left(\frac{v+\eta}{\sqrt{2}}\right)^2 \right)
@@ -251,30 +250,37 @@ So the coupling of Higgs is direct proportional to mass of fermion. $y_e \sim 10
 
 Write 
 \begin{align*}
-   \Phi &= \frac{v + \eta}{\sqrt{2}} \xi \\ 
-   \xi &= \begin{pmatrix} 0 \\ 1\end{pmatrix}
+   \Phi &= \frac{v + \eta}{\sqrt{2}} \chi \\ 
+   \chi &= \begin{pmatrix} 0 \\ 1\end{pmatrix}
 \end{align*}
 Multiply $(D_\mu \Phi)^\dagger (D^\mu \Phi)$ out but focus only on terms without derivative
 \begin{align*}
    D_\mu &= \partial_\mu - \frac{i}{2} g' B_\mu - ig \frac{\tau^i}{2} W_\mu^i \\
-   \lag  &\subset \frac{(v+\eta)^2}{8} \chi^\dagger \left[ (g'B_\mu^\dagger + g \tau^i W^i _\mu) \cdot (g' B^\mu + g \tau^i W^{i \mu})\right] \chi \\
-   \chi^\dagger \tau^3 \chi &= \begin{pmatrix} 0 & 1\end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \begin{pmatrix} 0 \\ 1\end{pmatrix} = -1 \\
-   \chi^\dagger \tau^2 \chi &= \begin{pmatrix} 0 & 1\end{pmatrix} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \end{pmatrix} = 0 \\
-   \chi^\dagger \tau^1 \chi &= 0\\
+   \lag  &\subset \frac{(v+\eta)^2}{8} \chi^\dagger \left[ (g'B_\mu^\dagger + g \tau^i W^i _\mu) \cdot (g' B^\mu + g \tau^i W^{i \mu})\right] \chi
 \end{align*}
-Focus on $v^2$ terms, they are bilinear in gauge boson fields $\rightarrow$ mass terms.
+Terms with one $\tau^1$ and $\tau^2$ vanish
+\begin{align*}
+   \chi^\dagger \tau^1 \chi &= 0\\
+   \chi^\dagger \tau^2 \chi &= \begin{pmatrix} 0 & 1\end{pmatrix} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \end{pmatrix} = 0 \\
+   \chi^\dagger \tau^3 \chi &= \begin{pmatrix} 0 & 1\end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \begin{pmatrix} 0 \\ 1\end{pmatrix} = -1 \\
+\end{align*}
+Focus on $\sim v^2$ terms, they are bilinear in gauge boson fields and thus mass terms.
 \begin{align}
    \lag \subset \frac{1}{8} v^2 \left[ (g'B_\mu - g W^3_\mu) (g' B^\mu-gW^{3 \mu}) + g^2 (W_\mu^1)^2 + g^2 (W_\mu^2)^2 \right]
 \end{align}
 with $M^2_{W^1} = M^2_{W^2} = {g^2 v^2}/ {8}$.
 
-Using the familiar formula $Q = T_e + \frac{1}{2} Y$ for the $\SU(2)$ gauge boson $W^{1,2,3}$. They form a triplet $T_3 = \pm1, 0$. Doublet $T_3 = \pm \frac{1}{2}$. Then $W_3$ has zero electric charge. $B_\mu$ also has zero electric charge. Focus on the electric neutral part
+% TODO: WHAT?????
+Using the familiar formula $Q = T_3 + \frac{1}{2} Y$ for the $\SU(2)$ gauge boson $W^{1,2,3}$. They form a $\SU(2)$ triplet $T_3 = \pm1, 0$. $W^3$ has zero electric charge. $B_\mu$ as $\SU(2)$ singlet has zero electric charge and hypercharge. 
+
+Focus on the electric neutral part
 \begin{align*}
    \lag &\subset \frac{v^2}{8} \left[  g'^2 B_\mu B^\mu + g^2 W_\mu^3 W^{\mu 3} + g'g B_\mu W^{\mu 3} + g'gW^3_\mu B^\mu \right]
    \shortintertext{It has $W_\mu B^\mu$ mixing terms. Rewritten in matrix form}
-        &= \frac{v^2}{8} \begin{pmatrix} B_\mu & W_\mu^3 \end{pmatrix} \begin{pmatrix} g'^2 & gg' \\ gg' & g^2 \end{pmatrix} \begin{pmatrix} B^\mu \\ W^{3\mu}\end{pmatrix}
+        &= \frac{v^2}{8} \begin{pmatrix} B_\mu & W_\mu^3 \end{pmatrix} \begin{pmatrix} g'^2 & gg' \\ gg' & g^2 \end{pmatrix} \begin{pmatrix} B^\mu \\ W^{3\mu}\end{pmatrix} \\
+        &= \frac{1}{2} \begin{pmatrix} Z_\mu & A_\mu \end{pmatrix} \begin{pmatrix} M_Z^2 & 0 \\ 0 & 0\end{pmatrix} \begin{pmatrix} Z^\mu \\ A^\mu \end{pmatrix}
 \end{align*}
-The $2 \times 2$ matrix  is mass matrix squared. Want to diagonalize this. Eigenvalues are (mass)$^2$. For $2 \times 2$ matrix, 
+Using the properties of $2\times 2$ matrices
 \begin{align}
    \det &= \lambda_1 \cdot \lambda_2 \\
    \tr &= \lambda_1 + \lambda_2
@@ -286,14 +292,13 @@ Eigenvectors are
    \begin{split}
       Z_\mu &= \frac{-g W_\mu^3 + g' B_\mu}{\sqrt{g^2 + g'^2}} \\
       A_\mu &= \frac{g B_\mu + g' W_\mu^3}{\sqrt{g^2 + g'^2}}
-   \end{split}\label{math:AZ}
-\end{align}
-
-\begin{align*}
-   m^2(A_\mu) &= 0  \\
+   \end{split}\label{math:AZ}\\
+   \begin{split}
+    M_A &= 0  \\
    M_Z &= \frac{v}{2} \sqrt{g^2 + g'^2 }
-\end{align*}
-Remember real fields have mass term $\frac{1}{2} m^2 A^\mu A_\mu$.
+   \end{split}
+\end{align}
+Remember real fields have mass term in the form $\frac{1}{2} m^2 \phi^2$.
 
 Go back to $W^1_\mu$ and $W^2_\mu$. Define
 \begin{align}
@@ -301,7 +306,7 @@ Go back to $W^1_\mu$ and $W^2_\mu$. Define
    W^+_\mu W^{- \mu} &= \frac{1}{2} \left[ (W_\mu^1)^2 + (W_\mu^2)^2 \right]
 \end{align}
 
-$\pmb W$ is a triplet $(W^+, W^0,  W^-)^T $. The superscripts denote the electric charge again.
+$\pmb W$ is a triplet $(W^+, W^0,  W^-)^T $. The superscripts denote the hypercharge ($T^3$). $W^3_\mu$ has zero hypercharge and thus zero electric charge.
 
 % Use $Q = T_3 + \frac{1}{2} Y$.
 Mass term $\frac{1}{2} m^2 (W_\mu^+ W^{- \mu} + W^-_\mu W^{\mu +})$
@@ -354,7 +359,7 @@ Fermi constant
    G_F = \frac{\sqrt{2} g^2}{8 M^2_W}
 \end{align}
 
-$\lag_\text{kin}^\text{leptons}$ can be extended to muons. Then we can draw diagram for muon decay. Decay rate $\Gamma \sim G_F^2$. $\tau_\mu \sim \SI{2}{\micro\s}$. $G_F \sim \frac{10^{-5}}{m^2_\mu}$
+$\lag_\text{kin}^\text{leptons}$ can be extended to muons. Then we can draw diagram for muon decay. Decay rate $\Gamma \sim G_F^2$. $\tau_\mu \sim \SI{2}{\micro\s}$. $G_F \sim 10^{-5}/m^2_\mu$
 \begin{align*}
    \feynmandiagram[horizontal=i1 to v1, medium, layered layout]{
       i1[particle=\(\mu\)] -- [fermion]v1,
@@ -366,3 +371,85 @@ $\lag_\text{kin}^\text{leptons}$ can be extended to muons. Then we can draw diag
       {[same layer] f1, f2},
    };
 \end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-11-18
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+We have three parameters in gauge sector $(g, g', v) \leftrightarrow (\alpha_{\EM}, G_\text{F}, G_{\text{NC}})$. We measured $\alpha_\EM = 1/137$, $G_\text{F}$ in $\mu$-decay and $G_\text{NC}$ in neutral current interactions.
+
+Equations (\ref{math:AZ}) are just basis transformation and can be parametrized with one parameter $\theta_W$.
+\begin{align}
+   \tan(\theta_W) &= \frac{g'}{g}  \\
+   \sin(\theta_W) &= \frac{g'}{\sqrt{g^2 + g'^2}} \\
+   \cos(\theta_W) &= \frac{g}{\sqrt{g^2 + g'^2}}
+\end{align}
+
+Equations (\ref{math:AZ}) become
+\begin{align}
+   A_\mu &= \cos(\theta_W) B_\mu + \sin(\theta_W) W_\mu^3 \\
+   Z_\mu &= \sin(\theta_W)B_\mu - \cos(\theta_W) W_\mu^3
+\end{align}
+The transformation can be inverted 
+\begin{align}
+   B_\mu &= \sin(\theta_W) A_\mu + \sin(\theta_W) Z_\mu \\
+   W_\mu^3 &= \sin(\theta_W)A_\mu - \cos(\theta_W) Z_\mu \\
+\end{align}
+The angle (parameter) $\theta_W$ is called Weinberg angle or \underline{electroweak mixing angle}.
+
+Rewrite the $\lag^\text{lepton}$ in particular neutral current and factor out $A_\mu, Z_\mu$
+\begin{align*}
+   \lag^\text{lepton} &= A_\mu \frac{gg'}{\sqrt{g^2 + g'^2}} \left[ \bar{e}_R \gamma^\mu e_R + \bar{e}_L \gamma^\mu e_L \right]  \\ 
+   &\quad + Z_\mu \frac{1}{2\sqrt{g^2 + g'^2}} \left[ g'^2 \left( 2 \bar{e}_R \gamma^\mu e_R + \bar{e}_L \gamma^\mu e_L + \bar{\nu}_L \gamma^\mu \nu_L \right) -g^2 \left( \bar{e}_L \gamma^\mu e_L - \bar{\nu}_L \gamma^\mu \nu_L \right) \right]
+\end{align*}
+First two terms are coupling of electron and photon and the coupling constant is just electric charge.
+\begin{align}
+   e = \frac{gg'}{\sqrt{g^2 + g'^2}} \approx 0.3
+\end{align}
+
+\begin{align*}
+   \feynmandiagram[vertical=v1 to v2, baseline=(v2.base)]{
+      i1[particle=\(\nu_\mu\)] --[fermion] v1 --[fermion] f1[particle=\(\mu\)],
+      i2[particle=\(e\)] --[fermion] v2 --[fermion] f2[particle=\(\nu_e\)],
+      v1 --[photon, edge label=\(W\)] v2
+   }; & \quad \text{charged current} \\
+   \feynmandiagram[vertical=v1 to v2, baseline=(v2.base)]{
+      i1[particle=\(\nu_\mu\)] --[fermion] v1 --[fermion] f1[particle=\(\nu_\mu\)],
+      i2[particle=\(e^-\)] --[fermion] v2 --[fermion] f2[particle=\(e^-\)],
+      v1 --[photon, edge label=\(Z^0\)] v2
+}; & \quad \text{neutral current}
+\end{align*}
+Charged current interaction involves $W^{\pm}$. Neutral current interaction involves $A_\mu$ and $Z_\mu^0$.
+
+One can experimentally determine $g, g', v$ (actually $G_F$, $e^2$ and $\sin^2(\theta_W)$)
+\begin{align*}
+   e &= g \sin(\theta_W) = g' \cos(\theta_W)
+     &&\Rightarrow \sin^2(\theta_W) \approx 0.22 \\
+   M_W^2 &= \frac{1}{4} g^2 v^2 = \frac{e^2}{\sin^2(\theta_W)} \frac{1}{4\sqrt{2} G_F}
+         &&\Rightarrow M_W \approx \SI{80}{\giga \eV}  \quad
+   M_Z \approx \SI{90}{\giga \eV}
+\end{align*}
+More precisely one should also consider electroweak quantum corrections (loop corrections).
+
+\begin{align*}
+   & A_\mu \left[ \bar{e}_R \gamma^\mu e_R + \bar{e}_L \gamma^\mu e_L \right] \frac{gg'}{\sqrt{g^2 + g'^2}} \\
+   =& A_\mu \left[ \bar{e}_R \gamma^\mu e_R + \bar{e}_L \gamma^\mu e_L \right] e_\text{el}\\
+   =& A_\mu \left[ \bar{e} \gamma_\mu P_R e + \bar{e } \gamma^\mu P_L e \right] e_\text{el} \\
+   =& A_\mu (\bar{e} \gamma^\mu e)
+\end{align*}
+It is Lorentz four vector.
+
+For $Z_\mu$ it is different. Left-handed electrons are coupled differently from right-handed ones.
+\begin{align*}
+   Z_\mu \bar{e}_R \gamma^\mu e_R \sim \frac{2 g'^2}{2\sqrt{g^2 + g'^2}} \\
+   Z_\mu \bar{e}_L \gamma^\mu e_L \sim \frac{g'^2 - g^2}{2 \sqrt{g^2 + g'^2}}
+\end{align*}
+Write this in one equation
+\begin{align}
+   &\frac{1}{2} Z_\mu \left[  \bar{e} \gamma^\mu \left( P_R \frac{2g'^2}{\sqrt{g'^2 + g^2}} + P_L \frac{g'^2 - g^2}{\sqrt{g^2 + g'^2}} \right)\right]e_\text{el}
+   \shortintertext{suppress the constants into $C_A$ and $C_V$}
+   =& \bar{e} \gamma^\mu C_V e + \bar{e} \gamma^\mu \gamma^5 C_A e
+\end{align}
+
+The ratio of these two coupling is
+\begin{align}
+   \frac{C_V}{C_A} = \frac{3g'^2 - g^2}{g^2 + g'^2} = -1 + 4 \sin^2(\theta_W)
+\end{align}

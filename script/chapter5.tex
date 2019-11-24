@@ -1,0 +1,275 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-11-18
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Quarks}
+Introduce a quark doublet (under $\SU(2)$)
+\begin{align}
+   Q = \begin{pmatrix} u_L \\ d_L \end{pmatrix}
+\end{align}
+$u_L$ and $d_L$ are actually triplets under $\SU(3)_\text{C}$
+
+\begin{align*}
+   Q_\text{el}(u_L) &= + \frac{2}{3}  \leftrightarrow  Y(u_L)  = \frac{1}{3} \\
+   Q_\text{el}(d_L) &= - \frac{1}{3}  \leftrightarrow Y(d_L)  = \frac{1}{3}
+\end{align*}
+Together
+\begin{align}
+   Y(Q) = + \frac{1}{3}
+\end{align}
+
+$u_R$ and $d_R$ are $\SU(2)$ singlets.
+\begin{align*}
+   Q_\text{el}(u_R) &= + \frac{2}{3}  \leftrightarrow  Y(u_L) = \frac{4}{3} \\
+   Q_\text{el}(d_R) &= - \frac{1}{3}  \leftrightarrow Y(d_L) = \frac{4}{3}
+\end{align*}
+
+\begin{align*}
+ \begin{tabular}{cccc}
+   \toprule
+& $\SU(3)_\text{C}$ & $\SU(2)_\text{L}$ & $\Uni(1)_\text{Y}$ \\
+\midrule
+   $e_L$ &  $1$ & $2$ & $-1$ \\
+$u_R$ & $3$ & $1$ & $4/3$ \\
+$d_R$ & $3$ & $1$ & $-2/3$ \\
+$Q$ & $3$ & $2$ & $1/3$ \\
+$\Phi$ & $1$ & $2$ & $1$ \\
+\bottomrule
+\end{tabular}
+\end{align*}
+
+Kinetic terms for quarks in Lagrangian 
+\begin{align}
+   \lag_\text{kin}^\text{quarks} &= \bar{Q} i \gamma_\mu D^\mu Q + \bar{u}_R i \gamma^\mu D^\mu u_R + \bar{d}_R i \gamma_\mu D^\mu d_R \\
+   D^\mu &= \partial_\mu - \frac{ig'}{2}YB_\mu - ig \frac{\tau^i W_\mu^i}{2} - ig_3 T^a \gf^{\mu a}
+\end{align}
+
+Higgs Lagrangian unchanged. Replace $(B_\mu, W_\mu^3) \mapsto (A_\mu, Z_\mu)$
+
+\paragraph{Neutral current}
+\begin{align}
+   \frac{1}{2} Z^\mu \frac{1}{\sqrt{g'^2 + g^2}} \left[ g'^2 \left( \frac{4}{3} \bar{u}_R \gamma_\mu u_R - \frac{2}{3}\bar{d}_R \gamma_\mu d_R + \frac{1}{3} \bar{u}_L \gamma_\mu u_L + \frac{1}{3} \bar{d}_L \gamma_\mu \bar{d}_L \right) + g^2 \left( \bar{u}_L \gamma_\mu u_L - \bar{d}_L \gamma_\mu d_L \right) \right]
+\end{align}
+$A_\mu$ is vector like again with charges $2/3$ ($u$) and $-1/3$ ($d$).
+
+Neutral currents are always diagonal in quark fields. 
+
+Yukawa coupling of quarks to Higgs
+\begin{align*}
+   y_d \bar{Q} \Phi d_R
+\end{align*}
+Do the hypercharge add up to zero?
+\begin{align*}
+   Y(\bar{Q}) + Y(\Phi) + Y(d_R) = -\frac{1}{3} + 1 - \frac{2}{3} = 0
+\end{align*}
+
+Analogous terms with $u_R$ does \underline{not} work use $\nu_R$ trick $\tilde{\Phi} = i\sigma_2 \Phi^*$
+\begin{align*}
+   y_u \bar{Q} \tilde{\Phi} u_R
+\end{align*}
+
+\paragraph{Charged Current}
+
+\begin{align}
+   A_\mu \left[ \bar{u}_R \gamma^\mu u_e + \bar{u}_L \gamma^\mu u_L \right] e e_u = A_\mu \bar{u} \gamma^\mu u
+\end{align}
+
+As before, same $W^\pm$ interaction only involved $P_L$
+\begin{align*}
+   & \bar{L} \gamma^\mu W_\mu L \\
+   L &= P_L L \\
+   \gamma^\mu P_L &= \frac{1}{2} \left( \gamma^\mu - \gamma^\mu \gamma^5 \right)
+\end{align*}
+$\gamma_\mu$ is vector interaction. $\gamma^\mu \gamma^5$ axial vector interaction. 
+So charged current is V-A interaction. Parity is maximally violated.
+
+Coupling $g$ is same for leptons and quarks.
+
+Nuclear beta decay $n \rightarrow p e^- \bar{\nu}_e$
+\begin{align*}
+   \feynmandiagram[horizontal=i1 to v1, medium, layered layout]{
+      i1[particle=\(d\)] -- [fermion]v1,
+      v1 -- [fermion] f3[particle=\(u\)],
+      v1 -- [photon, edge label=\(W\)] v2,
+      {[same layer] v2, f3},
+      v2 --[fermion] f1[particle=\(e^-\)],
+      v2 --[anti fermion] f2[particle=\(\bar\nu_e\)],
+      {[same layer] f1, f2},
+   };
+\end{align*}
+This diagram and the one with muon have same coupling $G_F$. Only kinematics is different. Assuming $m_\nu = 0$ we can compare these two processes by measuring neutron lifetime and $\mu$-lifetime. The two Fermi constants are not the same!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-11-19
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+It should be clear how to generalize current Lagrangian to other quarks
+\begin{align*}
+   Q_1 = \begin{pmatrix} u \\ d \end{pmatrix} \quad
+   Q_2 &= \begin{pmatrix} c \\ s \end{pmatrix}  \quad 
+   Q_3 = \begin{pmatrix} t \\ b \end{pmatrix}  \\
+   \pmb{Q} &= (Q_1, Q_2, Q_3)  \\
+   \pmb{u}_R &= (u_R, c_R, t_R) \\
+   \pmb{d}_R &= (d_R, s_R, b_R)
+\end{align*}
+
+\begin{align*}
+   \frac{4}{3} \bar{\pmb{u}}_R \gamma_\mu \pmb{u}_R Z^\mu 
+   = \frac{4}{3} \left[ \bar{u}_R \gamma_\mu u_R + \bar{c}_R \gamma_\mu c_R + \bar{t}_R \gamma_\mu t_R \right] Z^\mu
+\end{align*}
+
+Neutral current interactions are unaffected by a unitary transformation in flavour space
+\begin{align}
+   \pmb{u}_R \mapsto \pmb{u}'_R = A \pmb{u}_R = \begin{pmatrix} u'_R \\ c'_R \\ t'_R \end{pmatrix}
+\end{align}
+Then the interaction term
+\begin{align*}
+   \bar{\pmb{u}}_R \gamma^\mu \pmb{u}_R &\mapsto \bar{\pmb{u}}'_R \gamma^\mu \pmb{u}'_R \\
+                                        &= \bar{\pmb{u}}_R A^\dagger \gamma^\mu A \pmb{u}_R \\
+                                        &= \bar{\pmb{u}}_R \gamma^\mu \pmb{u}_R
+\end{align*}
+
+The Yukawa interactions
+\begin{align*}
+   y_{ij}^d \bar{Q}_i \Phi d_{R_{j}} + y^u_{ij} \bar{Q}_j \tilde{\Phi} u_{R_j}
+\end{align*}
+
+Higgs interactions $\Phi \mapsto v$
+\begin{align*}
+   y^{d}_{ij} \cdot v = M^d_{ij}
+\end{align*}
+It is a $n \times n$ complex matrix. $n$ is the number of families. In \sm there are three families.
+
+Charge current interactions
+\begin{itemize}
+   \item leptons
+      \begin{align*}
+         \lag_{\text{leptons}}^{\text{CC}} = \frac{g}{\sqrt{2}} \left[ \bar{\nu}_L W_\mu^\dagger \gamma^\mu e_L + \bar{e}_L W_\mu^- \gamma^\mu \nu_L \right]
+      \end{align*}
+   \item quarks
+      \begin{align*}
+         \lag_{\text{quarks}}^{\text{CC}} = \frac{g}{\sqrt{2}}\left[ \bar{u}_L W_\mu^\dagger \gamma^\mu d_L + \bar{d}_L W_\mu^- \gamma^\mu u_L \right]
+      \end{align*}
+      The matrices are not diagonal in flavour.
+\end{itemize}
+
+Focus on $M_{ij}$. It is not necessary symmetric. Mass terms are in form of $m(\bar{\psi}_L \psi_R + \bar{\psi}_R {\psi}_L)$
+
+\paragraph{Theorem} $M_{ij}$ can be diagonalized by a bi-unitary transformation 
+\begin{align}
+   S^\dagger M T = M_d 
+\end{align}
+with $S$ and $T$ unitary. $M_d$ is diagonal and has positive eigenvalues.
+
+\underline{Proof} Any matrix $M = H \cdot V$ with $H$ hermitian and $V$ unitary.
+\begin{align*}
+   (M M^\dagger )^\dagger = M M^\dagger
+\end{align*}
+In word, $MM^\dagger$ is hermitian. Here matrix can be diagonalized by unitary matrix $S$
+\begin{align*}
+   M^2_d &= S^\dagger (MM^\dagger) S  \\
+   M_d^2 &= \diag(m_1^2, m_2^2, m_3^2)
+\end{align*}
+
+$S$ is unique up to a diagonal phase matrix.
+\begin{align}
+   F = \diag(\euler^{i\phi_1}, \euler^{i\phi_2}, \euler^{i\phi_3})
+\end{align}
+
+Replace $S \mapsto S' = SF$
+\begin{align*}
+   & (SF)^\dagger (MM^\dagger) (SF) \\
+   =& F^\dagger S^\dagger (MM^\dagger) S F \\
+   =& F^\dagger M_d^2 F \\
+   =& M_d^2 
+\end{align*}
+
+\begin{align*}
+   S^\dagger M T &= M_d \\
+   (SF)^\dagger MT &= M_d \\
+   S^\dagger MT &= F M_d 
+\end{align*}
+Use the phase freedom to have entries $m_i \geq 0$.
+
+\underline{Define} $H = S M_d S^\dagger $
+\begin{align*}
+   H^\dagger = (SM_d S^\dagger)^\dagger = S M_d S^\dagger = H
+\end{align*}
+$H$ is hermitian.
+
+\underline{Define} $V = H^{-1} M $ $V^\dagger = M^\dagger H^{-1}$
+
+Compute
+\begin{align*}
+   V V^\dagger &= H^{-1} M M^\dagger H^{-1} \\
+               &= H^{-1} S M_d^2 S^\dagger H^{-1} \\
+               &= H^{-1} S M_d S^\dagger S M_d S^\dagger H^{-1} \\
+               &= H^{-1} H H H^{-1} \\
+               &= \id
+\end{align*}
+so $V$ is unitary.
+
+\begin{align*}
+   V &= H^{-1} M \\
+   HV &= M \\
+   H &= M V^\dagger
+\end{align*}
+
+\begin{align*}
+   S^\dagger H S &= S^\dagger M V^\dagger S
+   \shortintertext{LHS by definition is $M_d$}
+   M_d &= S^\dagger M V^\dagger S \\
+   M_d &= S^\dagger M T \quad \text{with } T = V^\dagger S
+\end{align*}
+
+Recall that our entries after spontaneous symmetry breaking involve 
+\begin{align*}
+  &M_{ij}^u \bar{u}_{L_i} U_{R_j} + M_{ij}^d \bar{d}_{L_i} d_{R_j}   \\
+   =& \pmb{u}_L \underline{M}^u \pmb{u}_R + \pmb{d}_L \underline{M}^d \pmb{d}_R
+\end{align*}
+
+Call the transformation to mass eigenstates
+\begin{align*}
+  \pmb u_L = S_u \pmb u'_L \\
+  \pmb d_L = S_d \pmb d'_L \\
+  \pmb u_R = T_u \pmb u'_R \\
+  \pmb d_R = T_d \pmb d'_R
+\end{align*}
+This transformation has no effect on neutral current interactions. (It does not live in spinor space). Charged current interactions on the other hand
+\begin{align*}
+   &\frac{g}{\sqrt{2}} \left[ \bar{u}_L W_\mu^\dagger \gamma^\mu d_L + \bar{d}_L W_\mu^- \gamma^\mu u_L \right] + \text{terms for $c$, $s$, $t$ and $b$} \\
+   =& \frac{g}{\sqrt{2}} \left[ \bar{\pmb{u}}_L \gamma^\mu \pmb{d}_L W_\mu^\dagger + \bar{\pmb{d}}_L \gamma^\mu \pmb{u}_L W_\mu^- \right]
+   \shortintertext{Charged current transforms to}
+   =&\frac{g}{\sqrt{2}} \left[ \bar{\pmb{u}}'_L \gamma^\mu \left( S_u^\dagger S_d \right) \pmb{d}'_L W_\mu^\dagger + \bar{\pmb{d}}'_L \gamma^\mu \left( S_d^\dagger S_u \right) \pmb{u}'_L W_\mu^- \right]
+\end{align*}
+
+Cabbibo-Kobayashi-Maskawa matrix
+\begin{align}
+   \begin{split}
+      V_\text{CKM} &= S^\dagger_u S_d \\
+      V_\text{CKM}^\dagger &= S^\dagger_d S_u
+   \end{split}
+\end{align}
+It is unitary and related to CP-violation.
+
+How many parameters are there in $V_\text{CKM}$? $3 \times 3$ complex matrix in general has $18$-real parameter.
+
+How many phases? $\bar{q} i \slashed{\partial} q$ not affected by (global) phase. Mass terms must change $q_L$ and $q_R$ by same phase.
+
+First doublet
+\begin{align}
+   Q_{1L} = \begin{pmatrix}  u \\ V_{11}d + V_{12} s + V_{13} b \end{pmatrix}_L
+\end{align}
+$V_{11} = (V_\text{CKM})_{11}$, $V_{11} = R_{11} \euler^{i\delta}$, $R_{11} \in \R$. Use the notation $u = u' \euler^{i\delta}$ and $V = V' \euler^{i\delta}$
+\begin{align*}
+   Q_{1L} &= \euler^{i\delta_1} \begin{pmatrix} u' \\ R_{11}d + V'_{12} s + V'_{13} b \end{pmatrix} \\
+   Q_{2L} &= \euler^{i\delta_2} \begin{pmatrix} c' \\ R_{21}d + V'_{22} s + V'_{23} b \end{pmatrix} \\
+   Q_{3L} &= \euler^{i\delta_3} \begin{pmatrix} t' \\ R_{31}d + V'_{32} s + V'_{e3} b \end{pmatrix}
+\end{align*}
+
+Overall phases of doublets $Q_{iL}$ don't affect anything. Still have freedom of phase shift in $s$ and $b$. Get rid of phase in $V'_{12}$ and $V'_{13}$
+\begin{align*}
+   V_{22}'' \mapsto V''_{22} \quad V''_{23} \mapsto V''_{23} \dots
+\end{align*}
+
+Started with $18$ parameters, absorbed $5$ phases. It ends up with $13$ parameters. They are $9$ real parameter, $4$ phases. Normalization condition on $3$ guys all states have to orthogonal. Thus $6$ states. $13 - 3 - 6 = 4$ It has $4$ real parameter in $3 \times 3$ case.
+
+Then $V_\text{CKM}$ is a orthogonal matrix multiplied with a phase. A orthogonal $3 \times 3$ matrix has $3$ real and $1$ phase parameters. This phase leads to CP-violation.

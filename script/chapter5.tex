@@ -1,275 +1,349 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Lecture date: 19-11-18
+% Lecture date: 19-11-25
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Quarks}
-Introduce a quark doublet (under $\SU(2)$)
+\chapter{Scattering Theory}
+\section{Non-relativistic Perturbation Theory}
+Quantum states are eigenfunctions of (bare) Hamiltonians. They should be (complete) orthonormal basis for the Hilbert space.
+\begin{align*}
+   H_0 \phi_n = E_n \phi_n \\
+   \int \dd[3]{x} \phi^*_m \phi_n = \delta_{mn} \\
+\end{align*}
+
+Schrödinger equation 
+\begin{align*}
+   (H_0 + V) \psi = i \dv{\psi}{t} \label{math:sch}
+\end{align*}
+
+Make the ansatz that an arbitrary state is a superposition of of $\phi_n$
 \begin{align}
-   Q = \begin{pmatrix} u_L \\ d_L \end{pmatrix}
+   \psi = \sum a_n(t) \phi_n (\pmb{x}) \euler^{-iE_n t}
 \end{align}
-$u_L$ and $d_L$ are actually triplets under $\SU(3)_\text{C}$
-
+Insert it into Schrödinger equation \ref{math:sch}
 \begin{align*}
-   Q_\text{el}(u_L) &= + \frac{2}{3}  \leftrightarrow  Y(u_L)  = \frac{1}{3} \\
-   Q_\text{el}(d_L) &= - \frac{1}{3}  \leftrightarrow Y(d_L)  = \frac{1}{3}
+   i\sum \dv{a_n}{t} \phi_n (\pmb x) \euler^{-iE_n t} &= \sum V(\pmb x, t) a_n (t) \phi_n(\pmb{x}) \euler^{-iE_n t}
+   \shortintertext{multiply by $\phi^*_f(\pmb x)$ and $\int \dd[3]{x}$}
+   \dv{a_f}{t} &= -i \sum_n a_n(t) \int \dd[3]{x} \phi^*_f V \phi_n \cdot \euler^{i(E_f - E_n)t }
 \end{align*}
-Together
+
+Assume this potential acts for a finite time $T$, between $[-T/2, T/2]$.
+
+The initial state is $\ket{i}$ and eigenstate of $H_0$. 
+\begin{align*}
+   a_i (-T/2) &= 1 \\ 
+   a_n(-T/2) &= 0 \;  \text{ with }n \neq i \\
+\end{align*}
 \begin{align}
-   Y(Q) = + \frac{1}{3}
-\end{align}
-
-$u_R$ and $d_R$ are $\SU(2)$ singlets.
-\begin{align*}
-   Q_\text{el}(u_R) &= + \frac{2}{3}  \leftrightarrow  Y(u_L) = \frac{4}{3} \\
-   Q_\text{el}(d_R) &= - \frac{1}{3}  \leftrightarrow Y(d_L) = \frac{4}{3}
-\end{align*}
-
-\begin{align*}
- \begin{tabular}{cccc}
-   \toprule
-& $\SU(3)_\text{C}$ & $\SU(2)_\text{L}$ & $\Uni(1)_\text{Y}$ \\
-\midrule
-   $e_L$ &  $1$ & $2$ & $-1$ \\
-$u_R$ & $3$ & $1$ & $4/3$ \\
-$d_R$ & $3$ & $1$ & $-2/3$ \\
-$Q$ & $3$ & $2$ & $1/3$ \\
-$\Phi$ & $1$ & $2$ & $1$ \\
-\bottomrule
-\end{tabular}
-\end{align*}
-
-Kinetic terms for quarks in Lagrangian 
-\begin{align}
-   \lag_\text{kin}^\text{quarks} &= \bar{Q} i \gamma_\mu D^\mu Q + \bar{u}_R i \gamma^\mu D^\mu u_R + \bar{d}_R i \gamma_\mu D^\mu d_R \\
-   D^\mu &= \partial_\mu - \frac{ig'}{2}YB_\mu - ig \frac{\tau^i W_\mu^i}{2} - ig_3 T^a \gf^{\mu a}
+   \dv{a_f}{t} &= -i  a_n(t) \int \dd[3]{x} \phi^*_f V \phi_i \cdot \euler^{i(E_f - E_i)t } \label{math:nonRelPertAf}\\
+   \shortintertext{integrate}
+   a_f (t) &= -i \eval{\int_{-T/2}^t \dd{t'} \int \dd[3]{x} \phi^*_f V \phi_i \euler^{i(E_f - E_i)t}}_{t=-T/2} \notag
 \end{align}
 
-Higgs Lagrangian unchanged. Replace $(B_\mu, W_\mu^3) \mapsto (A_\mu, Z_\mu)$
-
-\paragraph{Neutral current}
 \begin{align}
-   \frac{1}{2} Z^\mu \frac{1}{\sqrt{g'^2 + g^2}} \left[ g'^2 \left( \frac{4}{3} \bar{u}_R \gamma_\mu u_R - \frac{2}{3}\bar{d}_R \gamma_\mu d_R + \frac{1}{3} \bar{u}_L \gamma_\mu u_L + \frac{1}{3} \bar{d}_L \gamma_\mu \bar{d}_L \right) + g^2 \left( \bar{u}_L \gamma_\mu u_L - \bar{d}_L \gamma_\mu d_L \right) \right]
+   T_{fi} &= a_f(T/2) \notag \\
+   &= -i \int_{-T/2}^{T/2} \dd{t} \int \dd[3]{x} \left[ \phi_f(\pmb{x}) \euler^{-iE_f t} \right]^* V(\pmb x, t) \left[ \phi_i(\pmb x) \euler^{-iE_i t} \right] \notag \\
+   T_{fi} &= -i \int \dd[4]{x} \phi^*_f (x) V(x) \phi_i (x)
 \end{align}
-$A_\mu$ is vector like again with charges $2/3$ ($u$) and $-1/3$ ($d$).
+for $a_f(t) \ll 1$.
 
-Neutral currents are always diagonal in quark fields. 
-
-Yukawa coupling of quarks to Higgs
-\begin{align*}
-   y_d \bar{Q} \Phi d_R
-\end{align*}
-Do the hypercharge add up to zero?
-\begin{align*}
-   Y(\bar{Q}) + Y(\Phi) + Y(d_R) = -\frac{1}{3} + 1 - \frac{2}{3} = 0
-\end{align*}
-
-Analogous terms with $u_R$ does \underline{not} work use $\nu_R$ trick $\tilde{\Phi} = i\sigma_2 \Phi^*$
-\begin{align*}
-   y_u \bar{Q} \tilde{\Phi} u_R
-\end{align*}
-
-\paragraph{Charged Current}
-
-\begin{align}
-   A_\mu \left[ \bar{u}_R \gamma^\mu u_e + \bar{u}_L \gamma^\mu u_L \right] e e_u = A_\mu \bar{u} \gamma^\mu u
-\end{align}
-
-As before, same $W^\pm$ interaction only involved $P_L$
-\begin{align*}
-   & \bar{L} \gamma^\mu W_\mu L \\
-   L &= P_L L \\
-   \gamma^\mu P_L &= \frac{1}{2} \left( \gamma^\mu - \gamma^\mu \gamma^5 \right)
-\end{align*}
-$\gamma_\mu$ is vector interaction. $\gamma^\mu \gamma^5$ axial vector interaction. 
-So charged current is V-A interaction. Parity is maximally violated.
-
-Coupling $g$ is same for leptons and quarks.
-
-Nuclear beta decay $n \rightarrow p e^- \bar{\nu}_e$
-\begin{align*}
-   \feynmandiagram[horizontal=i1 to v1, medium, layered layout]{
-      i1[particle=\(d\)] -- [fermion]v1,
-      v1 -- [fermion] f3[particle=\(u\)],
-      v1 -- [photon, edge label=\(W\)] v2,
-      {[same layer] v2, f3},
-      v2 --[fermion] f1[particle=\(e^-\)],
-      v2 --[anti fermion] f2[particle=\(\bar\nu_e\)],
-      {[same layer] f1, f2},
-   };
-\end{align*}
-This diagram and the one with muon have same coupling $G_F$. Only kinematics is different. Assuming $m_\nu = 0$ we can compare these two processes by measuring neutron lifetime and $\mu$-lifetime. The two Fermi constants are not the same!
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Lecture date: 19-11-19
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-It should be clear how to generalize current Lagrangian to other quarks
-\begin{align*}
-   Q_1 = \begin{pmatrix} u \\ d \end{pmatrix} \quad
-   Q_2 &= \begin{pmatrix} c \\ s \end{pmatrix}  \quad 
-   Q_3 = \begin{pmatrix} t \\ b \end{pmatrix}  \\
-   \pmb{Q} &= (Q_1, Q_2, Q_3)  \\
-   \pmb{u}_R &= (u_R, c_R, t_R) \\
-   \pmb{d}_R &= (d_R, s_R, b_R)
-\end{align*}
-
-\begin{align*}
-   \frac{4}{3} \bar{\pmb{u}}_R \gamma_\mu \pmb{u}_R Z^\mu 
-   = \frac{4}{3} \left[ \bar{u}_R \gamma_\mu u_R + \bar{c}_R \gamma_\mu c_R + \bar{t}_R \gamma_\mu t_R \right] Z^\mu
-\end{align*}
-
-Neutral current interactions are unaffected by a unitary transformation in flavour space
-\begin{align}
-   \pmb{u}_R \mapsto \pmb{u}'_R = A \pmb{u}_R = \begin{pmatrix} u'_R \\ c'_R \\ t'_R \end{pmatrix}
-\end{align}
-Then the interaction term
-\begin{align*}
-   \bar{\pmb{u}}_R \gamma^\mu \pmb{u}_R &\mapsto \bar{\pmb{u}}'_R \gamma^\mu \pmb{u}'_R \\
-                                        &= \bar{\pmb{u}}_R A^\dagger \gamma^\mu A \pmb{u}_R \\
-                                        &= \bar{\pmb{u}}_R \gamma^\mu \pmb{u}_R
-\end{align*}
-
-The Yukawa interactions
-\begin{align*}
-   y_{ij}^d \bar{Q}_i \Phi d_{R_{j}} + y^u_{ij} \bar{Q}_j \tilde{\Phi} u_{R_j}
-\end{align*}
-
-Higgs interactions $\Phi \mapsto v$
-\begin{align*}
-   y^{d}_{ij} \cdot v = M^d_{ij}
-\end{align*}
-It is a $n \times n$ complex matrix. $n$ is the number of families. In \sm there are three families.
-
-Charge current interactions
-\begin{itemize}
-   \item leptons
-      \begin{align*}
-         \lag_{\text{leptons}}^{\text{CC}} = \frac{g}{\sqrt{2}} \left[ \bar{\nu}_L W_\mu^\dagger \gamma^\mu e_L + \bar{e}_L W_\mu^- \gamma^\mu \nu_L \right]
-      \end{align*}
-   \item quarks
-      \begin{align*}
-         \lag_{\text{quarks}}^{\text{CC}} = \frac{g}{\sqrt{2}}\left[ \bar{u}_L W_\mu^\dagger \gamma^\mu d_L + \bar{d}_L W_\mu^- \gamma^\mu u_L \right]
-      \end{align*}
-      The matrices are not diagonal in flavour.
-\end{itemize}
-
-Focus on $M_{ij}$. It is not necessary symmetric. Mass terms are in form of $m(\bar{\psi}_L \psi_R + \bar{\psi}_R {\psi}_L)$
-
-\paragraph{Theorem} $M_{ij}$ can be diagonalized by a bi-unitary transformation 
-\begin{align}
-   S^\dagger M T = M_d 
-\end{align}
-with $S$ and $T$ unitary. $M_d$ is diagonal and has positive eigenvalues.
-
-\underline{Proof} Any matrix $M = H \cdot V$ with $H$ hermitian and $V$ unitary.
-\begin{align*}
-   (M M^\dagger )^\dagger = M M^\dagger
-\end{align*}
-In word, $MM^\dagger$ is hermitian. Here matrix can be diagonalized by unitary matrix $S$
-\begin{align*}
-   M^2_d &= S^\dagger (MM^\dagger) S  \\
-   M_d^2 &= \diag(m_1^2, m_2^2, m_3^2)
-\end{align*}
-
-$S$ is unique up to a diagonal phase matrix.
-\begin{align}
-   F = \diag(\euler^{i\phi_1}, \euler^{i\phi_2}, \euler^{i\phi_3})
-\end{align}
-
-Replace $S \mapsto S' = SF$
-\begin{align*}
-   & (SF)^\dagger (MM^\dagger) (SF) \\
-   =& F^\dagger S^\dagger (MM^\dagger) S F \\
-   =& F^\dagger M_d^2 F \\
-   =& M_d^2 
-\end{align*}
-
-\begin{align*}
-   S^\dagger M T &= M_d \\
-   (SF)^\dagger MT &= M_d \\
-   S^\dagger MT &= F M_d 
-\end{align*}
-Use the phase freedom to have entries $m_i \geq 0$.
-
-\underline{Define} $H = S M_d S^\dagger $
-\begin{align*}
-   H^\dagger = (SM_d S^\dagger)^\dagger = S M_d S^\dagger = H
-\end{align*}
-$H$ is hermitian.
-
-\underline{Define} $V = H^{-1} M $ $V^\dagger = M^\dagger H^{-1}$
-
-Compute
-\begin{align*}
-   V V^\dagger &= H^{-1} M M^\dagger H^{-1} \\
-               &= H^{-1} S M_d^2 S^\dagger H^{-1} \\
-               &= H^{-1} S M_d S^\dagger S M_d S^\dagger H^{-1} \\
-               &= H^{-1} H H H^{-1} \\
-               &= \id
-\end{align*}
-so $V$ is unitary.
-
-\begin{align*}
-   V &= H^{-1} M \\
-   HV &= M \\
-   H &= M V^\dagger
-\end{align*}
-
-\begin{align*}
-   S^\dagger H S &= S^\dagger M V^\dagger S
-   \shortintertext{LHS by definition is $M_d$}
-   M_d &= S^\dagger M V^\dagger S \\
-   M_d &= S^\dagger M T \quad \text{with } T = V^\dagger S
-\end{align*}
-
-Recall that our entries after spontaneous symmetry breaking involve 
-\begin{align*}
-  &M_{ij}^u \bar{u}_{L_i} U_{R_j} + M_{ij}^d \bar{d}_{L_i} d_{R_j}   \\
-   =& \pmb{u}_L \underline{M}^u \pmb{u}_R + \pmb{d}_L \underline{M}^d \pmb{d}_R
-\end{align*}
-
-Call the transformation to mass eigenstates
-\begin{align*}
-  \pmb u_L = S_u \pmb u'_L \\
-  \pmb d_L = S_d \pmb d'_L \\
-  \pmb u_R = T_u \pmb u'_R \\
-  \pmb d_R = T_d \pmb d'_R
-\end{align*}
-This transformation has no effect on neutral current interactions. (It does not live in spinor space). Charged current interactions on the other hand
-\begin{align*}
-   &\frac{g}{\sqrt{2}} \left[ \bar{u}_L W_\mu^\dagger \gamma^\mu d_L + \bar{d}_L W_\mu^- \gamma^\mu u_L \right] + \text{terms for $c$, $s$, $t$ and $b$} \\
-   =& \frac{g}{\sqrt{2}} \left[ \bar{\pmb{u}}_L \gamma^\mu \pmb{d}_L W_\mu^\dagger + \bar{\pmb{d}}_L \gamma^\mu \pmb{u}_L W_\mu^- \right]
-   \shortintertext{Charged current transforms to}
-   =&\frac{g}{\sqrt{2}} \left[ \bar{\pmb{u}}'_L \gamma^\mu \left( S_u^\dagger S_d \right) \pmb{d}'_L W_\mu^\dagger + \bar{\pmb{d}}'_L \gamma^\mu \left( S_d^\dagger S_u \right) \pmb{u}'_L W_\mu^- \right]
-\end{align*}
-
-Cabbibo-Kobayashi-Maskawa matrix
+Assume static potential $V(x) = V(\pmb x)$
 \begin{align}
    \begin{split}
-      V_\text{CKM} &= S^\dagger_u S_d \\
-      V_\text{CKM}^\dagger &= S^\dagger_d S_u
+    T_{fi} &= -i V_{fi} \int^{+\infty}_{-\infty} \dd{t} \euler^{-i(E_f - E_i)t}\\
+          &= -2\pi i V_{fi} \delta(E_f - E_i) \\
+   V_{fi} &= \int \dd[3]{x} \phi_f^*(\pmb x) V(\pmb{x}) \phi_i(\pmb x)
    \end{split}
 \end{align}
-It is unitary and related to CP-violation.
 
-How many parameters are there in $V_\text{CKM}$? $3 \times 3$ complex matrix in general has $18$-real parameter.
-
-How many phases? $\bar{q} i \slashed{\partial} q$ not affected by (global) phase. Mass terms must change $q_L$ and $q_R$ by same phase.
-
-First doublet
+As $\Delta E \rightarrow 0$, $\Delta t = \infty$, so infinite time is needed to get from $\ket{i} \rightarrow \ket{f}$. Define transition probability per unit time
 \begin{align}
-   Q_{1L} = \begin{pmatrix}  u \\ V_{11}d + V_{12} s + V_{13} b \end{pmatrix}_L
+   W &= \lim_{T \rightarrow \infty} \frac{|T_{fi}|^2}{T} \notag \\
+     &= \lim_{T \rightarrow \infty} 2 \pi \frac{|V_{fi}|^2}{T} \delta(E_f - E_i) \int_{-T/2}^{T/2} \dd{t} \euler^{i(E_f - E_i)t} \notag\\
+     &= \lim_{T \rightarrow \infty} 2 \pi \frac{|V_{fi}|^2}{T} \delta(E_f - E_i) T \notag\\
+     &= 2\pi |V_{fi}|^2 \delta(E_f - E_i) \label{math:deltaSqaure}
 \end{align}
-$V_{11} = (V_\text{CKM})_{11}$, $V_{11} = R_{11} \euler^{i\delta}$, $R_{11} \in \R$. Use the notation $u = u' \euler^{i\delta}$ and $V = V' \euler^{i\delta}$
+
+It is only meaningful after integration over initial and final states. In collider initial state is prepared with fixed momentum $\pmb{p_e}$. So no integration over initial states.  For proton (hadron), it is a bit more complicated since the quarks are moving inside of proton.
+
+Define the density of final states $\rho(E_f)$. \underline{Fermi's Golden rule}
+\begin{align}
+   \begin{split}
+      W_{fi} &= 2 \pi \int \dd{E_f} \rho(E_f) |V_{fi}|^2 \delta(E_f - E_i) \\
+   &= 2 \pi |V_{fi}|^2 \rho(E_i)
+   \end{split}
+\end{align}
+
+The result can be improved by considering higher order scatterings, i.e.~scatter multiple times. For each order insert the result for $a_f(t)$  into formula (\ref{math:nonRelPertAf}) for the $a_{n \neq i} (t)$
+\begin{align}
+   \dv{a_f}{t} = - \sum a_n (t) \int \dd \phi^*_f V\phi_n \dd[3]{x} \euler^{i(E_f - E_i)t}
+   \shortintertext{replace}
+   a_n(t) = -i \int_{T/2}^{t}\dd{t'} \int \dd[3]{x'} \phi^*_n V \phi_i \euler^{i(E_n - E_i)t} 
+\end{align}
+
+Then
 \begin{align*}
-   Q_{1L} &= \euler^{i\delta_1} \begin{pmatrix} u' \\ R_{11}d + V'_{12} s + V'_{13} b \end{pmatrix} \\
-   Q_{2L} &= \euler^{i\delta_2} \begin{pmatrix} c' \\ R_{21}d + V'_{22} s + V'_{23} b \end{pmatrix} \\
-   Q_{3L} &= \euler^{i\delta_3} \begin{pmatrix} t' \\ R_{31}d + V'_{32} s + V'_{e3} b \end{pmatrix}
+   \dv{a_f}{t} = -i \int \dd[3]{x} \phi^*_f V \phi_i \euler^{i(E_f - E_i)t} + (-i)^2 \sum_{n \neq i} \int_{-T/2}^{t} \dd{t'} \euler^{i (E_n - E_i)t'} V_{fn} \euler^{i(E_f - E_n)t}
 \end{align*}
 
-Overall phases of doublets $Q_{iL}$ don't affect anything. Still have freedom of phase shift in $s$ and $b$. Get rid of phase in $V'_{12}$ and $V'_{13}$
+Correlation to $T_{fi}$
 \begin{align*}
-   V_{22}'' \mapsto V''_{22} \quad V''_{23} \mapsto V''_{23} \dots
+   T_{fi} &= \dots - \sum_{n \neq i} V_{fn} V_{ni} \int_{-\infty}^{+\infty} \dd{t} \euler^{i(E_f - E_n)t} \int_{-\infty}^{t} \dd{t'} \euler^{i(E_n - E_i)t}
+   \shortintertext{regulate the last exponential by adding a small constant $\epsilon$}
+   T_{fi} &= \dots - 2\pi i \sum_{n \neq i} \frac{V_{fn} V_{ni}}{E_i - E_n + i \epsilon} \delta(E_f - E_i)
+\end{align*}
+This is second order in perturbation theory including time dependence.
+
+We can treat it like Feynman diagram with vertex  $V_{ni}$ and propagator $1/(E_i - E_n + i\epsilon)$. 
+
+It is not manifestly covariant. Potential is assumed static and it defines the preferred reference frame. To go to relativistic formulation, consider other particle(s), which create electromagnetic potential for first particle to scatter in and vice versa.
+
+\section{Scalar Electrodynamics}
+\subsection{Complex scalar}
+\begin{align}
+   \lag = (\partial_mu \phi)^* (\partial^\mu \phi) - m^2 \phi^* \phi
+\end{align}
+
+It has the equation of motion
+\begin{align}
+   (\partial^2 + m^2) \phi = 0
+\end{align}
+
+To include electromagnetism consider generalized momentum 
+\begin{align*}
+   p^\mu &\mapsto p^\mu +_ e A^\mu  \\
+   i \partial^\mu &\mapsto i \partial^\mu + e A^\mu
+\end{align*}
+Insert it into equation of motion
+\begin{align}
+   \begin{split}
+    (\partial^2 + m^2) \phi &= - V\phi \\
+   V &= -ie (\partial_\mu A^\mu + A^\mu \partial_mu) - e^2 A^2
+   \end{split}
+\end{align}
+
+Fine structure constant $\alpha = e^2/(4\pi) \approx 1/137 \ll 1$. So in first order drop the $e^2$ term.
+\begin{align}
+   T_{fi} &= -i \int \dd[4]{x} \phi^*_f{x} V(x) \phi_i(x) \notag \\
+          &= -i \int \dd[4]{x} \phi^*_f(x) ie \left[ \partial_\mu A^\mu + A^\mu \partial_\mu  \right] \phi_i (x) \notag
+   \shortintertext{integrate by parts and drop surface terms}
+          &= -i \int j_\mu^{fi} A^\mu \dd[4]{x} \label{math:TJA}
+\end{align}
+with the current
+\begin{align}
+   j_\mu^{fi} (x) = -ie \left[ \phi^*_f (\partial_\mu \phi_i) - (\partial_\mu \phi_f)^* \phi_i \right]
+\end{align}
+The current is conserved for free field $\partial_\mu j^\mu (x) = 0$
+
+Write $\phi_i$ and $\phi_f$ as plane waves
+\begin{align*}
+   \phi_i (x) &= N_i \euler^{-ip_i \cdot x} \\
+   j_\mu^{fi} &= -e N_i N_f (p_i + p_f) \euler^{i (p_f - p_i) \cdot x}
 \end{align*}
 
-Started with $18$ parameters, absorbed $5$ phases. It ends up with $13$ parameters. They are $9$ real parameter, $4$ phases. Normalization condition on $3$ guys all states have to orthogonal. Thus $6$ states. $13 - 3 - 6 = 4$ It has $4$ real parameter in $3 \times 3$ case.
+\subsection{Scalar Charged Scattering}
+Consider potential for particle 1 to scatter caused by particle 2 and vice versa.
+\begin{align*}
+   \feynmandiagram[vertical=v1 to v2]{
+      pa[particle=\(p_A\)] -- [fermion] v1 -- [fermion] pc[particle=\(p_C\)],
+      pb[particle=\(p_B\)] -- [fermion] v2 -- [fermion] pd[particle=\(p_D\)],
+      v1 -- [photon, edge label=\(\gamma\)] v2,
+   };
+\end{align*}
 
-Then $V_\text{CKM}$ is a orthogonal matrix multiplied with a phase. A orthogonal $3 \times 3$ matrix has $3$ real and $1$ phase parameters. This phase leads to CP-violation.
+What potential $A_\mu$ does $j_\mu^{(2)}$ create for particle 1 to scatter in inhomogeneous Maxwell equation
+\begin{align*}
+   \partial^2 A^\mu = j^{\mu(2)} = -e N_B N_D (p_D + p_B)^\mu \euler^{i(p_D - p_B)\cdot x}
+\end{align*}
+
+Also consider photons as plane waves
+\begin{align}
+   \partial^2 \euler^{iqx} = -q^2 \euler^{iqx} \notag
+   \shortintertext{thus}
+   A^\mu = - \frac{1}{q^2} j^{\mu (2)}
+\end{align}
+with $q = p_D - p_B$.
+
+Insert into \ref{math:TJA} 
+\begin{align*}
+   T_{fi} &= -i \int j_\mu^{(1)} (x) \left(-\frac{1}{q^2} \right) j^{\mu (2)} (x) \dd[4]{x} \\
+          &= -i e^2 N_A N_B N_C N_D \int \dd[4]{x} \euler^{i(p_c + p_D - p_A - p_B)} (p_C + p_A)_\mu (p_D + p_B)^\mu \frac{-1}{q^2} \\
+          &= -i N_A N_B N_C N_D (2\pi)^4 \delta^{(4)} (p_C + p_D - p_A - p_B) \M
+   \shortintertext{The invariant matrix element}
+   -i\M &= ie (p_A + p_C)^\mu \left( -i \frac{g_{\mu\nu}}{q^2}  \right) ie (p_B + p_D)^\nu
+\end{align*}
+It is symmetric in $(A,C)$ and $(B,D)$.
+
+\subsection{From Amplitude to Cross Section}
+In the laboratory we measure cross sections. Need to fix norm, $\phi = N \euler^{-ipx}$. The number density is defined by
+\begin{align}
+   \rho = 2 E |N|^2
+\end{align}
+The infinitesimal number of particles $\rho \dd[3]{x}$ is Lorentz invariant. Norm is chosen as
+\begin{align}
+   \int \rho \dd{V} = 2E
+\end{align}
+
+We are interested in Transition rate per unit time and volume. 
+\begin{align*}
+   W_{fi} &= \frac{|T_{fi}|^2}{T \cdot V} \\
+   T_{fi} &= -i N_A N_B N_C N_D (2\pi)^4 \delta^{(4)}(p_c + p_D - p_A - p_B) \M
+\end{align*}
+
+Same trick as before (\ref{math:deltaSqaure}) to get rid of one of $\delta$
+\begin{align*}
+   \int \dd[4]{x} &= T \cdot V  \\
+   W_{fi} &= \frac{1}{V^4} (2\pi)^4 \delta^{(4)} (p_C + p_D - p_A - p_B) |\M|^2
+\end{align*}
+
+Definition of cross section
+\begin{align}
+   \sigma = \frac{W_{fi}}{\text{initial flux}} \cdot (\text{number of final states})
+\end{align}
+Imagine particles in a box
+\begin{align*}
+   (\text{number of final state particles}) = \frac{V \dd[3]{p}}{(2\pi)^3 2 E}
+\end{align*}
+
+Density of incoming particles A  $2E_A / V$. The box has length $\pmb{v}_A \cdot t$. Number of beam particles passing through unit area $A$ per unit time is $\pmb{v}_A \cdot t 2 E_A/(V t)$.  Particle B (target). Initial flux is $|\pmb{v}_A| \frac{2E_a}{v} \frac{2E_B}{V}$
+\begin{align*}
+   \dd{\sigma} &= \frac{V^2}{|\pmb{v}_A| 2 E_A 2 E_B} \frac{1}{V^4} |M|^2 \frac{(2\pi)^4}{(2\pi)^4} \delta^{(4)} (p_c + p_D - p_A - p_B) \frac{\dd[3]{p_C}}{2\pi} \frac{\dd[3]{p_D}}{2\pi} V^2 \\
+               &= \frac{|\M|^2}{F} \dd{Q}
+\end{align*}
+with $F = |\pmb{v}_A| 2 E_A 2 E_B$ and $\dd{Q} = (2\pi)^4 \delta^{(4)}(p_C + p_D - p_A - p_B) \frac{\dd[3]{p_C}}{(2\pi)^3 2E_C} \frac{\dd[3]{p_D}}{(2\pi)^3 2 E_D}$and $B$ at rest.
+
+If both are moving $F = |\pmb{v}_A - \pmb{v}_B| 2 E_A 2E_B = 4 \sqrt{(p_A \cdot p_B)^2 - m_A^2 m_B^2 }$.
+
+In centre of mass system
+\begin{align}
+   \dv{\sigma}{\Omega} = \frac{1}{64 \pi^2 s } \frac{p_f}{p_i} |M|^2 
+\end{align}
+
+For $e \mu$ scattering 
+\begin{align*}
+   \dv{\sigma}{\Omega} = \frac{\alpha^2}{4s} \left( \frac{3 + \cos(\theta)}{1 - \cos(\theta)} \right)
+\end{align*}
+with $\theta$ angle between $\pmb{p}_A$ and $\pmb{p}_C$.
+
+Also it includes decays, for example $n \rightarrow p e^- \bar{\nu}_e$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-11-26
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Decay versus cross section}
+Examples are $\pi^- \rightarrow \mu^- \bar{\nu}_\mu$, $t \rightarrow W^+ b$
+
+\begin{align}
+   \dd{\Gamma} &= \frac{1}{2E_A} |\M|^2 \frac{\dd[3]p_1}{(2\pi)^3 2 E_1}\frac{\dd[3]p_2}{(2\pi)^3 2 E_2} \\
+   \Gamma &= \int \dd{\Gamma}
+\end{align}
+
+Pion for instance has different decay modes.
+\begin{align}
+   \Gamma_\text{tot} = \Gamma(\pi \rightarrow \mu \nu_\mu) + \Gamma(\pi \rightarrow e \bar{\nu}_e)
+\end{align}
+
+Radioactive decay 
+\begin{align}
+   N_A (t) = N(0) \euler^{-\Gamma_{\text{tot}}t}
+\end{align}
+
+Lifetime is defined as 
+\begin{align}
+   \tau_A = 1/\Gamma_\text{tot}(A)
+\end{align}
+
+\section{Electron Electron scattering}
+\begin{align*}
+   \feynmandiagram[vertical=v1 to v2]{
+      i1[particle=\(e^-\)] --[momentum'=\(p_A\)] v1 --[momentum'=\(p_C\)] f1[particle=\(e^-\)],
+      i2[particle=\(e^-\)] --[momentum=\(p_B\)] v2 --[momentum=\(p_D\)] f2[particle=\(e^-\)],
+      v1 --[photon, edge label=\(\gamma\)] v2,
+   };
+   \quad
+   \begin{tikzpicture}
+      \begin{feynman}
+      \diagram [vertical=a to b] {
+         i1 [particle=\(e^{-}\)] --[momentum'=\(p_A\)]  a -- [draw=none] f1 [particle=\(e^{-}\), label=0:\(p_C\)],
+         i2 [particle=\(e^{-}\)] --[momentum=\(p_B\)]  b -- [draw=none] f2 [particle=\(e^{-}\), label=0:\(p_D\)],
+         a -- [photon, edge label'=\(\gamma\)] b,
+      };
+      \diagram* {
+         (a) --  (f2),
+         (b) --  (f1),
+      };
+      \end{feynman}
+   \end{tikzpicture}
+\end{align*}
+
+One cannot differentiate electron from electron. We have to add both diagrams before squaring
+\begin{align*}
+-iM_{e^- e^-} = -i e^2 \left[ - \frac{(p_A + p_C)_\mu \cdot (p_B + p_D)^\mu}{(p_D - p_B)^2} - \frac{(p_A + p_D)_\mu \cdot (p_B + p_C)^\mu}{(p_C - p_B)^2}\right]
+\end{align*}
+
+\section{Electron Positron scattering}
+\begin{align*}
+      \feynmandiagram[vertical=v1 to v2]{
+      i1[particle=\(e^-\)] --[momentum'=\(p_A\)] v1 --[momentum'=\(p_C\)] f1[particle=\(e^-\)],
+      i2[particle=\(e^+\)] --[momentum=\(p_B\)] v2 --[momentum=\(p_D\)] f2[particle=\(e^+\)],
+      v1 --[photon, edge label=\(\gamma\)] v2,
+   };
+   \quad
+   \feynmandiagram[horizontal=v1 to v2]{
+      i1[particle=\(e^-\)] --[momentum'=\(p_B\)] v1 --[reversed momentum'=\(p_A\)] f1[particle=\(e^-\)],
+      i2[particle=\(e^-\)] --[reversed momentum=\(p_D\)] v2 --[momentum=\(p_C\)] f2[particle=\(e^-\)],
+      v1 --[photon, edge label=\(\gamma\)] v2,
+   };
+\end{align*}
+
+\section{Mandelstam Variables}
+Only for two-to-two scattering
+\begin{align}
+   s &= (p_A + p_B)^2 \\
+   u &= (p_A - p_C)^2 \\
+   t &= (p_A - p-D)^2 
+\end{align}
+
+Diagrams are often classified by the momentum of propagator. Mandelstam variables $s$, $t$ and $u$ are not independent.
+\begin{align}
+   s + u + t = \sum m_i^2
+\end{align}
+
+One can set the reference frame such that
+\begin{align*}
+   p_A &= (E,0,0,E) \\
+   p_B &= (E,0,0,-E) \\
+   p_C &= (E,0,E \sin(\theta), E\cos(\theta)) \\
+   p_D &= (E, 0, -E \sin(\theta), -E\cos(\theta))  
+\end{align*}
+Then 
+\begin{align}
+   s &= 4 E^2 \\
+   t &= -\frac{s}{2}(1-\cos(\theta)) \\
+   u &= -\frac{s}{2} (1+\cos(\theta))
+\end{align}
+
+\section{Origin of the propagator}
+Non-relativistically 
+\begin{align}
+   T_{fi}^{(2)} = -i \sum_{n \neq i} V_{fn} \frac{1}{E_i - E_n} V_{ni} 2\pi \delta(E_f - E_i)
+\end{align}
+
+Electron positron scattering
+each Feynman diagram is the sum of all possible time orderings in old fashioned perturbation theory. 
+
+Two times orderings for s-channel diagram
+\begin{align*}
+   \includegraphics[width=0.8\linewidth]{propTime/1.eps}
+\end{align*}
+(one can understand the second diagram by saying that an amount of energy is borrowed to produce particle pair.)
+
+\begin{align*}
+   \M &\sim V_{fn} \frac{1}{E_i - E\gamma} V_{ni} + V_{fn} \frac{1}{E_i - 2E_i - E_\gamma} V_{ni} \\
+      &= V_{fn} \frac{2E_\gamma}{E_i^2 - E_\gamma^2} V_{ni}
+\end{align*}
+
+\begin{align*}
+   (p_A + p_B) ^2 &= E_i^2 - (\pmb{p}_A + \pmb{p}_B)^2  \\
+   E_\gamma^2 &= \pmb{p}^2 + m_\gamma^2 \\
+   p &= p_A + p_B \\
+   \frac{1}{E_i^2 - E_\gamma^2} &= \frac{1}{(p_A + p_B)^2 - m_\gamma^2} = \frac{1}{q^2}
+\end{align*}

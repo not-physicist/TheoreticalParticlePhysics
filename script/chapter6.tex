@@ -1,0 +1,103 @@
+\chapter{QED (with Spin $1/2$)}
+\section{Electron interacting with $A^\mu$}
+\begin{align}
+   (ip_\mu \gamma^\mu - m) \psi =0\\
+   \psi = u(\pmb{p}) \euler^{-i p \cdot x}
+\end{align}
+
+Consider $p^\mu \mapsto p^\mu + eA^\mu$
+\begin{align*}
+   (\gamma^\mu p_\mu - m) \psi = (\gamma^0 V) \psi \\
+   \gamma^0 V = -e \gamma_\mu A^\mu
+\end{align*}
+
+\begin{align*}
+   T_{fi} &= -i \int \dd[4]{x} \psi_{f}^\dagger (x) V(x) \psi_i (x) \\
+          &= ie \int \dd[4]{x} \overline{\psi}_f (x) \gamma_\mu A^\mu \psi_i  \\
+          &= -i \int \dd[4]{x} j_\mu^{fi} A^\mu 
+\end{align*}
+
+\begin{align}
+   j_\mu^{fi} &= -e \bar\psi _f \gamma_\mu \psi_i = -e \bar{u}_f \gamma_\mu u_i \euler^{i(p_f - p_i)x}
+   \shortintertext{In non-relativistic case}
+   j_\mu^{fi} &= -e \bar\psi _f \gamma_\mu \psi_i = -e (p_f + p_i)_\mu \euler^{i(p_f - p_i)x}
+\end{align}
+So we have Feynman rules for external fermions and vertex.
+
+One can write the following identity
+\begin{align}
+   \bar{u}_f \gamma^\mu u_i = \frac{1}{2m} \bar{u}_f \left[ (p_f + p_i)^\mu + i \sigma^{\mu\nu} (p_f - p_i)_\nu \right] u_i
+\end{align}
+with $\sigma^{\mu\nu} = \frac{i}{2} [\gamma^\mu, \gamma^\nu]$. First term is exactly we have before. It comes from electric charge interaction. The second part is then spin or magnetic interaction. It can be shown that $j^\mu A_\mu$ in Non-relativistic limit becomes $\pmb{\sigma} \cdot \pmb{B}$ from $\sigma^{\mu\nu}$ term.
+
+\section{Møller Scattering}
+$e^- e^- \rightarrow e^- e^-$
+
+\begin{align*}
+   T_{fi} &= -i \int \dd[4]{x} j_\mu^{(1)} (-\frac{1}{q^2}) j_2^\mu (x) \\
+          &= -i (-e \bar{u}_c \gamma_\mu u_A) \left( -\frac{1}{q^2} \right) (-e\bar{u}_D \gamma^\mu u_B) (2\pi)^4 \delta^{(4)}(p_A + p_B - p_C - p_D)
+   \shortintertext{with $q = p_A - p_C = p_D - p_B$}
+          &= -i (2\pi)^4 \delta^{(4)} (p_A + p_B - p_C - p_D) \M
+\end{align*}
+
+\begin{align*}
+   -i\M = (ie \bar{u}_C \gamma^\mu u_A) \left( \frac{-ig_{\mu\nu}}{q^2}  \right) \left( ie \bar{u}_D \gamma^\nu u_B \right)
+\end{align*}
+swapping order of final state electrons. Minus sign comes from electron being fermion.
+
+\begin{align*}
+   \M = \M_1 + \M_2 = -e^2 \frac{(\bar{u}_C \gamma^u u_A)(\bar{u}_D \gamma_\mu u_B) }{(p_A - p_C)^2} + e^2 \frac{(\bar{u}_D \gamma^u u_A)(\bar{u}_C \gamma_\mu u_B) }{(p_A - p_D)^2}
+\end{align*}
+
+\begin{align}
+   |\M|^2 &= |\M_1|^2 + |\M_2|^2 + 2 \Re(\M_1 \M_2^*) \\
+   |\M_1|^2 &=  \frac{e^4}{t^2} (\bar{u}_C \gamma^\mu u_A) (\bar{u}_A \gamma^\nu u_D) (\bar{u}_D \gamma_\mu u_B) (\bar{u}_B \gamma_\nu u_D)
+\end{align}
+
+Most experiments are done without polarized beams. Thus we must average incoming spins.
+\begin{align}
+   \frac{1}{(2S_A + 1) (2S_B + 1) } \sum_{S_A, S_B}
+\end{align}
+We should also sum over the final states (if it will not be observed).
+
+Shuffle the spinors and use spin sum identities
+\begin{align}
+   \sum_{S} u^{(S)}(p) \bar{u}^{(S)}(p) = \slashed{p} + m
+\end{align}
+we get (for the second half)
+\begin{align*}
+   \tr[(\slashed{p}_D + m) \gamma^\mu (\slashed{p}_B + m)\gamma^\nu]
+\end{align*}
+
+\begin{align*}
+   \frac{1}{4} \sum_{\text{spin}} |\M_1|^2 = \frac{e^4}{4t^2} \tr[(\slashed{p}_D + m) \gamma^\mu (\slashed{p}_B + m)\gamma^\nu]   \tr[(\slashed{p}_C + m) \gamma^\mu (\slashed{p}_A + m)\gamma^\nu]
+\end{align*}
+
+We know the trace of odd number of gamma matrices vanished. Thus
+\begin{align*}
+   &\frac{4e^4}{t^2} \big[ 2 p_A \cdot p_D p_C \cdot p_B + 2 p_A \cdot p_Be p_C \cdot p_D -4 p_A \cdot p_C p_B \cdot p_D + 4 p_A \cdot p_C p_B \cdot p_D + \\
+   &\quad m^2 (2p_B \cdot p_D -4 p_B\cdot p_D + 2p_A \cdot p_C - 4 p_A \cdot p_C) + 4m^4 \big]
+   \shortintertext{In most experiments, center of mass energy is well above electron mass, thus we can set $m_e = 0$}
+   &= 8 (u^2 + s^2)
+\end{align*}
+
+\begin{align*}
+   s &= 2 p_A \cdot p_B = 2 p_C \cdot p_D \\
+   t &= -2 p_A \cdot p_C \\
+   u &= -2 p_A \cdot p_D
+\end{align*}
+
+Correspondingly
+\begin{align*}
+   \frac{1}{4} \sum |\M_2|^2 = \frac{2e^4}{u^2} (t^2 + s^2)
+\end{align*}
+
+In interference term, there is just one (long) trace.
+\begin{align*}
+   \frac{1}{4} \sum 2 \Re(\M_1 \M_2^*) = \frac{4e^4}{t u }s^2
+\end{align*}
+
+\begin{align*}
+   \frac{1}{4} \sum |\M|^2 &= \overline{|\M|^2} \\
+                           &= 2e^4 \left[ \frac{u^2 + s^2}{t^2} + \frac{t^2 + s^2}{u^2} + 2 \frac{s^2}{tu} \right]
+\end{align*}

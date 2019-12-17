@@ -347,3 +347,340 @@ Two times orderings for s-channel diagram
    p &= p_A + p_B \\
    \frac{1}{E_i^2 - E_\gamma^2} &= \frac{1}{(p_A + p_B)^2 - m_\gamma^2} = \frac{1}{q^2}
 \end{align*}
+
+\section{Electron interacting with $A^\mu$}
+\begin{align}
+   (ip_\mu \gamma^\mu - m) \psi =0\\
+   \psi = u(\pmb{p}) \euler^{-i p \cdot x}
+\end{align}
+
+Consider $p^\mu \mapsto p^\mu + eA^\mu$
+\begin{align*}
+   (\gamma^\mu p_\mu - m) \psi = (\gamma^0 V) \psi \\
+   \gamma^0 V = -e \gamma_\mu A^\mu
+\end{align*}
+
+\begin{align*}
+   T_{fi} &= -i \int \dd[4]{x} \psi_{f}^\dagger (x) V(x) \psi_i (x) \\
+          &= ie \int \dd[4]{x} \overline{\psi}_f (x) \gamma_\mu A^\mu \psi_i  \\
+          &= -i \int \dd[4]{x} j_\mu^{fi} A^\mu 
+\end{align*}
+
+\begin{align}
+   j_\mu^{fi} &= -e \bar\psi _f \gamma_\mu \psi_i = -e \bar{u}_f \gamma_\mu u_i \euler^{i(p_f - p_i)x}
+   \shortintertext{In non-relativistic case}
+   j_\mu^{fi} &= -e \bar\psi _f \gamma_\mu \psi_i = -e (p_f + p_i)_\mu \euler^{i(p_f - p_i)x}
+\end{align}
+So we have Feynman rules for external fermions and vertex.
+
+One can write the following identity
+\begin{align}
+   \bar{u}_f \gamma^\mu u_i = \frac{1}{2m} \bar{u}_f \left[ (p_f + p_i)^\mu + i \sigma^{\mu\nu} (p_f - p_i)_\nu \right] u_i
+\end{align}
+with $\sigma^{\mu\nu} = \frac{i}{2} [\gamma^\mu, \gamma^\nu]$. First term is exactly we have before. It comes from electric charge interaction. The second part is then spin or magnetic interaction. It can be shown that $j^\mu A_\mu$ in Non-relativistic limit becomes $\pmb{\sigma} \cdot \pmb{B}$ from $\sigma^{\mu\nu}$ term.
+
+\section{Møller Scattering}
+
+%TODO: Diagrams s, t, u
+$e^- e^- \rightarrow e^- e^-$
+
+\begin{align*}
+   T_{fi} &= -i \int \dd[4]{x} j_\mu^{(1)} (-\frac{1}{q^2}) j_2^\mu (x) \\
+          &= -i (-e \bar{u}_c \gamma_\mu u_A) \left( -\frac{1}{q^2} \right) (-e\bar{u}_D \gamma^\mu u_B) (2\pi)^4 \delta^{(4)}(p_A + p_B - p_C - p_D)
+   \shortintertext{with $q = p_A - p_C = p_D - p_B$}
+          &= -i (2\pi)^4 \delta^{(4)} (p_A + p_B - p_C - p_D) \M
+\end{align*}
+
+\begin{align*}
+   -i\M = (ie \bar{u}_C \gamma^\mu u_A) \left( \frac{-ig_{\mu\nu}}{q^2}  \right) \left( ie \bar{u}_D \gamma^\nu u_B \right)
+\end{align*}
+swapping order of final state electrons. Minus sign comes from electron being fermion.
+
+\begin{align*}
+   \M = \M_1 + \M_2 = -e^2 \frac{(\bar{u}_C \gamma^u u_A)(\bar{u}_D \gamma_\mu u_B) }{(p_A - p_C)^2} + e^2 \frac{(\bar{u}_D \gamma^u u_A)(\bar{u}_C \gamma_\mu u_B) }{(p_A - p_D)^2}
+\end{align*}
+
+\begin{align}
+   |\M|^2 &= |\M_1|^2 + |\M_2|^2 + 2 \Re(\M_1 \M_2^*) \\
+   |\M_1|^2 &=  \frac{e^4}{t^2} (\bar{u}_C \gamma^\mu u_A) (\bar{u}_A \gamma^\nu u_D) (\bar{u}_D \gamma_\mu u_B) (\bar{u}_B \gamma_\nu u_D)
+\end{align}
+
+Most experiments are done without polarized beams. Thus we must average incoming spins.
+\begin{align}
+   \frac{1}{(2S_A + 1) (2S_B + 1) } \sum_{S_A, S_B}
+\end{align}
+We should also sum over the final states (if it will not be observed).
+
+Shuffle the spinors and use spin sum identities
+\begin{align}
+   \sum_{S} u^{(S)}(p) \bar{u}^{(S)}(p) = \slashed{p} + m
+\end{align}
+we get (for the second half)
+\begin{align*}
+   \tr[(\slashed{p}_D + m) \gamma^\mu (\slashed{p}_B + m)\gamma^\nu]
+\end{align*}
+
+\begin{align*}
+   \frac{1}{4} \sum_{\text{spin}} |\M_1|^2 = \frac{e^4}{4t^2} \tr[(\slashed{p}_D + m) \gamma^\mu (\slashed{p}_B + m)\gamma^\nu]   \tr[(\slashed{p}_C + m) \gamma^\mu (\slashed{p}_A + m)\gamma^\nu]
+\end{align*}
+
+We know the trace of odd number of gamma matrices vanished. Thus
+\begin{align*}
+   &\frac{4e^4}{t^2} \big[ 2 p_A \cdot p_D p_C \cdot p_B + 2 p_A \cdot p_Be p_C \cdot p_D -4 p_A \cdot p_C p_B \cdot p_D + 4 p_A \cdot p_C p_B \cdot p_D + \\
+   &\quad m^2 (2p_B \cdot p_D -4 p_B\cdot p_D + 2p_A \cdot p_C - 4 p_A \cdot p_C) + 4m^4 \big]
+   \shortintertext{In most experiments, center of mass energy is well above electron mass, thus we can set $m_e = 0$}
+   &= 8 (u^2 + s^2)
+\end{align*}
+
+\begin{align*}
+   s &= 2 p_A \cdot p_B = 2 p_C \cdot p_D \\
+   t &= -2 p_A \cdot p_C \\
+   u &= -2 p_A \cdot p_D
+\end{align*}
+
+Correspondingly
+\begin{align*}
+   \frac{1}{4} \sum |\M_2|^2 = \frac{2e^4}{u^2} (t^2 + s^2)
+\end{align*}
+
+In interference term, there is just one (long) trace.
+\begin{align*}
+   \frac{1}{4} \sum 2 \Re(\M_1 \M_2^*) = \frac{4e^4}{t u }s^2
+\end{align*}
+
+\begin{align*}
+   \frac{1}{4} \sum |\M|^2 &= \overline{|\M|^2} \\
+                           &= 2e^4 \left[ \frac{u^2 + s^2}{t^2} + \frac{t^2 + s^2}{u^2} + 2 \frac{s^2}{tu} \right]
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-12-03
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+$e^- \mu^- \rightarrow e^- \mu^-$
+
+$e^- e^+ \rightarrow \mu^+ \mu^-$
+Change $k' \rightarrow -p$ and $s \leftrightarrow t$.
+\begin{align*}
+   \dv{\sigma}{\Omega} &= \frac{\alpha^2}{4s} (1+\cos^2 \theta)
+   \shortintertext{integrate over solid angle}
+                       &= \frac{4\pi \alpha^2}{3s}
+\end{align*}
+Cross section drops down with $1/s$. With high luminosity we can evade the problem.
+
+\section{Photons and Polarization Vectors}
+Photon field $A^\mu (x)$ satisfies Maxwell equations
+\begin{align*}
+   \partial^2 A^\mu = j^\mu
+\end{align*}
+Even in classical theory, there is gauge freedom. With Lorenz condition $\partial_\mu A^\mu = 0$ there is still some gauge freedom.
+
+\begin{align}
+   A_\mu \mapsto A'_\mu = A_\mu + \partial_\mu \Lambda(x)  \label{math:gaugeLambda}
+\end{align}
+if $\partial^2 \Lambda (x) = 0$. 
+
+Free photon 
+\begin{align}
+   \partial^2 A^\mu &= 0 \\
+   A^\mu &= \epsilon^\mu (\pmb{q}) \euler^{-iq\cdot x}
+\end{align}
+with $\epsilon(\pmb p)$ polarization vector with $\mu =0, 1,2,3$. Thus equation for polarization vector is
+\begin{align}
+   q^2 \epsilon^\mu (\pmb{q}) \euler^{-i q \cdot x} = 0
+\end{align}
+with $q^2 = m_\gamma^2 = 0$.
+
+From QM, we know for spin $1$ particle, $S_z = +1, 0, -1$. With Lorenz condition, 
+\begin{align*}
+   q_\mu \epsilon^\mu = 0
+\end{align*}
+thus there are three independent components.
+
+We still have constraint \ref{math:gaugeLambda}. To make it specific, choose
+\begin{align}
+   \Lambda = i a \euler^{-iq \cdot x}
+\end{align}
+then the constraint is satisfied
+\begin{align*}
+   \partial^2 \Lambda = q^2 \Lambda = 0
+\end{align*}
+Use this specific $\Lambda$, the transformation of $A_\mu$ becomes
+\begin{align}
+   A_\mu \mapsto A'_\mu = A_\mu + \partial_\mu \Lambda \\
+   \epsilon \euler^{-iq\cdot x} \mapsto \epsilon' \euler^{-iq\cdot x} = \epsilon \euler^{-iq\cdot x} + ia (-i) q_\mu \euler^{-iq\cdot x} \\
+   \epsilon \mapsto \epsilon'_\mu = \epsilon_\mu + a q_\mu
+\end{align}
+$\epsilon$ and $\epsilon'$ describe the same photon.
+
+Use this freedom to demand $\epsilon^{\mu=0} = 0$. Then we have Coulomb gauge
+\begin{align}
+   \pmb{\epsilon} \cdot \pmb{q} = 0
+\end{align}
+
+Only two independent polarization vectors. 
+\begin{align*}
+   \pmb{q} &= (0,0,q) \\
+   \epsilon_1 &= (1,0,0) \\
+   \epsilon_2 &= (0,1,0) 
+\end{align*}
+Photon only with $\epsilon_{1,2}$ are linear polarized. 
+
+Circularly polarized
+\begin{align}
+   \epsilon_R = -\frac{1}{\sqrt{2}} (\epsilon_1 + i \epsilon_2) \\
+   \epsilon_L = \frac{1}{\sqrt{2}} (\epsilon_1 - i \epsilon_2)
+\end{align}
+$\epsilon_R$ has $+1$ helicity and $\epsilon_L$ has $-1$.
+
+One can show completeness relation 
+\begin{align}
+   \sum_{\lambda = L, R} (\epsilon_\lambda)^*_i (\epsilon_\lambda)_j = \delta_{ij} - \hat{q}_i \hat{q}_j
+\end{align}
+with $i,j=1,2,3$ and hat denotes unit vector.
+
+\section{Electron Propagator}
+In non-relativistic limit
+\begin{align*}
+   T_{fi} &= -2 \pi i \delta(E_f - E_i) \left[ \braket{f | V | i} + i \sum_{n\neq i} \braket{f | V |n} \frac{1}{E_i - E_n} \braket{n | V | i} + \dots \right]
+   \shortintertext{since $H_0 \ket{n} = E_n \ket{n}$}
+          &= 2 \pi \delta(E_f - E_i) \braket{f | \left [(-iV) + (-iV) \frac{i}{E_i - H_0} (-iV) + \dots \right] | i}
+\end{align*}
+So we have vertex $-iV$ and propagator $-i/(E- H_0)$.
+
+Go to relativistic case. With spinless particle, Klein-Gordon equation
+\begin{align}
+   i (\partial^2 + m^2) \phi = -i V \phi 
+\end{align}
+We expect propagator 
+\begin{align}
+  \frac{i}{p^2 - m^2} 
+\end{align}
+
+For spin $\frac{1}{2}$ particle, Dirac equation in momentum space
+\begin{align*}
+   (\slashed{p} - m) \psi = -e \gamma^\mu A_\mu \psi 
+\end{align*}
+So we expect propagator to be
+\begin{align}
+   \frac{i}{\slashed{p} - m} = \frac{i(\slashed{p} + m)}{p^2 - m^2}
+\end{align}
+
+Remember $\slashed{p} + m = \sum_{\text{spins}} u(p) \bar{u}(p)$. In fact for any particle the propagator can be written as
+\begin{align}
+   \frac{i \sum_{\text{spins}( \dots)}}{p^2 - m^2} 
+\end{align}
+
+\section{Photon Propagator}
+Gauge freedom leads to the fact that photon propagator is not unique. 
+
+Wave equation
+\begin{align}
+   \partial^2 A^\mu - \partial^\mu (\partial_\nu A^\nu) &= j^\mu \\
+   (g^{\mu\lambda} \partial^2 - \partial^\mu \partial^\lambda) A_\lambda &= j^\mu
+   \shortintertext{Propagator should be inverse of this operator. In momentum space}
+   (g^{\mu\lambda} q^2 - q^\mu q^\lambda) A_\lambda &= j^\mu
+\end{align}
+
+Ansatz for inverse
+\begin{align}
+   A(q^2)q^2 g_{\nu\mu} + B(q^2) q_\nu q_\mu
+\end{align}
+Multiply back to equation
+\begin{align*}
+   &(A(q^2) g_{\nu\mu} + B(q^2) q_\nu q_\mu)(-g^{\mu\lambda}q^2 + q^\mu q^\lambda) \\
+   &= -A(q^2)q^4 \delta^\lambda_\nu + A(q^2) q^2 q_\nu q^\lambda - B(q^2) q_\nu q^\lambda q^2 + B(q^2) q^2 q_\nu q^\lambda \\
+   &= -A(q^2) q^2 (q^2 \delta_\nu^\lambda - q_\nu q^\lambda) \\
+   & \stackrel{!}{=} \delta_\nu^\lambda
+\end{align*}
+It is impossible!
+
+In Lorenz gauge $\partial_\lambda A^\lambda = 0$
+\begin{align*}
+   g^{\nu\lambda} \partial^2 A_\lambda = j^\nu 
+   \shortintertext{in momentum space}
+   g^{\nu\lambda} q^2 A_\lambda = j^\nu
+\end{align*}
+It has inverse
+\begin{align}
+   \frac{-g_{\mu\nu}}{q^2}
+\end{align}
+in which $-g_{\mu\nu}$ corresponds to sum over polarization. Propagator in this form is Feynman propagator, ideal for QED calculation.
+
+More general form
+\begin{align*}
+   \left[ g^{\nu \lambda} \partial^2 - \left( 1 - \frac{1}{\xi}  \partial^\nu \partial^\lambda \right) \right] A_\lambda = j^\nu \\
+   \left[ g^{\nu \lambda} q^2 - \left( 1 - \frac{1}{\xi}  q^\nu q^\lambda \right) \right] \tilde{A}_\lambda = \tilde{j}^\nu
+\end{align*}
+with $\xi \in \R$. It is called $R_\xi$-gauge. The equation now is invertible. Construct inverse
+\begin{align*}
+   &(-q^2 g^{\nu\lambda} + \frac{\xi - 1}{\xi} q^\nu q^\lambda) (Aq^2 g_{\lambda \mu} + B q_\lambda q_\mu) \\
+   &= -q^2 \delta^\nu_\mu A - Bq^2 q^\nu q_\mu + \frac{\xi - 1}{\xi} A q^2 q^\nu q_\mu + \frac{\xi - 1}{\xi} Bq^2 q^\nu q_\mu
+   \shortintertext{choose $A = -1/q^4$ and the rest should vanish.}
+   & = B q^2 q^\nu q_\mu + \frac{\xi -1}{\xi} \frac{q^\nu q_\mu}{q^2} + \frac{\xi - 1}{\xi} B q^2 q^\nu q_\mu  \\
+   &= \frac{q^\nu q_\mu}{q^2} \left[ -B q^4 - \frac{\xi -1}{\xi} + B q^4 \frac{\xi - 1}{\xi} \right]
+   \shortintertext{define $B  = \tilde{B} / q^4$}
+   &= \frac{q^\nu q_\mu}{q^2 \xi} \left[ - \tilde{B} \xi - \xi + 1 + \tilde{B} \xi - \tilde{B} \right] \\
+   &= \frac{q^\nu q_\mu}{q^2 \xi}  [-\xi + 1 - \tilde{B}] 
+   & \stackrel{!}{=} 0
+\end{align*}
+Thus
+\begin{align*}
+   B = \frac{1-\xi}{q^4}
+\end{align*}
+and propagator
+\begin{align}
+   \frac{i}{q^2} \left( -g_{\mu\nu} + (1-\xi) \frac{q_\mu q_\nu}{q^2} \right)
+\end{align}
+If $\xi$ is left general, the final answer cannot contain $\xi$. In QED, current conservation ensures it with $q_\mu \tilde{j}^\mu = 0$.
+
+\section{Massive Vector Particles}
+\begin{align}
+   \frac{i}{q^2 - M^2} \left( -g^{\mu\nu} + \frac{q^\mu q^\nu}{M^2} \right)
+\end{align}
+
+\section{Real and Virtual Photons}
+Real photons have only two polarization states. 
+\begin{align}
+   \sum_{\lambda = L, R} (\epsilon_\lambda)^*_i (\epsilon_\lambda)_j = \delta_{ij} - \hat{q}_i \hat{q}_j
+\end{align}
+
+\begin{align*}
+   -g_{\mu\nu} &= \sum_{\lambda=1}^{4} \epsilon_\mu^{(\lambda) *} \epsilon_\nu^{(\lambda)} \\
+               &=  \sum_\text{transverse} (\epsilon_\mu^T)^* (\epsilon_\nu^T) + \epsilon_\mu^{L *} \epsilon_\nu^L + \epsilon_\mu^{S *} \epsilon_\nu^{S}
+\end{align*}
+
+Every photon is virtual in some sense. It must interact with electron during detection.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture date: 19-12-09
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{align*}
+   T_{fi} &= -i \int \dd[4]{x} j_\mu^A (x) \frac{-g^{\mu\nu}}{q^2} j_\nu^B(x)
+   \shortintertext{$q= (q^0, 0,0,|\pmb{q}|)$}
+          &= -i \int \dd[4]{x} \left[\frac{j_1^A j_1^B + j_2^A j_2^B}{q^2} + \frac{j_3^A j_3^B - j_0^A j_0^B}{q^2} \right] 
+          \shortintertext{with first half in transverse mode and second half in longitudinal and scalar mode}
+\end{align*}
+
+From current conservation
+\begin{align*}
+   q^\mu j_\mu = 0 = q^0 j_0 - |\pmb{q}| j_3 = 0
+\end{align*}
+If photon is almost real $q^0 \approx |\pmb{q}|$, then $j_0 \approx j_3$. In general
+\begin{align*}
+   j_3 = \frac{1}{|\pmb{q}|} q^0 j_0
+\end{align*}
+Insert back into $T_{fi}$ we get expression for general virtual photon
+\begin{align*}
+   T_{fi} &= -i \int \dd[4]{x} \left[ \frac{j_1^A j_1^B + j_2^A j_2^B}{q^2} + \left( \frac{q^0}{|\pmb{q}|} \frac{j_0^A j_0^B - j_0^A j_0^B}{q^2} \right) \right] \\
+          &= -i \int \dd[4]{x} \left[ \frac{j_1^A j_1^B + j_2^A j_2^B}{q^2} +  j_0^A j_0^B \frac{{q^0}^2 / |\pmb{q}|^2 - 1}{q^2} \right] \\
+          &= -i \int \dd[4]{x} \left[ \frac{j_1^A j_1^B + j_2^A j_2^B}{q^2} +  j_0^A j_0^B \frac{q^2}{q^2 |\pmb{q}|^2 } \right] \\
+          &= -i \int \dd[4]{x} \left[ \frac{j_1^A j_1^B + j_2^A j_2^B}{q^2} +  \frac{j_0^A j_0^B}{|\pmb{q}|^2}\right]
+\end{align*}
+
+\begin{align}
+   \frac{1}{|\pmb{q}|^2} = \int \dd[3]{x} \euler^{i \pmb{q} \cdot \pmb{x}} \frac{1}{4\pi |\pmb{x}|}
+\end{align}
+Fourier transform
+\begin{align*}
+   T_{fi} = -i \int \dots -i \int \dd{t} \int \dd[3]{x_1} \int \dd[3]{x_2} \frac{j_0^A(t,\pmb{x}_1) j_0^B(t, \pmb{x}_2)}{4\pi |\pmb{x}_2 - \pmb{x}_1|}
+\end{align*}
+With $j_0 \sim \rho_\text{el}$ electric charge density. It describes instantaneous Coulomb interaction.

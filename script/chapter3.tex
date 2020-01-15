@@ -1,58 +1,58 @@
 \chapter{Relativistic Quantum Field Theory}
-In non-relativistic quantum mechanics
+In non-relativistic quantum mechanics, the dispersion relation is
 \begin{align*}
-   E &= \frac{\pmb{p}^2}{2m} \\
-   E &\mapsto i\hbar \frac{\partial}{\partial t} \\
-   \pmb{p} &\rightarrow -i\hbar \pmb{\nabla}
+   E &= \frac{\pmb{p}^2}{2m}.
+   \shortintertext{After promoting the momentum and energy into operators,}
+   E &\mapsto i\hbar \frac{\partial}{\partial t}, \\
+   \pmb{p} &\rightarrow -i\hbar \pmb{\nabla},
 \end{align*}
-
-After promoting the momentum and energy into operators in dispersion relation we have the Schrödinger equation
+we have the Schrödinger equation
 \begin{align}
-   i \frac{\partial}{\partial t} \psi + \frac{1}{2m} \pmb{\nabla}^2 \psi = 0
+   i \frac{\partial}{\partial t} \psi(x,t) + \frac{1}{2m} \pmb{\nabla}^2 \psi(x,t) = 0.
 \end{align}
 
 Density of probability is defined via
 \begin{align}
-   \rho = |\psi|^2 = \psi \psi^*
+   \rho = |\psi|^2 = \psi \psi^*.
 \end{align}
 It obeys the continuity equation
 \begin{align}
-   -\frac{\partial}{\partial t } \int_V \rho \dd{V} &= \int \pmb{j} \cdot \pmb{n} \dd{S} \notag\\
-                                                    &= \int_V \pmb{\nabla} \cdot \pmb{j} \dd{V} \notag \\
-   \Rightarrow \frac{\partial \rho}{\partial t} + \div \pmb{j} &= 0
+   -\frac{\partial}{\partial t } \int_V \rho \dd{V} &= \int \pmb{j} \cdot \pmb{n} \dd{S}, \notag\\
+                                                    &= \int_V \pmb{\nabla} \cdot \pmb{j} \dd{V}, \notag \\
+   \Rightarrow \frac{\partial \rho}{\partial t} + \div \pmb{j} &= 0.
 \end{align}
 
 Writing this explicitly
 \begin{align}
-   \frac{\partial \rho}{\partial t} &= \frac{\partial }{\partial t} \left( \psi \psi^* \right) \notag\\
-                                    &= \psi \frac{\partial \psi^*}{\partial t} + \psi^* \frac{\partial \psi}{\partial t} \notag \\
-                                    &= \frac{i}{2m} \left( \psi^* \pmb{\nabla}^2 \psi -  \psi \pmb{\nabla}^2 \psi \right) \notag \\
-   \Rightarrow \pmb{j} &= - \frac{i}{2m} \left( \psi^* \pmb{\nabla}^2 \psi -  \psi \pmb{\nabla}^2 \psi \right)
+   \frac{\partial \rho}{\partial t} &= \frac{\partial }{\partial t} \left( \psi \psi^* \right), \notag\\
+                                    &= \psi \frac{\partial \psi^*}{\partial t} + \psi^* \frac{\partial \psi}{\partial t}, \notag \\
+                                    &= \frac{i}{2m} \left( \psi^* \pmb{\nabla}^2 \psi -  \psi \pmb{\nabla}^2 \psi \right), \notag \\
+   \Rightarrow \pmb{j} &= - \frac{i}{2m} \left( \psi^* \pmb{\nabla}^2 \psi -  \psi \pmb{\nabla}^2 \psi \right).
 \end{align}
 
 If we have a plane wave state, as an example 
 \begin{align*}
-   \psi &= N \euler^{i\pmb{p}\cdot \pmb{x} - i Et} \\
-   \pmb{j} &= \frac{\pmb{p}}{m} |N|^2
+   \psi &= N \euler^{i\pmb{p}\cdot \pmb{x} - i Et}, \\
+   \pmb{j} &= \frac{\pmb{p}}{m} |N|^2.
 \end{align*}
 
 \section{Relativistic wave equation}
-Now we enter the relativistic regime
+Now we enter the relativistic regime and the dispersion relation is
 \begin{align*}
-   E^2 &= \pmb{p}^2 + m^2 \\
-   p^\mu &= (E, \pmb{p}) \quad p_\mu = (E, -\pmb{p}) \\
-   p^2 &= m^2
+   E^2 &= \pmb{p}^2 + m^2.
+   \shortintertext{Four-momentum is defined as before}
+   p^\mu &= (E, \pmb{p}) \quad p_\mu = (E, -\pmb{p}), \\
+   p^2 &= m^2.
 \end{align*}
 
-Promoting energy and momentum into operators
+Promoting energy and momentum into operators,
 \begin{align*}
-   p^\mu &\mapsto i \partial^\mu \\
-   \partial_\mu \partial^\mu &= \frac{\partial ^2}{\partial^2 t} - \nabla^2
+   p^\mu &\mapsto i \partial^\mu, \\
+   \partial_\mu \partial^\mu &= \frac{\partial ^2}{\partial^2 t} - \nabla^2.
 \end{align*}
-
-We have then Klein-Gordon equation
+we have then Klein-Gordon (KG) equation
 \begin{align}
-   (\partial_\mu \partial^\mu + m^2) \phi(\pmb{x}, t) = 0
+   (\partial_\mu \partial^\mu + m^2) \phi(\pmb{x}, t) = 0.
 \end{align}
 
 The current in KG-theory is conserved as well
@@ -61,35 +61,35 @@ The current in KG-theory is conserved as well
    \partial_\mu j^\mu &= 0
 \end{align}
 
-An example solution
+An example solution is 
 \begin{align*}
-   \phi = N \euler^{-ip\cdot x} \\
-   j^\mu = 2 p^\mu |N|^2
+   \phi = N \euler^{-ip\cdot x}, \\
+   j^\mu = 2 p^\mu |N|^2.
 \end{align*}
 
 In terms of Lorentz transformation
 \begin{align*}
-   \rho \sim E
+   \rho \sim E.
 \end{align*}
 
 Energies of particles
 \begin{align*}
-   E^2 = \pmb{p}^2 + m^2 \\
-   E = \pm \sqrt{\pmb{p}^2 + m^2}
+   E^2 &= \pmb{p}^2 + m^2, \\
+   E &= \pm \sqrt{\pmb{p}^2 + m^2}.
 \end{align*}
 
 It also implies negative probability
 \begin{align*}
-   E > 0 \mapsto \rho > 0 \\
-   E < 0 \mapsto \rho < 0
+   E > 0 \mapsto \rho > 0, \\
+   E < 0 \mapsto \rho < 0.
 \end{align*}
 
 \section{Feynman-Stückelberg Interpretation of negative energy states}
-"Electron" with $E, \pmb{p}$ and charge $-e$
+Current of "electron" with $E, \pmb{p}$ and charge $-e$ is
 \begin{align*}
    j^\mu_{e^-} = 2e|N|^2(E,\pmb{p})
 \end{align*}
-"Positron" with $E, \pmb{p}$ and charge $+e$
+Current of "positron" with $E, \pmb{p}$ and charge $+e$ is
 \begin{align*}
    j^\mu_{e^+} = 2e|N|^2(E,\pmb{p})
    = - 2e|N|^2(-E,-\pmb{p})
@@ -112,59 +112,59 @@ In a relativistic systems we need to remember following points
 \section{Electrodynamics (spin $1$)}
 Maxwell equations are
 \begin{align}
-   \pmb{E} &= -\vec{\nabla} \phi - \frac{\dd}{\dd{t}}{\pmb{A}} \\
-   \pmb{B} &= \vec{\nabla} \times \pmb{A}\\
-   \vec{\nabla} \times \pmb{E} &= -\frac{\dd}{\dd{t}}{\pmb{B}} \\
-   \div \pmb{B} &= 0
+   \pmb{E} &= -\vec{\nabla} \phi - \frac{\dd}{\dd{t}}{\pmb{A}}, \\
+   \pmb{B} &= \vec{\nabla} \times \pmb{A}, \\
+   \vec{\nabla} \times \pmb{E} &= -\frac{\dd}{\dd{t}}{\pmb{B}}, \\
+   \div \pmb{B} &= 0.
 \end{align}
 
-Field strength tensor and four-potential
+Field strength tensor and four-potential are
 \begin{align}
-   F_{\mu\nu} &= \partial_\mu A_\nu - \partial_\nu A_\mu \\
-   A^\mu(x) &= (\phi, \pmb{A})
+   F_{\mu\nu} &= \partial_\mu A_\nu - \partial_\nu A_\mu, \\
+   A^\mu(x) &= (\phi, \pmb{A}). \notag
 \end{align}
 The fields can be calculated from it
 \begin{align}
-   E^i &= F^{0i} = \partial^i A^0 - \partial ^0 A^i \\
-   B_i &= -\epsilon_{ijk} \partial^i A^k = -\epsilon_{0ijk}F^{jk}
+   E^i &= F^{0i} = \partial^i A^0 - \partial ^0 A^i, \\
+   B_i &= -\epsilon_{ijk} \partial^i A^k = -\epsilon_{0ijk}F^{jk}.
 \end{align}
 
 Often it is useful to use the dual tensor
 \begin{align}
-   \tilde{F}_{\mu\nu} &= \epsilon_{\mu\nu\sigma\tau} F^{\sigma \tau} \\
-   \partial^{\mu} \tilde{F}_{\mu\nu} &= 0
-\end{align}
-is the second set of maxwell equations.
+   \tilde{F}_{\mu\nu} &= \epsilon_{\mu\nu\sigma\tau} F^{\sigma \tau}.
+   \shortintertext{The second set of maxwell equations is}
+   \partial^{\mu} \tilde{F}_{\mu\nu} &= 0.
+\end{align} 
 
 The other set of two equations is 
 \begin{align}
-   \partial_\nu F^{\mu\nu} = 4\pi j^\mu
+   \partial_\nu F^{\mu\nu} = 4\pi j^\mu.
 \end{align}
 
 $\pmb{E}, \pmb{B}$ are observable, $\pmb{A}$ is not. $A^\mu$ is not uniquely fixed by $\pmb{E}$ and $\pmb{B}$. It has the following gauge symmetry
 \begin{align}
-   \tilde{A}_{\mu} = A_\mu + \partial_\mu \Lambda(\pmb{x}, t)
+   \tilde{A}_{\mu} = A_\mu + \partial_\mu \Lambda(\pmb{x}, t).
 \end{align}
 
-Use this transformation to get
+Use this transformation to get the gauge conditions
 \begin{align}
-   \partial_\mu A^\mu = 0
+   \partial_\mu A^\mu = 0.
 \end{align}
 
 Plugging it back then we have the relativistic wave equation
 \begin{align}
-   \partial_\mu \partial^\mu A^\nu = 0
+   \partial_\mu \partial^\mu A^\nu = 0.
 \end{align}
-it essentially is Klein-Gordon equation with mass $m=0$
+it essentially is Klein-Gordon equation with mass $m=0$.
 
 $A^\mu$ is a vector with spin $1$
 \begin{align*}
-   (j_+, j_-) = \left( \frac{1}{2}, \frac{1}{2} \right)
+   (j_+, j_-) = \left( \frac{1}{2}, \frac{1}{2} \right).
 \end{align*}
 It implied it has two transverse degrees of freedom. It has spin $1$ properties: $+1$, $0$, $-1$, in which $0$ mode does not exist.
 
 \section{Description of Fermions}
-Original motivation for Dirac. He wants a linear equation in $E$ or $\frac{\partial}{\partial t}$
+Original motivation for Dirac is that he wants a linear equation in $E$ or $\frac{\partial}{\partial t}$
 \begin{align*}
    p^\mu \mapsto i\partial^\mu
 \end{align*}
@@ -172,7 +172,7 @@ Original motivation for Dirac. He wants a linear equation in $E$ or $\frac{\part
 Take the ansatz
 \begin{align*}
    i\hbar \frac{\partial}{\partial t}\psi &= H \psi \\
-   &= (\vec{\alpha}\cdot \pmb{p} + \beta m ) \psi
+   &= (\pmb{\alpha}\cdot \pmb{p} + \beta m ) \psi
 \end{align*}
 but $\pmb{\alpha}$ and $\beta$ unknown. It still has to obey the relativistic energy relation
 \begin{align*}

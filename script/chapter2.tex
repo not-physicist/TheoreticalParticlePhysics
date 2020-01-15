@@ -1,71 +1,71 @@
 \chapter{Lorentz Transformation}
 \section{Introduction}
-Metric (used for distance measuring)
+Metric (used for distance measuring) is defined as
 \begin{align}
-   g_{\mu\nu} = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & -1\end{pmatrix}
+   g_{\mu\nu} = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & -1 & 0 \\ 0 & 0 & 0 & -1\end{pmatrix}.
 \end{align}
-In string and general relativity people tend to use $\diag(-, +, +, +)$.
+In string and general relativity, people tend to use the signature $\diag(-, +, +, +)$.
 
+By defining the four-momentum, the relativistic dispersion relation can be given
 \begin{align}
-   p &= (E, \pmb{p}) \\
-   p^2 &= E^2 - \pmb{p}^2 = m^2
+   p &= (E, \pmb{p}), \\
+   p^2 &= E^2 - \pmb{p}^2 = m^2.
 \end{align}
 
 Light is always light-like
 \begin{align*}
-   t^2 - (x^2 + y^2 + z^2) = 0
+   k^2 = t^2 - (x^2 + y^2 + z^2) = 0.
 \end{align*}
 
 Greek indices always go from $0$ to $3$
 \begin{align}
-   r^2 = g_{\mu\nu} r^\mu r^\nu = t^2 - \pmb{r}^2
+   r^2 = g_{\mu\nu} r^\mu r^\nu = t^2 - \pmb{r}^2.
 \end{align}
 
 Distance between two spacetime point is defined via
 \begin{align}
-   \left| r_A - r_B \right|  = \sqrt{(r_A - r_B)\cdot(r_A - r_B)} = \sqrt{r_A^2 + r_B^2 - 2r_A\cdot r_B}
+   \left| r_A - r_B \right|  = \sqrt{(r_A - r_B)\cdot(r_A - r_B)} = \sqrt{r_A^2 + r_B^2 - 2r_A\cdot r_B}.
 \end{align}
 
 \section{Lorentz Transformation}
-\textit{Lorentz Transformation} is transformation between two inertial frames moving with constant velocity $\pmb{v}$ with respect to each other (boosts).
+\textit{Lorentz transformation} is a transformation between two inertial frames moving with constant velocity $\pmb{v}$ with respect to each other (boosts).
 \begin{align*}
-   x &= (x_0, x_1, x_2, x_3) \\
-   x' &= (x'_0, x'_1, x'_2, x'_3) \\
-   x_0 &= ct = t ;\quad c=1
+   x &= (x_0, x_1, x_2, x_3), \\
+   x' &= (x'_0, x'_1, x'_2, x'_3), \\
+   x_0 &=  t .
 \end{align*}
 
-We define
+We define (in SI unit)
 \begin{align}
    \beta = \frac{v}{c} \quad \text{or} \quad
-   \pmb{\beta} = \frac{\pmb{v}}{c}
+   \pmb{\beta} = \frac{\pmb{v}}{c}.
 \end{align}
 
 Coordinates in these two frames are related like
 \begin{align*}
-   x'_0 &= \gamma(x_0 - \beta x_1) \\
-   x'_1 &= \gamma (x_1 - \beta x_0) \notag \\
-   x'_2 &= x_2 \notag \\
-   x'_3 &= x_3 \notag \label{math:lorTrafo}
+   x'_0 &= \gamma(x_0 - \beta x_1), \\
+   x'_1 &= \gamma (x_1 - \beta x_0), \notag \\
+   x'_2 &= x_2, \notag \\
+   x'_3 &= x_3. \notag \label{math:lorTrafo}
 \end{align*}
-
-Inverse transformation with $\beta \mapsto -\beta$
+Inverse transformation can be achieved with $\beta \mapsto -\beta$
 
 $\gamma$-factor is defined via
 \begin{align}
-   \gamma = \frac{1}{\sqrt{1-\pmb{\beta}^2}}
+   \gamma = \frac{1}{\sqrt{1-{\beta}^2}}.
 \end{align}
-Since $|\pmb{\beta}| \leq 1 \Rightarrow \gamma \geq 1$
+Since the particles cannot travel faster than light, $|\pmb{\beta}| \leq 1$, then $\gamma \geq 1$.
 
-Alternative parametrization
+Alternative parametrization using \underline{rapidity} $\zeta$
 \begin{align*}
-   \beta &= \tanh(\zeta), \quad \gamma = \cosh(\zeta) \\
-   \gamma \beta &= \sinh(\zeta)
+   \beta &= \tanh(\zeta), \quad \gamma = \cosh(\zeta), \\
+   \gamma \beta &= \sinh(\zeta).
 \end{align*}
 
 Insert this into equation (\ref{math:lorTrafo})
 \begin{align*}
-   x'_0 = x_0 \cosh(\zeta) - x_1 \sinh(\zeta) \\
-   x'_1 = x_0 \sinh(\zeta) - x_1 \cosh(\zeta)
+   x'_0 = x_0 \cosh(\zeta) - x_1 \sinh(\zeta), \\
+   x'_1 = x_0 \sinh(\zeta) - x_1 \cosh(\zeta).
 \end{align*}
 
 We can turn this into matrices
@@ -74,15 +74,14 @@ We can turn this into matrices
    &=
    \begin{pmatrix} \gamma & \gamma\beta & 0 & 0 \\ \gamma\beta & \gamma & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}
    \cdot
-   \begin{pmatrix} x'_0\\ x'_1 \\ x'_2 \\ x'_3\end{pmatrix} \notag \\
-   x &= \Lambda x'
+   \begin{pmatrix} x'_0\\ x'_1 \\ x'_2 \\ x'_3\end{pmatrix}, \notag \\
+   x &= \Lambda x'.
 \end{align}
 
 \section{Mathematical Properties of Lorentz Transformation}
-
 Distance is invariant under Lorentz transformation
 \begin{align}
-   s^2 = x_0^2 - x_1^2 + x_2^2 + x_3^2 = x^2
+   s^2 = x_0^2 - x_1^2 + x_2^2 + x_3^2 = x^2.
 \end{align}
 
 Lorentz transformation includes
@@ -91,94 +90,104 @@ Lorentz transformation includes
    \item Parity $\pmb{x} \mapsto -\pmb{x}$
    \item Time reversal $t \mapsto -t$
 \end{itemize}
-
-We can also expand it with translation. It then turns to Poincare group.
+We can also expand it with translation. It then turns to Poincaré group.
 
 \subsection{Tensors}
 Define a function of original coordinates ($\alpha=0,1,2,3$)
 \begin{align}
-   x'^\alpha = x'^\alpha (x^0, x^1, x^2, x^3)
+   x'^\alpha = x'^\alpha (x^0, x^1, x^2, x^3).
 \end{align}
 
 If $x'^\alpha$ transforms like
 \begin{align}
-   x'^\alpha = \frac{x'^\alpha}{x^\beta} x^\beta
+   x'^\alpha = \frac{x'^\alpha}{x^\beta} x^\beta,
 \end{align}
-it is called \textit{contravariant}
+it is called \underline{contravariant}
 
 Consider derivative $\frac{\partial}{\partial x'^\alpha}$
 \begin{align}
-   \frac{\partial f(x)}{\partial x'^\alpha} = \frac{\partial f(x)}{\partial x^\beta} \frac{\partial x^\beta}{\partial x'^\alpha}
+   \frac{\partial f(x)}{\partial x'^\alpha} = \frac{\partial f(x)}{\partial x^\beta} \frac{\partial x^\beta}{\partial x'^\alpha}.
 \end{align}
-We can see the $x'$ is now in the denominator. The objects transformed like this are called \textit{covariant}.
+We can see the $x'$ is now in the denominator. The objects transformed like this are called \underline{covariant}.
 
 Consider the following generic objects: $A'^\alpha$ contravariant vector
 \begin{align}
-   A'^\alpha = \frac{\partial x'^\alpha}{\partial x^\beta} A^\beta
+   A'^\alpha = \frac{\partial x'^\alpha}{\partial x^\beta} A^\beta.
 \end{align}
 
 $B'_\alpha$ is covariant
 \begin{align}
-   B'_\alpha = \frac{\partial x^\beta}{\partial x'^\alpha} B_\beta
+   B'_\alpha = \frac{\partial x^\beta}{\partial x'^\alpha} B_\beta.
 \end{align}
 Note $(x^0, x^1, x^2, x^3)$ is contravariant.
 
-The field strength tensor $F'^{\alpha\beta} = \frac{\partial x'^\alpha}{\partial x^\gamma} \frac{\partial x'^\beta}{\partial x^\delta} F^{\gamma\delta}$ is contravariant rank 2.
-
-Mixed is also allowed $H'^\alpha_\beta = \frac{\partial x'^\alpha}{\partial x^\gamma} \frac{x^\delta}{\partial x'^\beta} H^\delta_\gamma$ 
-
-\paragraph{Inner or scalar product}
+The field strength tensor 
 \begin{align*}
-   B' \cdot A' &= B'_\alpha A'^\alpha \\
-               &= \left( \frac{\partial x^\beta}{\partial x'^\alpha} B_\beta \right) \left( \frac{\partial x'^\alpha}{\partial x^\gamma} A^\gamma \right) \\
-               &= \frac{\partial x^\beta}{\partial x^\gamma} B_\beta A^\gamma \\
-               &= \delta^\beta_\gamma B_\beta A^\gamma = B \cdot A
+  F'^{\alpha\beta} = \frac{\partial x'^\alpha}{\partial x^\gamma} \frac{\partial x'^\beta}{\partial x^\delta} F^{\gamma\delta},
+\end{align*}
+is contravariant rank 2.
+Mixed is also allowed 
+\begin{align*}
+  H'^\alpha_\beta = \frac{\partial x'^\alpha}{\partial x^\gamma} \frac{x^\delta}{\partial x'^\beta} H^\delta_\gamma.
 \end{align*}
 
+\subsection{Inner or scalar product}
+Lorentz transformation is an isometry with Minkowski scalar product
+\begin{align*}
+   B' \cdot A' &= B'_\alpha A'^\alpha, \\
+               &= \left( \frac{\partial x^\beta}{\partial x'^\alpha} B_\beta \right) \left( \frac{\partial x'^\alpha}{\partial x^\gamma} A^\gamma \right), \\
+               &= \frac{\partial x^\beta}{\partial x^\gamma} B_\beta A^\gamma, \\
+               &= \delta^\beta_\gamma B_\beta A^\gamma, \\
+               &= B \cdot A.
+\end{align*}
+
+Infinitesimal distance is
 \begin{align}
-   \dd{s}^2 &= \left( \dd{x^0} \right)^2 - \left( \dd{\pmb{x}} \right)^2 \notag \\
-            &= (g_{\alpha\beta} \dd{x^\alpha}) \dd{x^\beta} = \dd{x_\beta} \dd{x^{\beta}}
+   \dd{s}^2 &= \left( \dd{x^0} \right)^2 - \left( \dd{\pmb{x}} \right)^2 \notag, \\
+            &= (g_{\alpha\beta} \dd{x^\alpha}) \dd{x^\beta} = \dd{x_\beta} \dd{x^{\beta}}.
 \end{align}
 Thus we can use metric tensor to lower index $\dd{x_\beta} = g_{\alpha\beta} \dd{x^{\alpha}}$
 
 \begin{align*}
-   A^\alpha = \left(A^0, \pmb{A} \right) \\
-   A_\alpha = \left(A^0, -\pmb{A} \right)
+   A^\alpha &= \left(A^0, \pmb{A} \right), \\
+   A_\alpha &= \left(A^0, -\pmb{A} \right).
 \end{align*}
 
 \section{Matrix Representation of Lorentz Transformation}
 \subsection{General Properties}
 We have 
 \begin{align*}
-   x = \begin{pmatrix} x^0 \\ x^1 \\ x^2 \\ x^3 \end{pmatrix} \quad gx =  \begin{pmatrix} x^0 \\ -x^1 \\ -x^2 \\ -x^3 \end{pmatrix} 
+   x = \begin{pmatrix} x^0 \\ x^1 \\ x^2 \\ x^3 \end{pmatrix}, \quad 
+   gx =  \begin{pmatrix} x^0 \\ -x^1 \\ -x^2 \\ -x^3 \end{pmatrix}.
 \end{align*}
-
 Then $a\cdot b = (a, gb) = g_{\mu\nu} a^\mu b^\nu = (ga, b) = a^Tgb = (ga)^T b$
 
+Lorentz transforming the coordinate
 \begin{align}
-   x'^\mu = \Lambda^\mu_{\;\nu} x^\nu \mapsto x' = \Lambda x \\
-   x \cdot x = x' \cdot x' = (\Lambda x) (\Lambda x)
+   x'^\mu = \Lambda^\mu_{\;\nu} x^\nu \Leftrightarrow x' = \Lambda x.
 \end{align}
 
 \begin{align*}
-   g_{\mu\nu} x^\mu x^\nu &= g_{\sigma \tau} x'^\sigma x'^\tau \\
-                          &= g_{\sigma \tau} \Lambda^\sigma_{\; \mu} x^\mu \Lambda^\tau_{\;\nu} x^\nu \\
-                          &= g_{\sigma \tau} \Lambda^\sigma_{\; \mu} \Lambda^\tau_{\;\nu}x^\mu  x^\nu 
+   g_{\mu\nu} x^\mu x^\nu &= g_{\sigma \tau} x'^\sigma x'^\tau, \\
+                          &= g_{\sigma \tau} \Lambda^\sigma_{\; \mu} x^\mu \Lambda^\tau_{\;\nu} x^\nu, \\
+                          &= g_{\sigma \tau} \Lambda^\sigma_{\; \mu} \Lambda^\tau_{\;\nu}x^\mu  x^\nu.
 \end{align*}
 
 Then we have the \textit{defining} rule of Lorentz group
 \begin{align}
-   g_{\mu\nu} &= g_{\sigma \tau}  \Lambda^\sigma_{\; \mu} \Lambda^\tau_{\;\nu} \\
-   g &= \Lambda^T g \Lambda
+   \begin{split}
+    g_{\mu\nu} &= g_{\sigma \tau}  \Lambda^\sigma_{\; \mu} \Lambda^\tau_{\;\nu}, \\
+   g &= \Lambda^T g \Lambda.
+   \end{split}
 \end{align}
 
-\paragraph{Properties}
+\paragraph{Properties} of Lorentz transformation
 \begin{itemize}
    \item $\left|\det(\Lambda) \right| = 1$
    \item $\left|\Lambda^0_{\;0} \right| \geq 1$
 \end{itemize}
 
-The orthochronous Lorentz transformations $\Lambda$ forms a group. \\
+The orthochronous Lorentz transformations ()$\Lambda$ forms a group. \\
 
 Parity does not form a group
       \begin{align}
@@ -202,128 +211,123 @@ Orthochronous $\Lambda$ has 6 parameters, $3$ for boosts and $3$ for rotations. 
 $\Lambda$ has $16$ entries and it has $16-10=6$ free parameters.
 
 \subsection{Explicit Construction}
-We will restrict ourselves in orthochronous Lorentz transformations. The exponential function is defines via Taylor expansion. With $L \in \R^{4 \times 4}$
+We will restrict ourselves in \textit{orthochronous} Lorentz transformations. The exponential function is defines via Taylor expansion. With $L \in \R^{4 \times 4}$
 \begin{align*}
-   \Lambda = \euler^L = \exp(L)
+   \Lambda = \euler^L = \exp(L).
 \end{align*}
 
-From linear algebra we know
+From linear algebra we know (because of the properties of determinant and trace)
 \begin{align}
-   \det(\Lambda) = \det(\euler^L) = \euler^{\tr(L)}
+   \det(\Lambda) = \det(\euler^L) = \euler^{\tr(L)}.
 \end{align}
 
-Since $\det(\Lambda) = 1$, $\tr(L) = 0$
-
+Since $\det(\Lambda) = 1$, $\tr(L) = 0$,
+$gL$ is anti-symmetric
 \begin{align*}
-   \Lambda^T g \Lambda &= g \\
-   g \Lambda^T g \Lambda &= \id_4 \\
-   g \Lambda^T g &= \Lambda^{-1} \\
-   \exp(g L^T g) &= \Lambda^{-1} = \exp(-L) \\
-   \Leftrightarrow g L^T g &= -L \\
-   \Leftrightarrow (gL)^T &= - gL
+   \Lambda^T g \Lambda &= g, \\
+   g \Lambda^T g \Lambda &= \id_4, \\
+   g \Lambda^T g &= \Lambda^{-1}, \\
+   \exp(g L^T g) &= \Lambda^{-1} = \exp(-L), \\
+   \Leftrightarrow g L^T g &= -L, \\
+   \Leftrightarrow (gL)^T &= - gL.
 \end{align*}
 
-This means that $gL$ is anti-symmetric
+Thus
 \begin{align*}
-   L = \begin{pmatrix} 0 & L_{01} & L_{02} & L_{03} \\ L_{01} & 0 & L_{12} & L_{13} \\ L_{02} & L_{12} & 0 & L_{23} \\ L_{03} & L_{13} & L_{23} & 0\end{pmatrix}
+   L = \begin{pmatrix} 0 & L_{01} & L_{02} & L_{03} \\ L_{01} & 0 & L_{12} & L_{13} \\ L_{02} & L_{12} & 0 & L_{23} \\ L_{03} & L_{13} & L_{23} & 0\end{pmatrix}.
 \end{align*}
 
-Define six basis matrices $S_{1,2,3}$ and $K_{1,2,3}$
+Define 6 basis matrices $S_{1,2,3}$ and $K_{1,2,3}$
 \begin{align*}
-   &S_1 = \begin{pmatrix} 0&0&0&0 \\ 0&0&0&0 \\ 0&0&0&-1 \\ 0&0&1&0\end{pmatrix} \quad 
-   &&S_2 = \begin{pmatrix} 0&0&0&0 \\ 0&0&0&1 \\ 0&0&0&0 \\ 0&-1&0&0\end{pmatrix} \quad
-   &&&S_3 = \begin{pmatrix} 0&0&0&0 \\ 0&0&-1&0 \\ 0&1&0&0 \\ 0&0&0&0\end{pmatrix} \\
-   &K_1 = \begin{pmatrix} 0&1&0&0 \\ 1&0&0&0 \\ 0&0&0&0 \\ 0&0&0&0\end{pmatrix} \quad 
-   &&K_2 = \begin{pmatrix} 0&0&1&0 \\ 0&0&0&0 \\ 1&0&0&0 \\ 0&0&0&0\end{pmatrix} \quad 
-   &&&K_3 = \begin{pmatrix} 0&0&0&1 \\ 0&0&0&0 \\ 0&0&0&0 \\ 1&0&0&0\end{pmatrix} \quad 
-\end{align*}
-%TODO: all matrices
-
-$S_i$ is the generator of $3$-dimensional rotations and $K_i$ is the generator of $3$-dimensional boosts.
-\begin{align*}
-   \hat{n} \in \R^3, & \quad |\hat{n}| = 1\\
-   \hat{n} \cdot \pmb{S} &= n_1S_1 + n_2 S_2 + n_3 S_3 \\
-   (\hat{n}\cdot \pmb{S})^3 &= - \hat{n} \cdot \pmb{S} \\
-   (\hat{n}\cdot \pmb{K})^3 &= + \hat{n} \cdot \pmb{S}
+   &S_1 = \begin{pmatrix} 0&0&0&0 \\ 0&0&0&0 \\ 0&0&0&-1 \\ 0&0&1&0\end{pmatrix}, \quad 
+   &&S_2 = \begin{pmatrix} 0&0&0&0 \\ 0&0&0&1 \\ 0&0&0&0 \\ 0&-1&0&0\end{pmatrix}, \quad
+   &&&S_3 = \begin{pmatrix} 0&0&0&0 \\ 0&0&-1&0 \\ 0&1&0&0 \\ 0&0&0&0\end{pmatrix}, \\
+   &K_1 = \begin{pmatrix} 0&1&0&0 \\ 1&0&0&0 \\ 0&0&0&0 \\ 0&0&0&0\end{pmatrix}, \quad 
+   &&K_2 = \begin{pmatrix} 0&0&1&0 \\ 0&0&0&0 \\ 1&0&0&0 \\ 0&0&0&0\end{pmatrix}, \quad 
+   &&&K_3 = \begin{pmatrix} 0&0&0&1 \\ 0&0&0&0 \\ 0&0&0&0 \\ 1&0&0&0\end{pmatrix}. \quad 
 \end{align*}
 
-In the end
-\begin{align}
-   L &= -\pmb{\omega} \cdot \pmb{S} - \pmb{\zeta}\cdot \pmb{K} \quad \text{with }\pmb{\omega}, \pmb{\zeta} \in \R^3 \\
-   \Lambda &= \exp(-\pmb{\omega} \cdot \pmb{S} - \pmb{\zeta}\cdot \pmb{K})
-\end{align}
+$S_i$ is the generator of $3$-dimensional rotations and $K_i$ is the generator of $3$-dimensional boosts. \textcolor{red}{WHAT IS THIS?}
+\begin{align*}
+   \hat{\pmb n} \in \R^3, & \quad |\hat{ \pmb n}| = 1, \\
+   \hat{\pmb n} \cdot \pmb{S} &= n_1S_1 + n_2 S_2 + n_3 S_3, \\
+   (\hat{\pmb n}\cdot \pmb{S})^3 &= - \hat{\pmb n} \cdot \pmb{S}, \\
+   (\hat{\pmb n}\cdot \pmb{K})^3 &= + \hat{\pmb n} \cdot \pmb{S}.
+\end{align*}
+
+In the end, with $\pmb{\omega}, \pmb{\zeta} \in \R^3$
+\begin{align*}
+   L &= -\pmb{\omega} \cdot \pmb{S} - \pmb{\zeta}\cdot \pmb{K}, \\
+   \Lambda &= \exp(-\pmb{\omega} \cdot \pmb{S} - \pmb{\zeta}\cdot \pmb{K}).
+\end{align*}
 
 $\pmb{\omega}$ is the axis of rotation, $|\pmb{\omega}|$ is then the angle of rotation.
-
 $\tanh{|\pmb{\zeta}|} = \beta$ and $\frac{\pmb{\zeta}}{|\pmb{\zeta}|}$ is the direction of boost.
 
 We now will look at concrete examples
 \begin{itemize}
    \item $\pmb{\zeta} = 0,\; \pmb{\omega} = w \hat{e}_z$
       \begin{align*}
-         \Lambda = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & \cos{\omega} & \sin{\omega} & 0 \\ 0 & -\sin{\omega} & \cos{\omega} & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}
+         \Lambda = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & \cos{\omega} & \sin{\omega} & 0 \\ 0 & -\sin{\omega} & \cos{\omega} & 0 \\ 0 & 0 & 0 & 0\end{pmatrix}.
       \end{align*}
       Rotational angle is $\omega$.
    \item $\pmb{\omega} = 0, \; \pmb{\zeta} = \zeta \hat{e}_x$
       \begin{align*}
-         \Lambda = \begin{pmatrix} \cosh{\zeta} & -\sinh{\zeta} & 0 & 0 \\ -\sinh{\zeta} & \cosh{\zeta} & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}
+         \Lambda = \begin{pmatrix} \cosh{\zeta} & -\sinh{\zeta} & 0 & 0 \\ -\sinh{\zeta} & \cosh{\zeta} & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{pmatrix}.
       \end{align*}
 \end{itemize}
 
-% Now we want to calculate the algebra $ \left[ S_i, K_j \right] $ and $ \left[ S_i, S_j \right]  $
-
 Pure general boost $\pmb{\zeta}$
 \begin{align*}
-   \Lambda &= \exp(-\pmb{\zeta} \cdot \pmb{K}) \\
-   \pmb{\zeta} &= \frac{\pmb{\beta}}{|\pmb{\beta}|} \tanh^{-1} |\pmb{\beta}|, \quad \hat{\beta} = \frac{\pmb{\beta}}{|\pmb{\beta}|} \\
-   \Lambda &= \exp(-\hat{\beta} \cdot \pmb{K} \tanh^{-1}(\beta))
+   \Lambda &= \exp(-\pmb{\zeta} \cdot \pmb{K}), \\
+   \pmb{\zeta} &= \frac{\pmb{\beta}}{|\pmb{\beta}|} \tanh^{-1} |\pmb{\beta}|, \quad \hat{\pmb \beta} = \frac{\pmb{\beta}}{|\pmb{\beta}|}, \\
+   \Lambda &= \exp(-\hat{\pmb \beta} \cdot \pmb{K} \tanh^{-1}(\beta)).
 \end{align*}
 
 \subsection{Algebra of generators}
-
 Consider the commutation algebra of $S_{i=1,2,3}$ and $K_{i=1,2,3}$
 \begin{align}
-   \left[ S_i, S_j \right] &= \epsilon_{ijk} S_k  \\
-   \left[ S_i, K_j \right] &= \epsilon_{ijk} K_k \\
-   \left[ K_i, K_j \right] &= - \epsilon_{ijk} S_k
+   \left[ S_i, S_j \right] &= \epsilon_{ijk} S_k,  \\
+   \left[ S_i, K_j \right] &= \epsilon_{ijk} K_k, \\
+   \left[ K_i, K_j \right] &= - \epsilon_{ijk} S_k.
 \end{align}
 The last equation causes Thomas precession in atomic physics.
 
 Choose a different basis
 \begin{align}
-   \pmb{S}_+ = \frac{1}{2} \left( \pmb{S} + i \pmb{K} \right) 
-   \pmb{S}_- = \frac{1}{2} \left( \pmb{S} - i \pmb{K} \right) 
+   \pmb{S}_+ = \frac{1}{2} \left( \pmb{S} + i \pmb{K} \right), \\
+   \pmb{S}_- = \frac{1}{2} \left( \pmb{S} - i \pmb{K} \right).
 \end{align}
 Then we can calculate the algebra
 \begin{align}
-   \left[ S_{+, i}, S_{+, j} \right] &= i \epsilon_{ijk} S_{+, k} \\
-   \left[ S_{-, i}, S_{-, j} \right] &= i \epsilon_{ijk} S_{-, k} \\
-   \left[ S_{+, i}, S_{-, j} \right] &= 0
+   \left[ S_{+, i}, S_{+, j} \right] &= i \epsilon_{ijk} S_{+, k}, \\
+   \left[ S_{-, i}, S_{-, j} \right] &= i \epsilon_{ijk} S_{-, k}, \\
+   \left[ S_{+, i}, S_{-, j} \right] &= 0.
 \end{align}
-In other word, the algebras are decoupled. This familiar algebra is angular momentum algebra $\mathbf{SU}(2)$.
+In other word, the algebras are decoupled. This familiar algebra is angular momentum algebra $\SU(2)$.
 
 Classification by two numbers ($j_+$, $j_-$)
 \begin{align*}
-   j_+ = 0, \frac{1}{2}, 1, \dots \\
-   j_- = 0, \frac{1}{2}, 1, \dots \\
+   j_+ = 0, \frac{1}{2}, 1, \dots, \\
+   j_- = 0, \frac{1}{2}, 1, \dots. \\
 \end{align*}
 Dimension $=(2j_+ + 1) (2j_- + 1)$. 
 
 A field is scalar field if $j_+ = j_- = 0$. One fundamental example of scalar field is Higgs boson. Other scalar particles are just bound states.
 
-There are two possible states with spin $\frac{1}{2}$: $(j_+, j_-) = (\frac{1}{2}, 0)$ and $(0, \frac{1}{2})$
+There are two possible states with spin $\frac{1}{2}$: $(j_+, j_-) = (\frac{1}{2}, 0)$ and $(0, \frac{1}{2})$. For  $(\frac{1}{2}, 0)$ it is
 \begin{align*}
-   \pmb{S}_+ &= \frac{1}{2} \pmb{\sigma} \\
-   \pmb{S}_- &= 0 \\
-   \pmb{S} &= \frac{1}{2} \pmb{\sigma} \\
-   i\pmb{K} &=  \frac{1}{2} \pmb{\sigma} 
+   \pmb{S}_+ &= \frac{1}{2} \pmb{\sigma}, \\
+   \pmb{S}_- &= 0, \\
+   \pmb{S} &= \frac{1}{2} \pmb{\sigma}, \\
+   i\pmb{K} &=  \frac{1}{2} \pmb{\sigma} .
 \end{align*}
-for $(0, \frac{1}{2})$ there is "-"
+For $(0, \frac{1}{2})$ there is "-".
 
 So two types of spin $\frac{1}{2}$ fermions
 \begin{align*}
-   \left(\frac{1}{2}, 0\right) \rightarrow e^-_L \\
-   \left(0, \frac{1}{2}\right) \rightarrow e^-_R \\
+   \left(\frac{1}{2}, 0\right) \rightarrow e^-_L, \\
+   \left(0, \frac{1}{2}\right) \rightarrow e^-_R. \\
 \end{align*}
 They have different transformation law. W boson only to $e^-_L$ but photon couples to both. 
 
